@@ -1,0 +1,1485 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TPG — Événements marquants · Sem. 22</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: Arial, sans-serif;
+  background: #f0f2f5;
+  color: #1a1a2e;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* ── TOP BAR ── */
+.topbar {
+  background: #1a1a2e;
+  color: #fff;
+  padding: 0 16px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-shrink: 0;
+  box-shadow: 0 2px 6px rgba(0,0,0,.25);
+  z-index: 10;
+}
+.topbar-title {
+  font-size: 14px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.topbar-meta {
+  font-size: 10px;
+  color: #7a85a0;
+  white-space: nowrap;
+}
+.topbar-search-wrap {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  max-width: 500px;
+  margin: 0 auto;
+  position: relative;
+}
+.topbar-search-icon {
+  position: absolute;
+  left: 10px;
+  color: #888;
+  font-size: 13px;
+  pointer-events: none;
+}
+#top-search {
+  width: 100%;
+  padding: 6px 10px 6px 30px;
+  border: 1px solid #333a55;
+  border-radius: 6px;
+  background: #232840;
+  color: #e8ecf4;
+  font-size: 12px;
+  font-family: Arial, sans-serif;
+  outline: none;
+  transition: border-color .15s;
+}
+#top-search::placeholder { color: #555e7a; }
+#top-search:focus { border-color: #4f7cff; background: #2a3050; }
+#top-search-results {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0; right: 0;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 6px 24px rgba(0,0,0,.15);
+  max-height: 320px;
+  overflow-y: auto;
+  z-index: 1000;
+  display: none;
+}
+#top-search-results.open { display: block; }
+.sr-item {
+  padding: 8px 12px;
+  cursor: pointer;
+  border-bottom: 1px solid #f0f0f0;
+  transition: background .1s;
+}
+.sr-item:last-child { border-bottom: none; }
+.sr-item:hover { background: #f0f4ff; }
+.sr-item-title { font-size: 12px; font-weight: 700; color: #1a1a2e; }
+.sr-item-meta { font-size: 10px; color: #888; margin-top: 2px; }
+.sr-cat { font-size: 10px; font-weight: 600; color: #fff; background: #1a1a2e; padding: 1px 5px; border-radius: 3px; margin-right: 4px; }
+.sr-empty { padding: 16px; text-align: center; font-size: 12px; color: #aaa; font-style: italic; }
+
+/* ── MAIN LAYOUT ── */
+.app-body {
+  flex: 1;
+  display: flex;
+  overflow: hidden;
+  gap: 0;
+}
+
+/* ── CALENDAR PANEL (left) ── */
+.cal-panel {
+  width: 580px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border-right: 1px solid #e0e0e0;
+  overflow: hidden;
+}
+.cal-panel-header {
+  padding: 10px 14px 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #eee;
+  flex-shrink: 0;
+  background: #fafafa;
+}
+.cal-month-label {
+  font-size: 14px;
+  font-weight: 700;
+  color: #1a1a2e;
+  text-transform: capitalize;
+}
+.cal-nav { display: flex; gap: 6px; align-items: center; }
+.cal-nav button {
+  background: #f0f0f0; border: 1px solid #ddd; border-radius: 5px;
+  width: 26px; height: 26px; cursor: pointer; font-size: 13px; color: #555;
+  display: flex; align-items: center; justify-content: center;
+}
+.cal-nav button:hover { background: #e0e0e0; }
+.cal-settings-btn {
+  background: none; border: none; cursor: pointer;
+  font-size: 14px; color: #888; padding: 2px 6px; border-radius: 4px;
+}
+.cal-settings-btn:hover { background: #f0f0f0; }
+
+.cal-grid-wrap { flex: 1; overflow-y: auto; padding: 8px 10px 10px; }
+.cal-grid-wrap::-webkit-scrollbar { width: 4px; }
+.cal-grid-wrap::-webkit-scrollbar-thumb { background: #ddd; border-radius: 2px; }
+
+.cal-weekdays { display: grid; grid-template-columns: repeat(7,1fr); margin-bottom: 2px; }
+.cal-weekday { padding: 4px 5px; font-size: 9px; font-weight: 700; color: #999; text-transform: uppercase; letter-spacing: .4px; text-align: center; }
+.cal-weekday.we { color: #c0392b; }
+.cal-weeks { display: flex; flex-direction: column; gap: 1px; }
+.cal-week-row { display: grid; grid-template-columns: repeat(7,1fr); border: 1px solid #ececec; border-radius: 4px; position: relative; min-height: 72px; background: #fff; }
+.cal-day { border-right: 1px solid #ececec; padding: 3px 3px 2px; min-height: 72px; }
+.cal-day:last-child { border-right: none; }
+.cal-day.other-month { background: #fafafa; }
+.cal-day.we:not(.other-month) { background: #fffdf9; }
+.cal-day-num { font-size: 11px; font-weight: 600; color: #333; width: 20px; height: 20px; display: flex; align-items: center; justify-content: center; margin-bottom: 1px; border-radius: 50%; }
+.cal-day.today .cal-day-num { background: #1a73e8; color: #fff; font-weight: 700; }
+.cal-day.other-month .cal-day-num { color: #ccc; }
+.cal-events-layer { position: absolute; top: 24px; left: 0; right: 0; pointer-events: none; }
+.cal-event-bar {
+  position: absolute; height: 15px; font-size: 9px; font-weight: 600; color: #fff;
+  display: flex; align-items: center; padding: 0 4px;
+  cursor: pointer; pointer-events: all; overflow: hidden; white-space: nowrap;
+  text-overflow: ellipsis; z-index: 1; transition: filter .1s;
+  border-top: 1px solid rgba(255,255,255,.3); border-bottom: 1px solid rgba(0,0,0,.1);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.15), 1px 0 0 rgba(255,255,255,.5), -1px 0 0 rgba(255,255,255,.5);
+}
+.cal-event-bar:hover { filter: brightness(1.15); z-index: 10; }
+.cal-event-bar.r-left  { border-radius: 3px 2px 2px 3px; }
+.cal-event-bar.r-right { border-radius: 2px 3px 3px 2px; }
+.cal-event-bar.r-both  { border-radius: 3px; }
+.cal-event-bar.selected { outline: 2px solid #fff; filter: brightness(1.2); z-index: 10; }
+
+.cal-legend { display: flex; gap: 10px; flex-wrap: wrap; padding: 8px 10px; border-top: 1px solid #eee; font-size: 10px; color: #666; flex-shrink: 0; }
+.cal-legend-item { display: flex; align-items: center; gap: 4px; }
+.cal-legend-dot { width: 9px; height: 9px; border-radius: 2px; }
+
+/* Settings overlay */
+.settings-overlay {
+  position: absolute; inset: 48px 0 0 0;
+  background: #fff; z-index: 50; display: none;
+  flex-direction: column; overflow-y: auto;
+  padding: 16px;
+  border-right: 1px solid #e0e0e0;
+  width: 580px;
+}
+.settings-overlay.open { display: flex; }
+.settings-overlay-title { font-size: 13px; font-weight: 700; color: #1a1a2e; margin-bottom: 14px; display: flex; justify-content: space-between; align-items: center; }
+.settings-close { background: none; border: none; cursor: pointer; font-size: 16px; color: #888; }
+.settings-section-title { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .7px; color: #aaa; padding-bottom: 5px; border-bottom: 1px solid #f0f0f0; margin-bottom: 8px; margin-top: 14px; }
+.settings-row { display: flex; align-items: center; justify-content: space-between; padding: 7px 0; border-bottom: 1px solid #f8f8f8; }
+.settings-row:last-child { border-bottom: none; }
+.settings-row-label { display: flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 600; color: #1a1a2e; }
+.settings-dot { width: 10px; height: 10px; border-radius: 2px; flex-shrink: 0; }
+.stg-toggle { position: relative; width: 36px; height: 20px; flex-shrink: 0; }
+.stg-toggle input { opacity: 0; width: 0; height: 0; }
+.stg-slider { position: absolute; inset: 0; background: #ddd; border-radius: 20px; cursor: pointer; transition: background .2s; }
+.stg-slider::before { content: ''; position: absolute; width: 14px; height: 14px; left: 3px; top: 3px; background: #fff; border-radius: 50%; transition: transform .2s; box-shadow: 0 1px 3px rgba(0,0,0,.2); }
+.stg-toggle input:checked + .stg-slider { background: #16a085; }
+.stg-toggle input:checked + .stg-slider::before { transform: translateX(16px); }
+.settings-reset { margin-top: 14px; background: #f5f5f5; border: 1px solid #ddd; border-radius: 6px; padding: 6px 14px; font-size: 11px; font-weight: 600; color: #555; cursor: pointer; font-family: Arial, sans-serif; }
+.settings-reset:hover { background: #eee; }
+
+/* ── RIGHT PANEL ── */
+.right-panel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* ── TABS ── */
+.tabs-bar {
+  display: flex;
+  background: #fff;
+  border-bottom: 1px solid #e0e0e0;
+  overflow-x: auto;
+  flex-shrink: 0;
+}
+.tabs-bar::-webkit-scrollbar { height: 3px; }
+.tab-btn {
+  padding: 10px 14px;
+  font-size: 11px; font-weight: 600;
+  cursor: pointer; color: #888;
+  border-bottom: 2px solid transparent;
+  white-space: nowrap; font-family: Arial, sans-serif;
+  transition: color .1s;
+  margin-bottom: -1px;
+  background: none; border-top: none; border-left: none; border-right: none;
+}
+.tab-btn:hover { color: #333; background: #f8f8f8; }
+.tab-btn.active { color: var(--tc); border-bottom-color: var(--tc); background: #fff; }
+
+/* ── TAB CONTENT ── */
+.tabs-content { flex: 1; overflow-y: auto; padding: 14px 16px; }
+.tabs-content::-webkit-scrollbar { width: 5px; }
+.tabs-content::-webkit-scrollbar-thumb { background: #ddd; border-radius: 3px; }
+.tab-pane { display: none; flex-direction: column; gap: 12px; }
+.tab-pane.active { display: flex; }
+
+.section-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .7px; color: #bbb; padding-bottom: 5px; border-bottom: 1px solid #eee; margin-bottom: 2px; }
+
+.evt-item {
+  border: 1px solid #e8e8e8; border-left-width: 4px;
+  border-radius: 0 7px 7px 0;
+  padding: 10px 12px; background: #fff;
+  transition: box-shadow .1s;
+}
+.evt-item:hover { box-shadow: 0 2px 8px rgba(0,0,0,.06); }
+.evt-item.highlighted { outline: 2px solid #16a085; }
+.evt-item-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; margin-bottom: 5px; }
+.evt-item-title { font-size: 12px; font-weight: 700; color: #1a1a2e; line-height: 1.3; }
+.evt-item-actions { display: flex; align-items: center; gap: 5px; flex-shrink: 0; }
+.evt-item-date { font-size: 10px; color: #888; white-space: nowrap; }
+.evt-item-meta { display: flex; align-items: center; gap: 5px; margin-bottom: 7px; flex-wrap: wrap; }
+.evt-badge { font-size: 9px; font-weight: 600; padding: 2px 7px; border-radius: 10px; }
+.evt-ligne { font-size: 9px; font-weight: 700; padding: 2px 5px; border-radius: 3px; background: #1a1a2e; color: #fff; font-family: monospace; }
+.evt-details { display: flex; flex-direction: column; gap: 3px; }
+.evt-detail { font-size: 10px; color: #444; line-height: 1.5; padding-left: 7px; border-left: 2px solid #eee; }
+.evt-link { font-size: 10px; font-weight: 600; color: #c0392b; text-decoration: none; background: #fdedec; border: 1px solid #f5b7b1; padding: 2px 7px; border-radius: 4px; white-space: nowrap; }
+.evt-link:hover { background: #f5b7b1; }
+.evt-source { font-size: 10px; color: #888; font-style: italic; font-weight: 600; }
+
+/* ── POPUP ── */
+#cal-popup {
+  position: fixed; background: #fff; border: 1px solid #ddd; border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0,0,0,.15); padding: 10px 12px;
+  z-index: 9999; max-width: 270px; font-size: 11px; display: none;
+  pointer-events: none; font-family: Arial, sans-serif;
+}
+#cal-popup .p-title { font-weight: 700; font-size: 12px; margin-bottom: 3px; color: #1a1a2e; }
+#cal-popup .p-date  { font-size: 10px; color: #888; margin-bottom: 4px; }
+#cal-popup .p-badge { font-size: 9px; font-weight: 600; padding: 2px 6px; border-radius: 8px; display: inline-block; margin-bottom: 4px; }
+#cal-popup .p-lignes { display: flex; gap: 3px; flex-wrap: wrap; margin-bottom: 4px; }
+#cal-popup .p-ligne { font-size: 9px; font-weight: 700; padding: 1px 4px; border-radius: 3px; background: #1a1a2e; color: #fff; font-family: monospace; }
+#cal-popup .p-details { font-size: 10px; color: #444; line-height: 1.4; max-height: 80px; overflow: hidden; }
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div>
+    <div class="topbar-title">📅 Événements marquants TPG</div>
+    <div class="topbar-meta" id="top-meta"></div>
+  </div>
+  <div class="topbar-search-wrap">
+    <span class="topbar-search-icon">🔍</span>
+    <input id="top-search" type="text" placeholder="Rechercher événement, ligne, arrêt…" autocomplete="off" spellcheck="false">
+    <div id="top-search-results"></div>
+  </div>
+  <div style="font-size:10px;color:#555e7a;white-space:nowrap">Usage interne</div>
+</div>
+
+<!-- APP BODY -->
+<div class="app-body">
+
+  <!-- CALENDAR LEFT -->
+  <div class="cal-panel" id="cal-panel">
+    <div class="cal-panel-header">
+      <div class="cal-nav">
+        <button id="cal-prev">‹</button>
+        <div class="cal-month-label" id="cal-month-label"></div>
+        <button id="cal-next">›</button>
+      </div>
+      <button class="cal-settings-btn" id="cal-settings-btn" title="Réglages calendrier">⚙️</button>
+    </div>
+    <div class="cal-grid-wrap" id="cal-grid-wrap">
+      <div class="cal-weekdays">
+        <div class="cal-weekday">Lun.</div>
+        <div class="cal-weekday">Mar.</div>
+        <div class="cal-weekday">Mer.</div>
+        <div class="cal-weekday">Jeu.</div>
+        <div class="cal-weekday">Ven.</div>
+        <div class="cal-weekday we">Sam.</div>
+        <div class="cal-weekday we">Dim.</div>
+      </div>
+      <div class="cal-weeks" id="cal-weeks"></div>
+    </div>
+    <div class="cal-legend">
+      <div class="cal-legend-item"><div class="cal-legend-dot" style="background:#27ae60"></div>Pas de perturbation</div>
+      <div class="cal-legend-item"><div class="cal-legend-dot" style="background:#e67e22"></div>Déviation</div>
+      <div class="cal-legend-item"><div class="cal-legend-dot" style="background:#e74c3c"></div>Arrêt supprimé</div>
+      <div class="cal-legend-item"><div class="cal-legend-dot" style="background:#2980b9"></div>Info</div>
+    </div>
+  </div>
+
+  <!-- SETTINGS OVERLAY (over cal panel) -->
+  <div class="settings-overlay" id="settings-overlay">
+    <div class="settings-overlay-title">
+      ⚙️ Réglages calendrier
+      <button class="settings-close" id="settings-close">✕</button>
+    </div>
+    <div id="settings-body"></div>
+  </div>
+
+  <!-- RIGHT PANEL -->
+  <div class="right-panel">
+    <div class="tabs-bar" id="tabs-bar"></div>
+    <div class="tabs-content" id="tabs-content"></div>
+  </div>
+
+</div>
+
+<div id="cal-popup"></div>
+
+<script>
+// ════════════════════════════════════════════════════════════
+//  DONNÉES
+// ════════════════════════════════════════════════════════════
+const SEMAINE = { numero:22, debut:"25 mai 2026", doc:"GED n°755376", cree:"Fernando Luis David", approuve:"Mehdi Ghafour", maj:"" };
+
+const DATA = {
+    news: [
+        {
+            semaine: "Informations générales",
+            items: [
+                {
+                    titre: "La Borissette",
+                    date: "",
+                    debut: "2026-05-25", fin: "2026-05-25", statut: "info",
+                    lignes: [], geste: "",
+                    details: [
+                        "Calendrier des travaux et manifestations — <a href='https://extraordinary-kleicha-3a9b78.netlify.app/' target='_blank' style='color:#2980b9'>🔗 Ouvrir</a>"
+                    ]
+                },
+                {
+                    titre: "Sommet du G7 2026 à Évian",
+                    date: "15–17 juin",
+                    debut: "2026-06-15", fin: "2026-06-17", statut: "info",
+                    lignes: [], geste: "",
+                    details: [
+                        "Le Sommet du G7, organisé par la France, aura lieu du 15 au 17 juin 2026 à Évian, à proximité immédiate de la Suisse.",
+                        "Il accueillera les plus hauts représentants des pays membres du G7 et de l’Union européenne, ainsi que d’autres chefs d’Etats et de gouvernements invités.",
+                        "Intranet — <a href='https://intranet.tpg.ch/https:/intranet.tpg.ch/article/14724' target='_blank' style='color:#2980b9'>🔗 Ouvrir</a>",
+                        "Site tpg — <a href='https://www.tpg.ch/fr/evenements-et-chantiers-exceptionnels' target='_blank' style='color:#2980b9'>🔗 Ouvrir</a>",
+                        "Canton de Genève – FAQ — <a href='https://www.ge.ch/document/sommet-du-g7-2026-evian-faq' target='_blank' style='color:#2980b9'>🔗 Ouvrir</a>",
+                        "DFAE — <a href='https://www.eda.admin.ch/fr/sommet-du-g7-a-evian' target='_blank' style='color:#2980b9'>🔗 Ouvrir</a>",
+                        "Carte des passages frontières fermés du 12 au 18 juin — <a href='https://www.ge.ch/document/43531/telecharger' target='_blank' style='color:#2980b9'>🗺️ Ouvrir</a>",
+                        "Retour complet à la normalité prévu le lundi 22 juin."
+                    ]
+                },
+                {
+                    titre: "G7 — Particularités opérationnelles",
+                    date: "14–18 juin",
+                    debut: "2026-06-14", fin: "2026-06-18", statut: "info",
+                    lignes: ["00800"], geste: "",
+                    details: [
+                        "La ligne 00800 sera ouverte le dimanche 14 juin.",
+                        "La ligne de l’Exploitation – 0800 858 900 – sera activée du 14 au 18 juin et rattachée au 00800 pour filtrer au maximum les appels entrants.",
+                        "Aucun contrôle des titres de transport ne sera effectué sur le réseau du 15 au 17 juin.",
+                        "Un événement « G7 2026 » a été créé : penser à l’utiliser lors de la codification des requêtes.",
+                        "Mail info-G7 — <a href='file:///Q:\\DIVISION\\C\\SCO%20Global\\Coordination\\Evenements%20marquants\\2026\\22\\20260507%20-%20info-G7%20-%20informations%20préparation%20et%20coordination.pdf' target='_blank' style='color:#2980b9'>📎 Ouvrir</a>",
+                        "Mail Mehdi – G7 Spécificités opérationnelles SRC — <a href='file:///Q:\\DIVISION\\C\\SCO%20Global\\Coordination\\Evenements%20marquants\\2026\\22\\Mehdi%20G7%20-%20Spécificités%20opérationnelles%20SRC.msg' target='_blank' style='color:#2980b9'>📧 Ouvrir</a>",
+                        "Mail Stefan – G7 Spécificités opérationnelles OPV — <a href='file:///\\\\fs11\\PUBLIC1\\DIVISION\\C\\SCO%20Global\\Coordination\\Evenements%20marquants\\2026\\22\\Stefan%20G7%20-%20Spécificités%20opérationnelles%20OPV.msg' target='_blank' style='color:#2980b9'>📧 Ouvrir</a>",
+                        "Mail Dimitri – Compléments d’information liés au dispositif G7-SCO — <a href='file:///\\\\fs11\\PUBLIC1\\DIVISION\\C\\SCO%20Global\\Coordination\\Evenements%20marquants\\2026\\22\\Dimitri%20-%20Compléments%20dinformation%20liés%20au%20dispositif%20G7%20-%20SCO.msg' target='_blank' style='color:#2980b9'>📧 Ouvrir</a>",
+                        "Mail Stefania — <a href='file:///Q:\\DIVISION\\C\\SCO%20Global\\Coordination\\Evenements%20marquants\\2026\\22\\Stefania%20-%20Création%20d%27un%20évènement%20G7%202026.msg' target='_blank' style='color:#2980b9'>📧 Ouvrir</a>"
+                    ]
+                },
+                {
+                    titre: "G7 — Espace aérien",
+                    date: "10 juin 13h00 – 18 juin 03h00",
+                    debut: "2026-06-10", fin: "2026-06-18", statut: "info",
+                    lignes: [], geste: "",
+                    details: [
+                        "Zone aérienne réglementée entre Genève, Lausanne et Évian.",
+                        "Réduction importante des vols civils et contraintes accrues autour de l'aéroport de Genève."
+                    ]
+                },
+                {
+                    titre: "G7 — Ferroviaire, liaison Thonon–Évian",
+                    date: "11–17 juin",
+                    debut: "2026-06-11", fin: "2026-06-17", statut: "suppression",
+                    lignes: [], geste: "",
+                    details: [
+                        "La liaison ferroviaire Thonon–Évian sera interrompue du 11 au 17 juin inclus."
+                    ]
+                },
+                {
+                    titre: "G7 — Navigation sur le Léman",
+                    date: "15–17 juin",
+                    debut: "2026-06-15", fin: "2026-06-17", statut: "suppression",
+                    lignes: [], geste: "",
+                    details: [
+                        "Périmètre de sécurité autour d'Évian. Port d'Évian fermé.",
+                        "Certaines liaisons CGN, notamment vers Lausanne, suspendues durant le sommet."
+                    ]
+                },
+                {
+                    titre: "G7 — Réseau routier et frontières",
+                    date: "15–17 juin",
+                    debut: "2026-06-15", fin: "2026-06-17", statut: "deviation",
+                    lignes: [], geste: "",
+                    details: [
+                        "Fermetures ponctuelles A1 et axes stratégiques lors des déplacements des délégations, notamment Genève – Lausanne – Bardonnex.",
+                        "Contrôles temporaires réintroduits aux postes-frontières. Ralentissements importants dans toute la région.",
+                        "Certains chantiers pourront être temporairement suspendus."
+                    ]
+                },
+                {
+                    titre: "G7 — Manifestations et restrictions",
+                    date: "1–28 juin",
+                    debut: "2026-06-01", fin: "2026-06-28", statut: "info",
+                    lignes: [], geste: "",
+                    details: [
+                        "Restrictions possibles pour grands événements publics entre le 1er et le 28 juin 2026.",
+                        "Vigilance particulière le 14 juin : mobilisation importante attendue, grève féministe et autres mouvements. Perturbations possibles en centre-ville, notamment pont du Mont-Blanc."
+                    ]
+                },
+                {
+                    titre: "E-bus nouvelle génération — déploiement progressif",
+                    date: "2026–2027",
+                    debut: "2026-05-01", fin: "2027-12-31", statut: "info",
+                    lignes: ["23", "5", "10", "6", "19"], geste: "",
+                    details: [
+                        "Ligne 23 : en service depuis avril 2026. Formation conducteurs en cours — bon retour sur confort et maniabilité.",
+                        "Ligne 5 : dès juillet 2026.",
+                        "Ligne 10 : dès septembre 2026.",
+                        "Lignes 6 et 19 : été 2027.",
+                        "Chaque étape inclut test, marche à blanc et introduction progressive. Rotation assurée avec Citaro diesel et TOSA en révision."
+                    ]
+                }
+            ]
+        }
+    ],
+
+    manif: [
+        {
+            semaine: "Semaine du 25 mai",
+            items: [
+                {
+                    titre: "Prestation de Serment du Pouvoir judiciaire",
+                    date: "Mer. 27 mai · 14h00–19h00",
+                    debut: "2026-05-27", fin: "2026-05-27", statut: "deviation",
+                    lignes: ["92"], geste: "https://geste.intra-tpg.ch/er-site/3301556/overview",
+                    details: [
+                        "Arrêt : Genève, Cathédrale — <a href='https://maps.app.goo.gl/dqYvRTYsT37pfV146' target='_blank' style='color:#2980b9'>📍 Plan arrêt</a>",
+                        "Nombre de participants : 1000–1500 environ.",
+                        "Rassemblement : 13h45.",
+                        "Départ du cortège : 18h15 environ.",
+                        "Parcours : Rues Otto Barblan – Place de la Taconnerie – Saint-Pierre.",
+                        "Arrivée : 19h00 environ à l’Hôtel de Ville.",
+                        "Mesures de régulation à prévoir."
+                    ]
+                },
+                {
+                    titre: "Caves ouvertes",
+                    date: "Sam. 30 mai · 08h00–19h00",
+                    debut: "2026-05-30", fin: "2026-05-30", statut: "deviation",
+                    lignes: ["74"], geste: "https://geste.intra-tpg.ch/er-site/3076444/overview",
+                    details: [
+                        "Arrêt : Satigny-Gare — <a href='https://maps.app.goo.gl/TNHxLKiNRxtzZTqS6' target='_blank' style='color:#2980b9'>📍 Plan arrêt</a>",
+                        "Organisateur — <a href='https://www.geneveterroir.ch/fr/une-des-plus-belles-journees-de-lannee/6784' target='_blank' style='color:#2980b9'>🔗 Site</a>",
+                        "Des navettes seront engagées pour desservir les caves de 10h00 à 17h00.",
+                        "Des mesures de régulation seront appliquées sur les lignes desservant les secteurs concernés.",
+                        "Plan des navettes — <a href='file:///Q:\\DIVISION\\C\\SCO%20Global\\Coordination\\Evenements%20marquants\\2026\\22\\2026_caves_ouvertes_plan_rive_droite_A4.pdf' target='_blank' style='color:#2980b9'>📐 Voir le plan</a>"
+                    ]
+                },
+                {
+                    titre: "Nuit des musées",
+                    date: "Sam. 30 mai · 16h00–24h00",
+                    debut: "2026-05-30", fin: "2026-05-30", statut: "info",
+                    lignes: [], geste: "https://geste.intra-tpg.ch/er-site/3113616/overview",
+                    details: [
+                        "Navette mise en service.",
+                        "Arrêt : Place de Neuve — <a href='https://maps.app.goo.gl/FrhMCBBfr6uzXeiE6' target='_blank' style='color:#2980b9'>📍 Plan arrêt</a>",
+                        "Organisateur — <a href='https://nuitdesmusees-geneve.ch/' target='_blank' style='color:#2980b9'>🔗 Site</a>",
+                        "Une navette sera mise en service pour desservir les différents musées de la ville.",
+                        "Arrêts : Place de Neuve, Gare Cornavin, Perle du Lac, Appia, Jardin Botanique et Penthes.",
+                        "Le billet de la Nuit des musées donne accès à 29 institutions participantes et à la navette entre Place de Neuve et Penthes."
+                    ]
+                },
+                {
+                    titre: "Fête de l’oiseau de St-Genis-Pouilly",
+                    date: "Sam. 30 mai · 21h00–23h15",
+                    debut: "2026-05-30", fin: "2026-05-30", statut: "deviation",
+                    lignes: ["66", "68"], geste: "https://geste.intra-tpg.ch/er-site/3321713/overview",
+                    details: [
+                        "Arrêt : Saint-Genis-Pouilly, Jean-Monet — <a href='https://maps.app.goo.gl/pTsp4T7LkFCb2pGv7' target='_blank' style='color:#2980b9'>📍 Plan arrêt</a>",
+                        "Organisateur — <a href='https://fetedeloiseau.com/' target='_blank' style='color:#2980b9'>🔗 Site</a>",
+                        "Fête de l’oiseau de Saint-Genis-Pouilly.",
+                        "La circulation sera totalement interdite lors du passage du cortège de la retraite aux flambeaux.",
+                        "Départ : Avenue de la République.",
+                        "Parcours : rue de Genève, rue de Gex.",
+                        "Arrivée : Parvis du Centre culturel Jean Monnet.",
+                        "Plan déviation ligne 66 — <a href='https://hastusself.tpg.ch/confluence/pages/viewpage.action?pageId=190320959&preview=/190320959/190321027/2026-05-13_09-33-02.PNG' target='_blank' style='color:#2980b9'>📐 Voir</a>",
+                        "Plan déviation ligne 68 — <a href='https://hastusself.tpg.ch/confluence/pages/viewpage.action?pageId=190320959&preview=/190320959/190321028/2026-05-13_09-33-39.PNG' target='_blank' style='color:#2980b9'>📐 Voir</a>",
+                        "Arrêt Sergy-Centre — <a href='https://hastusself.tpg.ch/confluence/pages/viewpage.action?pageId=190320959&preview=/190320959/190321029/2026-05-13_09-34-00.PNG' target='_blank' style='color:#2980b9'>📍 Voir</a>",
+                        "Mesures de régulation à prévoir."
+                    ]
+                },
+                {
+                    titre: "Fête du printemps à Thônex",
+                    date: "Sam. 30 mai · 09h00–17h00",
+                    debut: "2026-05-30", fin: "2026-05-30", statut: "ok",
+                    lignes: [], geste: "https://geste.intra-tpg.ch/er-site/3310420/overview",
+                    details: [
+                        "Pas de perturbation prévue.",
+                        "Arrêt : Thônex, Tronchet — <a href='https://www.google.com/maps/search/arret+tronchet/@46.1946293,6.2000963,15.8z?entry=ttu&g_ep=EgoyMDI2MDUxMy4wIKXMDSoASAFQAw%3D%3D' target='_blank' style='color:#2980b9'>📍 Plan arrêt</a>",
+                        "Organisateur — <a href='https://www.thonex.ch/agenda/fete-du-printemps-7/' target='_blank' style='color:#2980b9'>🔗 Site</a>",
+                        "L’avenue Tronchet sera fermée à la circulation privée de 07h00 à 18h00.",
+                        "Les véhicules pourront circuler en bidirectionnel sur une voie selon instruction du personnel APM sur place."
+                    ]
+                },
+                {
+                    titre: "Grande Braderie à Carouge",
+                    date: "Dim. 31 mai · 08h00–19h00",
+                    debut: "2026-05-31", fin: "2026-05-31", statut: "ok",
+                    lignes: [], geste: "https://geste.intra-tpg.ch/er-site/3068543/overview",
+                    details: [
+                        "Pas de perturbation prévue, mais perturbation possible dans la zone.",
+                        "Arrêt : Carouge, Marché — <a href='https://maps.app.goo.gl/HciBcEqrMMKPiY2w5' target='_blank' style='color:#2980b9'>📍 Plan arrêt</a>",
+                        "Organisateur — <a href='https://www.carouge.ch/vie-pratique/culture-fetes-et-loisirs/fetes-et-manifestations/la-grande-braderie' target='_blank' style='color:#2980b9'>🔗 Site</a>",
+                        "Secteurs concernés : Mail des Promenades, place de Sardaigne, rue J.-Dalphin, place du Marché, rue Saint-Joseph."
+                    ]
+                },
+                {
+                    titre: "Rassemblement auto-moto anciennes",
+                    date: "Dim. 31 mai · 09h00–17h00",
+                    debut: "2026-05-31", fin: "2026-05-31", statut: "deviation",
+                    lignes: ["60", "64", "66"], geste: "https://geste.intra-tpg.ch/er-site/3316416/overview",
+                    details: [
+                        "Arrêt : Ferney, Mairie — <a href='https://maps.app.goo.gl/NMeeDHm6pS1g2Utp9' target='_blank' style='color:#2980b9'>📍 Plan arrêt</a>",
+                        "Organisateur — <a href='https://www.ferney-voltaire.fr/agenda/rassemblement-autos-motos-anciennes/' target='_blank' style='color:#2980b9'>🔗 Site</a>",
+                        "Interdiction de circulation à tous les véhicules pour faciliter l’organisation de la manifestation.",
+                        "L’avenue Voltaire, de la rue Florian jusqu’à Grand’ Rue, est interdite à toute circulation.",
+                        "Mesures de régulation à prévoir."
+                    ]
+                },
+                {
+                    titre: "175ème anniversaire de la commune de Plan-les-Ouates",
+                    date: "Dim. 31 mai · 13h00–17h00",
+                    debut: "2026-05-31", fin: "2026-05-31", statut: "deviation",
+                    lignes: ["46"], geste: "https://geste.intra-tpg.ch/er-site/3250675/overview",
+                    details: [
+                        "Arrêt : Plan-les-Ouates, Vuattes — <a href='https://maps.app.goo.gl/WnpChNYZHY9zwhUv6' target='_blank' style='color:#2980b9'>📍 Plan arrêt</a>",
+                        "Organisateur — <a href='https://www.plan-les-ouates.ch/175eme' target='_blank' style='color:#2980b9'>🔗 Site</a>",
+                        "Rassemblement : 14h30.",
+                        "Départ du cortège : 15h00 environ.",
+                        "Parcours : Mairie – Parking des Aviateurs – Chemin de Vers – Chemin du Pré-du-Camp – Route des Chevaliers-de-Malte – Chemin de la Butte.",
+                        "Fin de perturbation : 16h30.",
+                        "Ligne 46 : arrêts perturbés Nant-Malet et Vuattes.",
+                        "Mesures de régulation à prévoir."
+                    ]
+                }
+            ]
+        },
+        {
+            semaine: "Semaine du 1er juin",
+            items: [
+                {
+                    titre: "Kidical Masse de Florimont",
+                    date: "Mer. 3 juin · 13h00–14h00",
+                    debut: "2026-06-03", fin: "2026-06-03", statut: "deviation",
+                    lignes: ["2"], geste: "https://geste.intra-tpg.ch/er-site/3250635/overview",
+                    details: [
+                        "Arrêt : Petit-Lancy, Les Marbriers — <a href='https://maps.app.goo.gl/cnSkZcgUiC77ZFRo7' target='_blank' style='color:#2980b9'>📍 Plan arrêt</a>",
+                        "Déplacement collectif à vélo encadré et destiné principalement aux enfants et aux familles.",
+                        "Rassemblement : 12h30.",
+                        "Début du cortège : 13h00 environ.",
+                        "Parcours : voir plan.",
+                        "Fin du cortège : 14h00.",
+                        "Plan du cortège — <a href='file:///Q:\\DIVISION\\C\\SCO%20Global\\Coordination\\Evenements%20marquants\\2026\\22\\Parcours%20Kidical%20Masse%20de%20Florimont.png' target='_blank' style='color:#2980b9'>📐 Voir</a>",
+                        "Mesures de régulation à prévoir."
+                    ]
+                },
+                {
+                    titre: "Cérémonie d’investiture de la future Maire de Genève",
+                    date: "Mer. 3 juin · 17h45–18h45",
+                    debut: "2026-06-03", fin: "2026-06-03", statut: "deviation",
+                    lignes: ["92"], geste: "https://geste.intra-tpg.ch/er-site/3250706/overview",
+                    details: [
+                        "Arrêt : Genève, Hôtel-de-Ville.",
+                        "Cérémonie d’investiture de Madame Christina Kitsos.",
+                        "Nombre de participants : 300–500 environ.",
+                        "Rassemblement : 17h45.",
+                        "Départ du cortège : 18h15 environ.",
+                        "Parcours : Promenade Saint-Antoine à Promenade de la Treille.",
+                        "Le cortège est encadré par la Police Municipale.",
+                        "Arrivée : 18h30 environ à l’Hôtel de Ville.",
+                        "Mesures de régulation à prévoir."
+                    ]
+                },
+                {
+                    titre: "Vogue de Gy",
+                    date: "Sam. 6 – dim. 7 juin",
+                    debut: "2026-06-06", fin: "2026-06-07", statut: "deviation",
+                    lignes: ["A"], geste: "https://geste.intra-tpg.ch/er-site/3076449/overview",
+                    details: [
+                        "Arrêt : Gy, La Chêna — <a href='https://maps.app.goo.gl/563dF2UpzP2vbo1c8' target='_blank' style='color:#2980b9'>📍 Plan arrêt</a>",
+                        "Organisateur — <a href='file:///Q:\\DIVISION\\C\\SCO%20Global\\Coordination\\Evenements%20marquants\\2026\\22\\Vogue%20de%20GY.pdf' target='_blank' style='color:#2980b9'>📎 Document</a>",
+                        "La route de Gy sera fermée entre le chemin de Garmaise et la route de Bellebouche.",
+                        "Demi-tour au giratoire.",
+                        "Arrêt déplacé / terminus — <a href='https://hastusself.tpg.ch/confluence/pages/viewpage.action?pageId=190317299&preview=/190317299/190319412/2026-05-07_09-01-58.PNG' target='_blank' style='color:#2980b9'>📍 Voir</a>",
+                        "Mesures de régulation à prévoir."
+                    ]
+                }
+            ]
+        }
+    ],
+
+    travaux: [
+        {
+            semaine: "Travaux longue durée / encore actifs",
+            items: [
+                {
+                    titre: "Aïre – Chemin de Château-Bloch",
+                    date: "18 mai – 18 juillet",
+                    debut: "2026-05-18", fin: "2026-07-18", statut: "deviation",
+                    lignes: ["9", "51"], geste: "https://geste.intra-tpg.ch/er-site/3323330/overview",
+                    details: [
+                        "Arrêt Vernier, SIG Lignon déplacé 120 mètres avant son emplacement officiel.",
+                        "Projet Actaris. Maître d'ouvrage : Ville de Vernier.",
+                        "Arrêt : Vernier, SIG Lignon — <a href='https://maps.app.goo.gl/Fkywc3ept31Qpc6n8' target='_blank' style='color:#2980b9'>📍 Plan arrêt</a>"
+                    ]
+                },
+                {
+                    titre: "Augustins",
+                    date: "18 mai – 15 juin",
+                    debut: "2026-05-18", fin: "2026-06-15", statut: "deviation",
+                    lignes: ["12", "18"], geste: "https://geste.intra-tpg.ch/er-site/3320069/overview",
+                    details: [
+                        "Arrêt Genève, Augustins déplacé.",
+                        "Aménagement de la rue de Carouge. Maître d'ouvrage : Ville de Genève.",
+                        "Arrêt : Genève, Augustins — <a href='https://maps.app.goo.gl/kRRKWidDMV6CZGjx9' target='_blank' style='color:#2980b9'>📍 Plan arrêt</a>"
+                    ]
+                }
+            ]
+        },
+        {
+            semaine: "Semaine du 25 mai",
+            items: [
+                {
+                    titre: "Collex",
+                    date: "Mer. 27 mai · 08h30–20h00",
+                    debut: "2026-05-27", fin: "2026-05-27", statut: "suppression",
+                    lignes: ["52", "55"], geste: "https://geste.intra-tpg.ch/er-site/3193244/overview",
+                    details: [
+                        "Arrêt : Collex, École — <a href='https://maps.app.goo.gl/6aBoxbbxRzySaone6' target='_blank' style='color:#2980b9'>📍 Plan arrêt</a>",
+                        "Travaux de pose des enrobés.",
+                        "Arrêt sens Bossy supprimé.",
+                        "Arrêt sens Genthod / Aéroport déplacé.",
+                        "Argumentaire : pose d’enrobés.",
+                        "Maître d’ouvrage : SIG."
+                    ]
+                },
+                {
+                    titre: "Bernex – route de Chancy",
+                    date: "Mer. 27 mai – mar. 2 juin",
+                    debut: "2026-05-27", fin: "2026-06-02", statut: "deviation",
+                    lignes: ["40", "42"], geste: "https://geste.intra-tpg.ch/er-site/2944659/overview",
+                    details: [
+                        "Arrêt : Bernex, Vailly — <a href='https://maps.app.goo.gl/KvEYxK3be4vvaQzJA' target='_blank' style='color:#2980b9'>📍 Plan arrêt</a>",
+                        "Avis de travaux — <a href='https://www.ge.ch/document/avis-travaux-info-mobilite-route-chancy/route-du-merley' target='_blank' style='color:#2980b9'>🔗 Lecture recommandée</a>",
+                        "Travaux de nuit de 20h00 à 06h00 sur chaussée.",
+                        "Déviation et gestion de la circulation à la Palette.",
+                        "Mesures de régulation à prévoir.",
+                        "Argumentaire : travaux de renouvellement des enrobés de la chaussée afin de garantir la sécurité des usagers circulant sur les routes cantonales.",
+                        "Maître d’ouvrage : Office cantonal du génie civil."
+                    ]
+                },
+                {
+                    titre: "Lancy – arrêt Pontets",
+                    date: "Jeu. 28 – ven. 29 mai",
+                    debut: "2026-05-28", fin: "2026-05-29", statut: "deviation",
+                    lignes: ["22", "23"], geste: "https://geste.intra-tpg.ch/er-site/3296476/overview",
+                    details: [
+                        "Arrêt : Grand-Lancy, Pontets — <a href='https://maps.app.goo.gl/JjcpBQgbw65U8f2J7' target='_blank' style='color:#2980b9'>📍 Plan arrêt</a>",
+                        "Déviations dans les deux sens.",
+                        "Mesures de régulation à prévoir.",
+                        "Argumentaire : pose d’enrobés définitifs.",
+                        "Maître d’ouvrage : SIG."
+                    ]
+                },
+                {
+                    titre: "Meyrin – route du Nant d’Avril BHNS",
+                    date: "Jeu. 28 – ven. 29 mai · 21h00–05h00",
+                    debut: "2026-05-28", fin: "2026-05-29", statut: "deviation",
+                    lignes: ["57", "68", "83"], geste: "https://geste.intra-tpg.ch/er-site/3300335/overview",
+                    details: [
+                        "Arrêt : Meyrin, Veyrot — <a href='https://maps.app.goo.gl/mSMoqTsKLuydPi83A' target='_blank' style='color:#2980b9'>📍 Plan arrêt</a>",
+                        "Avis de travaux — <a href='https://www.ge.ch/blog/bhns-gvz/avis-travaux-info-mobilite-route-du-nant-avril-12-05-2026' target='_blank' style='color:#2980b9'>🔗 Ouvrir</a>",
+                        "Travaux du BHNS : pose du tapis.",
+                        "Déviation sur 2 nuits.",
+                        "Horaire : 21h00 à 05h00.",
+                        "Mesures de régulation à prévoir.",
+                        "Argumentaire : travaux menés par le canton de Genève pour aménager la route du Nant-d’Avril en vue de l’arrivée du Bus à Haut Niveau de Service Genève – Vernier – ZIMEYSAVER.",
+                        "Maître d’ouvrage : Office cantonal du génie civil."
+                    ]
+                },
+                {
+                    titre: "Chêne-Bougeries – route du Vallon",
+                    date: "Sam. 30 – dim. 31 mai",
+                    debut: "2026-05-30", fin: "2026-05-31", statut: "suppression",
+                    lignes: ["34", "41"], geste: "https://geste.intra-tpg.ch/er-site/2729477/overview",
+                    details: [
+                        "Arrêt : Chêne-Bougeries, Parc Stagni — <a href='https://maps.app.goo.gl/pZqHmUr5xFTXD62N9' target='_blank' style='color:#2980b9'>📍 Plan arrêt</a>",
+                        "Avis de travaux — <a href='https://www.ge.ch/document/avis-travaux-info-mobilite-route-du-vallon-ii' target='_blank' style='color:#2980b9'>🔗 Ouvrir</a>",
+                        "Fermeture de route.",
+                        "Détournement des bus.",
+                        "Suppression et déplacement d’arrêts.",
+                        "Mesures de régulation à prévoir.",
+                        "Argumentaire : travaux de renouvellement des enrobés de la chaussée afin de garantir la sécurité des usagers circulant sur les routes cantonales.",
+                        "Maître d’ouvrage : Office cantonal du génie civil."
+                    ]
+                }
+            ]
+        },
+        {
+            semaine: "Semaine du 1er juin",
+            items: [
+                {
+                    titre: "Bernex – route de Chancy",
+                    date: "Mar. 2 – mer. 3 juin · 20h00–06h00",
+                    debut: "2026-06-02", fin: "2026-06-03", statut: "suppression",
+                    lignes: ["40", "42", "83"], geste: "https://geste.intra-tpg.ch/er-site/3236343/overview",
+                    details: [
+                        "Arrêt : Bernex, Vailly — <a href='https://maps.app.goo.gl/KvEYxK3be4vvaQzJA' target='_blank' style='color:#2980b9'>📍 Plan arrêt</a>",
+                        "Avis de travaux — <a href='https://www.ge.ch/document/avis-travaux-info-mobilite-route-chancy/route-du-merley' target='_blank' style='color:#2980b9'>🔗 Ouvrir</a>",
+                        "Travaux de nuit de 20h00 à 06h00 sur chaussée.",
+                        "Déviation, suppression d’arrêts et gestion de la circulation à la Palette.",
+                        "Mesures de régulation à prévoir.",
+                        "Argumentaire : travaux de renouvellement des enrobés de la chaussée afin de garantir la sécurité des usagers circulant sur les routes cantonales.",
+                        "Maître d’ouvrage : Office cantonal du génie civil."
+                    ]
+                },
+                {
+                    titre: "Chêne-Bougeries – route du Vallon",
+                    date: "Sam. 6 – dim. 7 juin",
+                    debut: "2026-06-06", fin: "2026-06-07", statut: "suppression",
+                    lignes: ["34", "41"], geste: "https://geste.intra-tpg.ch/er-site/2729478/overview",
+                    details: [
+                        "Arrêt : Chêne-Bougeries, Parc Stagni — <a href='https://maps.app.goo.gl/pZqHmUr5xFTXD62N9' target='_blank' style='color:#2980b9'>📍 Plan arrêt</a>",
+                        "Avis de travaux — <a href='https://www.ge.ch/document/avis-travaux-info-mobilite-route-du-vallon-ii' target='_blank' style='color:#2980b9'>🔗 Ouvrir</a>",
+                        "Réfection du tapis sur la chaussée.",
+                        "Détournement des bus.",
+                        "Déplacement et suppression d’arrêts.",
+                        "Mesures de régulation à prévoir."
+                    ]
+                }
+            ]
+        },
+        {
+            semaine: "À venir",
+            items: [
+                {
+                    titre: "Coupure ligne 14 – Lancy–Onex",
+                    date: "19–20 juillet",
+                    debut: "2026-07-19", fin: "2026-07-20", statut: "suppression",
+                    lignes: ["14"], geste: "",
+                    details: [
+                        "Coupure dès le 19 juillet à 21h00 pour installation aiguille volante et modification LAC.",
+                        "Navettes Cornavin → Bernex, Vailly du 19 juillet 21h00 au 20 juillet 03h00, quai CVIN05.",
+                        "Dès le 20 juillet 04h00 : navette Jonction → Vailly. ER : 260511-0343 / 260512-0377.",
+                        "Relève conducteurs : Jonction et Confignon-Croisée."
+                    ]
+                }
+            ]
+        }
+    ],
+
+    horaires: [
+        {
+            semaine: "Semaine du 25 mai",
+            items: [
+                {
+                    titre: "Lundi de Pentecôte",
+                    date: "Lun. 25 mai",
+                    debut: "2026-05-25", fin: "2026-05-25", statut: "info",
+                    lignes: ["29", "8"], geste: "",
+                    details: [
+                        "Horaire dimanche pour l’ensemble du réseau tpg.",
+                        "La ligne 29 circule selon l’horaire du dimanche.",
+                        "Les renforts de la ligne 8 circulent entre Cornavin et Veyrier, Douane."
+                    ]
+                }
+            ]
+        },
+        {
+            semaine: "Réseau – mai à septembre 2026",
+            items: [
+                {
+                    titre: "Ligne 29 – mise en circulation élargie",
+                    date: "Dès 1er mai au 27 septembre",
+                    debut: "2026-05-01", fin: "2026-09-27", statut: "info",
+                    lignes: ["29"], geste: "",
+                    details: [
+                        "Vendredi soir en période normale.",
+                        "09h00–00h30 les lundis à vendredis vacances, samedis et dimanches."
+                    ]
+                },
+                {
+                    titre: "Renfort ligne 8 – dimanches",
+                    date: "Dès 1er mai au 27 septembre",
+                    debut: "2026-05-01", fin: "2026-09-27", statut: "info",
+                    lignes: ["8"], geste: "",
+                    details: [
+                        "Renfort les dimanches entre Gare Cornavin et Veyrier-Douane."
+                    ]
+                },
+                {
+                    titre: "Arrêt Champ-Barbon – Ligne 54",
+                    date: "Dès lun. 18 mai",
+                    debut: "2026-05-18", fin: "2026-12-31", statut: "info",
+                    lignes: ["54"], geste: "",
+                    details: [
+                        "Nouvel arrêt : Versoix, Champ-Barbon, route des Fayards, à proximité du chemin Champ-Barbon."
+                    ]
+                },
+                {
+                    titre: "Ajustements d'horaires dès le 18 mai",
+                    date: "Dès lun. 18 mai",
+                    debut: "2026-05-18", fin: "2026-12-31", statut: "info",
+                    lignes: ["A2", "5", "15", "23", "52", "69", "74"], geste: "",
+                    details: [
+                        "Ligne A2 : avancée de 4 min pour correspondance avec A1 → Fret.",
+                        "Ligne 5, courses 5-66 et 5-70 : supprimées jusqu'au 29 juin, eBus non prêts, affichées comme supprimées 1h avant passage.",
+                        "Ligne 15 : suppression arrêt Palettes depuis Ziplo lors des rentrées au dépôt le vendredi.",
+                        "Ligne 23 : modification HLP retournement Aéroport, nouvel arrêt de stationnement spécifique.",
+                        "Ligne 52 : décalages après-midi pour améliorer correspondances LEX.",
+                        "Ligne 69 : décalages heure de pointe soir pour correspondances LEX.",
+                        "Ligne 74 : ajustement d'un départ le matin."
+                    ]
+                }
+            ]
+        },
+        {
+            semaine: "G7 – organisation CCC / agences",
+            items: [
+                {
+                    titre: "Ligne 00800 – horaires élargis G7",
+                    date: "14–19 juin",
+                    debut: "2026-06-14", fin: "2026-06-19", statut: "info",
+                    lignes: ["00800"], geste: "",
+                    details: [
+                        "Dim. 14 juin : 07h00–18h00.",
+                        "Lun. 15 juin : 07h00–18h00.",
+                        "Mar. 16 juin : 07h00–18h00.",
+                        "Mer. 17 juin : 07h00–18h00.",
+                        "Jeu. 18 juin : 07h00–18h00.",
+                        "Ven. 19 juin : 08h00–18h00.",
+                        "CCC exceptionnellement ouvert le dimanche 14 juin, non communiqué au public."
+                    ]
+                },
+                {
+                    titre: "Agences – horaires adaptés G7",
+                    date: "12–22 juin",
+                    debut: "2026-06-12", fin: "2026-06-22", statut: "info",
+                    lignes: [], geste: "",
+                    details: [
+                        "Cornavin : fermée 12–18 juin. Ouverte 19 juin 08h–19h, 20 juin 09h–18h, fermée 21 juin, ouverte 22 juin 09h–18h.",
+                        "Rive : fermée 12–21 juin. Ouverte 22 juin 09h–18h.",
+                        "Lancy-Pont-Rouge : ouverte 12–18 juin 09h–18h, fermée 14, 20, 21 juin. Ouverte 19 et 22 juin 09h–18h.",
+                        "CCC-TT : ouvert 12 juin 08h–18h, fermé 13 juin, ouvert 14–18 juin 07h–18h, 19 juin 08h–18h, fermé 20–21 juin, ouvert 22 juin 08h–18h.",
+                        "SàV : 08h30–12h00 / 14h00–16h30 les jours d'ouverture. Fermé 13, 14, 20 et 21 juin."
+                    ]
+                }
+            ]
+        }
+    ],
+
+    divers: [
+        {
+            semaine: "Relations clientèle",
+            items: [
+                {
+                    titre: "Séance plénière",
+                    date: "",
+                    statut: "info",
+                    lignes: [], geste: "",
+                    details: [
+                        "Document de présentation de la deuxième session plénière du SRC.",
+                        "Diaporama — <a href='file:///Q:\\DIVISION\\C\\SCO%20Global\\Coordination\\Evenements%20marquants\\2026\\22\\Séances%20plénières%20SRC-Mai%202026.PPTX' target='_blank' style='color:#2980b9'>📊 Ouvrir</a>",
+                        "Introduction des nouveaux horaires et tours de travail CCC-OT et BCo.",
+                        "Document — <a href='pcdocs://TPGED/753930/R' target='_blank' style='color:#2980b9'>📄 Ouvrir</a>",
+                        "Mail de Douglas — <a href='file:///Q:\\DIVISION\\C\\SCO%20Global\\Coordination\\Evenements%20marquants\\2026\\22\\Introduction%20des%20nouveaux%20horaires%20et%20tours%20de%20travail%20CCC-OT%20et%20BCo.msg' target='_blank' style='color:#2980b9'>📧 Ouvrir</a>"
+                    ]
+                },
+                {
+                    titre: "Liste des interlocuteurs et carte des secteurs chantiers",
+                    date: "",
+                    statut: "info",
+                    lignes: [], geste: "",
+                    details: [
+                        "La liste des binômes des responsables chantiers a été mise à jour.",
+                        "Le nom de M. Aimé Mutale – Responsable manifestations – a été ajouté à la liste des interlocuteurs.",
+                        "Liste des interlocuteurs — <a href='pcdocs://TPGED/50498/R' target='_blank' style='color:#2980b9'>📄 Ouvrir</a>",
+                        "Carte des secteurs chantiers — <a href='pcdocs://TPGED/681081/R' target='_blank' style='color:#2980b9'>🗺️ Ouvrir</a>"
+                    ]
+                },
+                {
+                    titre: "Bulletin mensuel du CCC",
+                    date: "",
+                    statut: "info",
+                    lignes: [], geste: "",
+                    details: [
+                        "Dernier numéro disponible sur le poste de contrôle Reporting."
+                    ]
+                },
+                {
+                    titre: "Confirmation réservations tpgFlex",
+                    date: "",
+                    statut: "info",
+                    lignes: [], geste: "",
+                    details: [
+                        "Rappeler systématiquement au client : confirmation par e-mail dès validation, SMS 30 min avant prise en charge, second SMS environ 10 min avant avec le quai.",
+                        "Codification en fin d'appel : Résolution / Autres demandes + événement tpgFlex."
+                    ]
+                },
+                {
+                    titre: "Événement CRM : G7 2026",
+                    date: "",
+                    statut: "info",
+                    lignes: [], geste: "",
+                    details: [
+                        "L'événement « G7 2026 » est créé dans le CRM — utiliser dès maintenant pour toute demande liée au sommet.",
+                        "Codification détaillée communiquée prochainement."
+                    ]
+                }
+            ]
+        },
+        {
+            semaine: "Technique",
+            items: [
+                {
+                    titre: "Réussir ensemble la transition énergétique de notre flotte",
+                    date: "",
+                    statut: "info",
+                    lignes: [], geste: "",
+                    details: [
+                        "Les premiers e-bus nouvelle génération circulent sur le réseau.",
+                        "L’implémentation des infrastructures suit son cours.",
+                        "Les équipes du Technique et de l’Exploitation poursuivent leurs efforts pour mener à bien cette évolution importante pour l’entreprise.",
+                        "Intranet — <a href='https://intranet.tpg.ch/article/14734' target='_blank' style='color:#2980b9'>🔗 Ouvrir</a>",
+                        "Vidéo — <a href='https://vimeo.com/1188950119?fl=pl&fe=sh' target='_blank' style='color:#2980b9'>🎬 Ouvrir</a>"
+                    ]
+                },
+                {
+                    titre: "Nominations – Technique dès le 1er avril",
+                    date: "",
+                    statut: "info",
+                    lignes: [], geste: "https://intranet.tpg.ch/article/14725",
+                    details: [
+                        "Christophe Charroin — responsable opérationnel, planification véhicules.",
+                        "Laurent Medardoni — responsable opérationnel, planification véhicules.",
+                        "Nuno Queiroga — responsable opérationnel, planification véhicules."
+                    ]
+                }
+            ]
+        },
+        {
+            semaine: "DG / Opérations / Autres divers",
+            items: [
+                {
+                    titre: "Réunion de direction du 5 mai",
+                    date: "",
+                    statut: "info",
+                    lignes: [], geste: "https://intranet.tpg.ch/article/14729",
+                    details: [
+                        "Plan directeur immobilier : Damien Roth a présenté la vision stratégique du patrimoine, 165 000 m² sur 3 sites, agences, locaux de pause.",
+                        "Task force absentéisme : groupe RH / Exploitation / Service juridique travaille sur des mesures pour réduire durablement le taux d'absentéisme, particulièrement à la conduite."
+                    ]
+                },
+                {
+                    titre: "Feu vert N° 116",
+                    date: "",
+                    statut: "info",
+                    lignes: [], geste: "https://intranet.tpg.ch/files/8417/2026/38792/Feu-vert-n%C2%B0-116---mai-2026.pdf?preview=1",
+                    details: [
+                        "Édito : Emmanuel Fankhauser présente les nouveautés belle saison et l'offre de loisirs tpg.",
+                        "Au sommaire : reliquats vacances, climatisation, usage des locaux, eBus ligne 23, École Roseraie, projets Exploitation, stationnement, groupes non-officiels, port du gilet jaune."
+                    ]
+                },
+                {
+                    titre: "Nouveaux accès au Bachet : mise en service",
+                    date: "Dès le 1er juin",
+                    debut: "2026-06-01", fin: "2026-06-01", statut: "info",
+                    lignes: [], geste: "",
+                    details: [
+                        "Les portails et tourniquets installés l’automne dernier seront activés à partir du 1er juin.",
+                        "Intranet — <a href='https://intranet.tpg.ch/article/14733' target='_blank' style='color:#2980b9'>🔗 Ouvrir</a>"
+                    ]
+                },
+                {
+                    titre: "Midi[infos] : prendre soin de votre santé mentale",
+                    date: "Jeu. 11 juin · 12h00–13h00",
+                    debut: "2026-06-11", fin: "2026-06-11", statut: "info",
+                    lignes: [], geste: "",
+                    details: [
+                        "Le 11 juin, apprenez-en plus sur la santé mentale et les solutions pour en prendre soin.",
+                        "Horaire : jeudi 11 juin, de 12h00 à 13h00.",
+                        "Lieu : Auditorium du Bachet-de-Pesay.",
+                        "Intranet — <a href='https://intranet.tpg.ch/article/14737' target='_blank' style='color:#2980b9'>🔗 Ouvrir</a>",
+                        "Association minds — <a href='https://www.minds-ge.ch/' target='_blank' style='color:#2980b9'>🔗 Ouvrir</a>",
+                        "Inscriptions sur l’agenda d’intranet — <a href='https://intranet.tpg.ch/component/eventbooking/evenement-rh/cs58i3xgnhj4l7edet19faedycz5c9avld9wtsa4n34z1spyni?Itemid=56097' target='_blank' style='color:#2980b9'>📝 S’inscrire</a>"
+                    ]
+                }
+            ]
+        }
+    ],
+
+    presse: [
+        {
+            semaine: "Communiqué de presse",
+            items: [
+                {
+                    titre: "Les tpg maintiendront leur offre, principalement en horaire vacances, durant la période du G7",
+                    date: "",
+                    statut: "info",
+                    lignes: [], geste: "https://www.tpg.ch/fr/les-tpg-maintiendront-leur-offre-principalement-en-horaire-vacances-durant-la-periode-du-g7",
+                    details: [
+                        "Communiqué publié sur le site tpg."
+                    ]
+                }
+            ]
+        },
+        {
+            semaine: "Semaine du 18 mai",
+            items: [
+                {
+                    titre: "Les TPG rouleront en mode vacances durant le G7",
+                    date: "Tribune de Genève",
+                    statut: "info",
+                    lignes: [], geste: "https://intranet.tpg.ch/index.php?preview=1&option=com_dropfiles&format=&task=frontfile.download&catid=8525&id=38816&Itemid=1000000000000",
+                    details: []
+                },
+                {
+                    titre: "Pierre Maudet : « Les Romands semblent condamnés à toujours avoir un train de retard »",
+                    date: "Tribune de Genève",
+                    statut: "info",
+                    lignes: [], geste: "",
+                    details: []
+                },
+                {
+                    titre: "Un rapport secret révèle ce que les CFF ont caché sur l'accident du Gothard",
+                    date: "Blick",
+                    statut: "info",
+                    lignes: [], geste: "https://www.blick.ch/fr/suisse/gothard-ce-que-les-cff-ont-cache-sur-laccident-de-2023-id21955232.html",
+                    details: []
+                },
+                {
+                    titre: "Elle accumule 80'000 francs de dettes envers les CFF",
+                    date: "20 Minutes",
+                    statut: "info",
+                    lignes: [], geste: "file:///\\\\INTRA-TPG.ch\\Users\\HomeDir\\luis-david.fernando\\Évènements%20marquants\\2026\\En%20préparation\\Semaine%20n°22%20dès%2025.5\\Un%20rapport%20secret%20révèle%20ce%20que%20les%20CFF%20ont%20caché%20sur%20l%27accident%20du%20Gothard",
+                    details: []
+                },
+                {
+                    titre: "Des habitants réclament que l’avenue Wendt passe en zone 30",
+                    date: "Tribune de Genève",
+                    statut: "info",
+                    lignes: [], geste: "https://intranet.tpg.ch/index.php?preview=1&option=com_dropfiles&format=&task=frontfile.download&catid=8526&id=38821&Itemid=1000000000000",
+                    details: []
+                },
+                {
+                    titre: "Les CFF veulent concurrencer l’avion sur ces liaisons vers l’étranger",
+                    date: "Watson",
+                    statut: "info",
+                    lignes: [], geste: "https://www.watson.ch/fr/suisse/international/248361597-les-cff-ont-de-grands-projets-vers-ces-villes-etrangeres",
+                    details: []
+                },
+                {
+                    titre: "Dilara Bayrak, première citoyenne",
+                    date: "Le Courrier",
+                    statut: "info",
+                    lignes: [], geste: "https://intranet.tpg.ch/index.php?preview=1&option=com_dropfiles&format=&task=frontfile.download&catid=8526&id=38822&Itemid=1000000000000",
+                    details: []
+                },
+                {
+                    titre: "Les voyageurs d'un train CFF vivent un calvaire en rentrant du Tessin",
+                    date: "Blick",
+                    statut: "info",
+                    lignes: [], geste: "https://www.blick.ch/fr/suisse/suisse-chaos-dans-un-train-cff-bonde-au-retour-du-tessin-id21958974.html",
+                    details: []
+                },
+                {
+                    titre: "L’apprentissage, un tremplin pour réussir sa carrière",
+                    date: "One FM",
+                    statut: "info",
+                    lignes: [], geste: "https://www.onefm.ch/podcasts/le-10h-13h-06-05-2026-1151/",
+                    details: [
+                        "Romain Guéninchault, responsable du centre de maintenance d’En Chardon, est l’invité de One FM pour parler de la valeur de l’apprentissage et du CFC."
+                    ]
+                },
+                {
+                    titre: "NoG7 met la pression sur le Conseil d’État pour manifester sur les quais",
+                    date: "Tribune de Genève",
+                    statut: "info",
+                    lignes: [], geste: "",
+                    details: []
+                },
+                {
+                    titre: "Qui payera les dégâts du G7 à Evian ?",
+                    date: "Tribune de Genève",
+                    statut: "info",
+                    lignes: [], geste: "",
+                    details: []
+                },
+                {
+                    titre: "Un jeune cycliste expulsé du train durant les heures de pointe",
+                    date: "20 minutes",
+                    statut: "info",
+                    lignes: [], geste: "https://www.20min.ch/fr/story/malgre-un-ag-valable-un-jeune-cycliste-expulse-du-train-durant-les-heures-de-pointe-103566814",
+                    details: []
+                },
+                {
+                    titre: "TER : le nouveau ticket vélo à 1 euro, un casse-tête pour les cyclistes",
+                    date: "Le Dauphiné Libéré",
+                    statut: "info",
+                    lignes: [], geste: "https://intranet.tpg.ch/index.php?preview=1&option=com_dropfiles&format=&task=frontfile.download&catid=8527&id=38831&Itemid=1000000000000",
+                    details: []
+                },
+                {
+                    titre: "C’est un arrêté anti-cycle ! Il est où le vivre ensemble ?",
+                    date: "Le Dauphiné Libéré",
+                    statut: "info",
+                    lignes: [], geste: "https://intranet.tpg.ch/index.php?preview=1&option=com_dropfiles&format=&task=frontfile.download&catid=8527&id=38830&Itemid=1000000000000",
+                    details: []
+                }
+            ]
+        }
+    ]
+};
+
+
+// ════════════════════════════════════════════════════════════
+//  CONFIG
+// ════════════════════════════════════════════════════════════
+const TABS_CONFIG = [
+    { id:"manif",    label:"🎪 Manifs",   color:"#e74c3c" },
+    { id:"travaux",  label:"🚧 Travaux",  color:"#e67e22" },
+    { id:"horaires", label:"🕐 Horaires", color:"#8e44ad" },
+    { id:"divers",   label:"📋 Divers",   color:"#27ae60" },
+    { id:"news",     label:"📣 News",     color:"#c0392b" },
+    { id:"presse",   label:"📰 Presse",   color:"#2980b9" },
+];
+const STATUT_META = {
+    ok:          { color:"#27ae60", bg:"#eafaf1", border:"#a9dfbf", label:"✅ Pas de perturbation" },
+    deviation:   { color:"#e67e22", bg:"#fef9e7", border:"#f9e79f", label:"⚠️ Déviation / Régulation" },
+    suppression: { color:"#e74c3c", bg:"#fdedec", border:"#f5b7b1", label:"🚫 Arrêt supprimé" },
+    info:        { color:"#2980b9", bg:"#eaf4fb", border:"#aed6f1", label:"ℹ️ Information" },
+};
+const STATUT_COLORS = { ok:"#27ae60", deviation:"#e67e22", suppression:"#e74c3c", info:"#2980b9" };
+
+const CAL_KEY = 'tpg_cal_s';
+const CAL_DEF = { cats:{ manif:true, travaux:true, horaires:true, divers:false, news:false }, statuts:{ ok:true, deviation:true, suppression:true, info:true } };
+function loadS() { try { const r=localStorage.getItem(CAL_KEY); if(!r) return JSON.parse(JSON.stringify(CAL_DEF)); const s=JSON.parse(r); return { cats:Object.assign({},CAL_DEF.cats,s.cats||{}), statuts:Object.assign({},CAL_DEF.statuts,s.statuts||{}) }; } catch { return JSON.parse(JSON.stringify(CAL_DEF)); } }
+function saveS(s) { try { localStorage.setItem(CAL_KEY,JSON.stringify(s)); } catch {} }
+let CAL_S = loadS();
+
+// ════════════════════════════════════════════════════════════
+//  HELPERS
+// ════════════════════════════════════════════════════════════
+const MOIS = ['Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Août','Septembre','Octobre','Novembre','Décembre'];
+const BAR_H=15, BAR_GAP=2;
+let calY=new Date().getFullYear(), calM=new Date().getMonth();
+
+function pd(s){const[y,m,d]=s.split('-').map(Number);return new Date(y,m-1,d);}
+function addD(d,n){const r=new Date(d);r.setDate(r.getDate()+n);return r;}
+function sd(a,b){return a.getFullYear()===b.getFullYear()&&a.getMonth()===b.getMonth()&&a.getDate()===b.getDate();}
+function gc(ev){return STATUT_COLORS[ev.statut]||'#888';}
+function fmtR(d1s,d2s){const a=pd(d1s),b=pd(d2s);const f=d=>`${d.getDate()} ${MOIS[d.getMonth()].slice(0,3)}. ${d.getFullYear()}`;return sd(a,b)?f(a):`${f(a)} → ${f(b)}`;}
+
+function buildEvents() {
+    const ev=[];
+    ['manif','travaux','horaires','divers','news'].forEach(cat=>{
+        if(!CAL_S.cats[cat]) return;
+        (DATA[cat]||[]).forEach(sec=>sec.items.forEach(item=>{
+            if(item.debut&&item.fin){
+                if(!CAL_S.statuts[item.statut]) return;
+                ev.push({ id:(item.titre+item.debut).replace(/[^a-zA-Z0-9]/g,'').slice(0,32), titre:item.titre, debut:item.debut, fin:item.fin, statut:item.statut, lignes:item.lignes||[], cat, heure:item.date||'', geste:item.geste||'', details:Array.isArray(item.details)?item.details.join(' '):(item.details||'') });
+            }
+        }));
+    });
+    return ev;
+}
+
+// ════════════════════════════════════════════════════════════
+//  TABS (right panel)
+// ════════════════════════════════════════════════════════════
+function buildTabs() {
+    const bar = document.getElementById('tabs-bar');
+    const content = document.getElementById('tabs-content');
+    bar.innerHTML = ''; content.innerHTML = '';
+
+    TABS_CONFIG.forEach((tab, i) => {
+        const btn = document.createElement('button');
+        btn.className = 'tab-btn' + (i===0?' active':'');
+        btn.style.setProperty('--tc', tab.color);
+        btn.textContent = tab.label;
+        btn.dataset.tab = tab.id;
+        btn.addEventListener('click', () => {
+            bar.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+            content.querySelectorAll('.tab-pane').forEach(p=>p.classList.remove('active'));
+            btn.classList.add('active');
+            content.querySelector(`.tab-pane[data-tab="${tab.id}"]`).classList.add('active');
+        });
+        bar.appendChild(btn);
+
+        const pane = document.createElement('div');
+        pane.className = 'tab-pane' + (i===0?' active':'');
+        pane.dataset.tab = tab.id;
+
+        const linkLabel = tab.id==='presse' ? '🔗 Lien' : '🔗 GestE';
+        (DATA[tab.id]||[]).forEach(sec => {
+            const secEl = document.createElement('div');
+            const itemsHTML = sec.items.map(item => {
+                const meta = STATUT_META[item.statut]||STATUT_META.info;
+                const lignesHTML = (item.lignes||[]).map(l=>`<span class="evt-ligne">${l}</span>`).join('');
+                const detailsHTML = (item.details||[]).map(d=>`<div class="evt-detail">${d}</div>`).join('');
+                const srcHTML = tab.id==='presse'&&item.date ? `<div class="evt-source">📰 ${item.date}</div>` : '';
+                const gesteHTML = item.geste ? `<a class="evt-link" href="${item.geste}" target="_blank">${linkLabel}</a>` : '';
+                const stableId = item.debut ? (item.titre+item.debut).replace(/[^a-zA-Z0-9]/g,'').slice(0,32) : '';
+                const calBtnHTML = item.debut && tab.id!=='presse' ? `<button class="evt-link" style="cursor:pointer;border:none;" data-goto="${item.debut}" data-evid="${stableId}" title="Voir dans le calendrier">📆</button>` : '';
+                return `<div class="evt-item" id="item-${stableId}" style="border-left-color:${meta.color};background:${meta.bg};">
+                    <div class="evt-item-head">
+                        <div class="evt-item-title">${item.titre}</div>
+                        <div class="evt-item-actions">
+                            ${item.date&&tab.id!=='presse'?`<div class="evt-item-date">📅 ${item.date}</div>`:''}
+                            ${calBtnHTML}${gesteHTML}
+                        </div>
+                    </div>
+                    <div class="evt-item-meta"><span class="evt-badge" style="background:${meta.border};color:${meta.color};">${meta.label}</span>${lignesHTML}</div>
+                    ${srcHTML}
+                    ${detailsHTML?`<div class="evt-details">${detailsHTML}</div>`:''}
+                </div>`;
+            }).join('');
+            secEl.innerHTML = `<div class="section-label">${sec.semaine}</div>${itemsHTML}`;
+            pane.appendChild(secEl);
+        });
+
+        // Cal btn handlers
+        pane.querySelectorAll('[data-goto]').forEach(btn => {
+            btn.addEventListener('click', e => {
+                e.preventDefault();
+                const d = pd(btn.dataset.goto);
+                calY = d.getFullYear(); calM = d.getMonth();
+                renderCal();
+                setTimeout(() => {
+                    document.querySelectorAll(`.cal-event-bar[data-evid="${btn.dataset.evid}"]`).forEach(b => {
+                        b.classList.add('selected');
+                        b.scrollIntoView({behavior:'smooth',block:'center'});
+                        setTimeout(()=>b.classList.remove('selected'),2000);
+                    });
+                }, 50);
+            });
+        });
+
+        content.appendChild(pane);
+    });
+}
+
+// Navigate to item from search
+function goToItem(tabId, titre) {
+    const bar = document.getElementById('tabs-bar');
+    const content = document.getElementById('tabs-content');
+    bar.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+    content.querySelectorAll('.tab-pane').forEach(p=>p.classList.remove('active'));
+    const btn = bar.querySelector(`.tab-btn[data-tab="${tabId}"]`);
+    const pane = content.querySelector(`.tab-pane[data-tab="${tabId}"]`);
+    if(btn) btn.classList.add('active');
+    if(pane) {
+        pane.classList.add('active');
+        const items = pane.querySelectorAll('.evt-item-title');
+        for(const el of items) {
+            if(el.textContent.trim()===titre||el.textContent.trim().startsWith(titre.slice(0,30))) {
+                el.closest('.evt-item').scrollIntoView({behavior:'smooth',block:'center'});
+                el.closest('.evt-item').classList.add('highlighted');
+                setTimeout(()=>el.closest('.evt-item').classList.remove('highlighted'),2000);
+                break;
+            }
+        }
+    }
+}
+
+// ════════════════════════════════════════════════════════════
+//  SEARCH
+// ════════════════════════════════════════════════════════════
+function buildSearch() {
+    const input = document.getElementById('top-search');
+    const results = document.getElementById('top-search-results');
+    const allItems = [];
+    ['manif','travaux','horaires','divers','news'].forEach(tabId => {
+        (DATA[tabId]||[]).forEach(sec=>sec.items.forEach(item=>allItems.push({...item,tabId})));
+    });
+    const tabLabels = { manif:'🎪', travaux:'🚧', horaires:'🕐', divers:'📋', news:'📣' };
+
+    function doSearch() {
+        const q = input.value.trim().toLowerCase();
+        if(!q) { results.classList.remove('open'); return; }
+        const filtered = allItems.filter(item => {
+            return [item.titre,item.date,...(item.details||[]),...(item.lignes||[])].join(' ').toLowerCase().includes(q);
+        }).slice(0,12);
+        if(!filtered.length) {
+            results.innerHTML = '<div class="sr-empty">Aucun résultat.</div>';
+        } else {
+            results.innerHTML = filtered.map(item => {
+                const meta = STATUT_META[item.statut]||STATUT_META.info;
+                const lignes = (item.lignes||[]).map(l=>`<span class="evt-ligne" style="font-size:9px;padding:1px 3px;">${l}</span>`).join('');
+                return `<div class="sr-item" data-tab="${item.tabId}" data-titre="${item.titre.replace(/"/g,'&quot;')}">
+                    <div class="sr-item-title"><span class="sr-cat">${tabLabels[item.tabId]||''} ${item.tabId}</span>${item.titre}</div>
+                    <div class="sr-item-meta">${item.date?`📅 ${item.date} · `:''}${lignes} <span style="color:${meta.color}">${meta.label}</span></div>
+                </div>`;
+            }).join('');
+        }
+        results.classList.add('open');
+        results.querySelectorAll('.sr-item').forEach(r => {
+            r.addEventListener('click', () => {
+                goToItem(r.dataset.tab, r.dataset.titre);
+                input.value = '';
+                results.classList.remove('open');
+            });
+        });
+    }
+
+    input.addEventListener('input', doSearch);
+    input.addEventListener('keydown', e => { if(e.key==='Escape'){input.value='';results.classList.remove('open');} });
+    document.addEventListener('click', e => { if(!e.target.closest('.topbar-search-wrap')) results.classList.remove('open'); });
+}
+
+// ════════════════════════════════════════════════════════════
+//  CALENDAR
+// ════════════════════════════════════════════════════════════
+const popup = document.getElementById('cal-popup');
+let popPinned = false;
+
+function showPopup(e, ev, pin=false) {
+    if(popPinned&&!pin) return;
+    if(pin) popPinned=true;
+    const meta=STATUT_META[ev.statut]||STATUT_META.info, color=gc(ev);
+    popup.innerHTML=`<div class="p-title" style="color:${color}">${ev.titre}</div><div class="p-date">📅 ${fmtR(ev.debut,ev.fin)}${ev.heure?' · '+ev.heure:''}</div><span class="p-badge" style="background:${meta.border};color:${color}">${meta.label}</span>${ev.lignes.length?`<div class="p-lignes">${ev.lignes.map(l=>`<span class="p-ligne">${l}</span>`).join('')}</div>`:''}${ev.details?`<div class="p-details">${ev.details}</div>`:''}`;
+    popup.style.display='block';
+    const pw=270,ph=140;
+    let x=e.clientX+14,y=e.clientY+14;
+    if(x+pw>window.innerWidth-10) x=e.clientX-pw-14;
+    if(y+ph>window.innerHeight-10) y=e.clientY-ph-14;
+    popup.style.left=x+'px'; popup.style.top=y+'px';
+    if(pin) document.addEventListener('click',()=>{popPinned=false;popup.style.display='none';},{once:true});
+}
+function hidePopup(){if(!popPinned)popup.style.display='none';}
+
+function renderCal() {
+    document.getElementById('cal-month-label').textContent = `${MOIS[calM]} ${calY}`;
+    const weeksEl = document.getElementById('cal-weeks');
+    weeksEl.innerHTML = '';
+    const EVENTS = buildEvents();
+    const today = new Date();
+    const firstDay = new Date(calY,calM,1);
+    const gStart = addD(firstDay,-((firstDay.getDay()+6)%7));
+    const lastDay = new Date(calY,calM+1,0);
+    const gEnd = addD(lastDay,6-((lastDay.getDay()+6)%7));
+
+    let cur = new Date(gStart);
+    while(cur<=gEnd) {
+        const wS=new Date(cur), wD=[];
+        for(let i=0;i<7;i++){wD.push(new Date(cur));cur=addD(cur,1);}
+        const wE=wD[6];
+        const rowEl=document.createElement('div'); rowEl.className='cal-week-row';
+        wD.forEach((day,di)=>{
+            const cell=document.createElement('div');
+            cell.className='cal-day'+(day.getMonth()!==calM?' other-month':'')+(di>=5?' we':'')+(sd(day,today)?' today':'');
+            const num=document.createElement('div'); num.className='cal-day-num'; num.textContent=day.getDate();
+            cell.appendChild(num); rowEl.appendChild(cell);
+        });
+
+        const wEvs=EVENTS.filter(ev=>{const d1=pd(ev.debut),d2=pd(ev.fin);return d1<=wE&&d2>=wS;})
+            .sort((a,b)=>{const la=pd(a.fin)-pd(a.debut),lb=pd(b.fin)-pd(b.debut);return lb!==la?lb-la:pd(a.debut)-pd(b.debut);});
+
+        const placed=[];
+        wEvs.forEach(ev=>{
+            const evS=pd(ev.debut),evE=pd(ev.fin);
+            const cS=Math.max(0,Math.round(((evS<wS?wS:evS)-wS)/86400000));
+            const cE=Math.min(6,Math.round(((evE>wE?wE:evE)-wS)/86400000));
+            let row=0,found=false;
+            while(!found){found=true;for(let c=cS;c<=cE;c++){if(placed.filter(p=>p.cS<=c&&p.cE>=c).map(p=>p.row).includes(row)){found=false;break;}}if(!found)row++;if(row>10)break;}
+            placed.push({ev,row,cS,cE});
+        });
+
+        const layer=document.createElement('div'); layer.className='cal-events-layer';
+        const CW=100/7;
+        placed.forEach(({ev,row,cS,cE})=>{
+            const color=gc(ev);
+            const evS=pd(ev.debut),evE=pd(ev.fin);
+            const sH=evS>=wS&&evS<=wE, eH=evE>=wS&&evE<=wE;
+            const bar=document.createElement('div');
+            bar.className='cal-event-bar'+(sH&&eH?' r-both':sH?' r-left':eH?' r-right':'');
+            bar.dataset.evid=ev.id;
+            bar.style.cssText=`background:${color};left:${cS*CW+0.2}%;width:${(cE-cS+1)*CW-0.4}%;top:${row*(BAR_H+BAR_GAP)}px;cursor:${ev.geste?'pointer':'default'}`;
+            bar.textContent=sH?ev.titre:'';
+            bar.addEventListener('mouseenter',e=>{document.querySelectorAll(`.cal-event-bar[data-evid="${ev.id}"]`).forEach(b=>{b.style.filter='brightness(1.15)';b.style.zIndex='10';});showPopup(e,ev);});
+            bar.addEventListener('mouseleave',()=>{document.querySelectorAll(`.cal-event-bar[data-evid="${ev.id}"]`).forEach(b=>{b.style.filter='';b.style.zIndex='1';});hidePopup();});
+            bar.addEventListener('click',e=>{e.stopPropagation();if(ev.geste)window.open(ev.geste,'_blank');else showPopup(e,ev,true);});
+            layer.appendChild(bar);
+        });
+        rowEl.appendChild(layer);
+        const maxRow=placed.length?Math.max(...placed.map(p=>p.row))+1:0;
+        rowEl.style.minHeight=(72+Math.max(0,maxRow*(BAR_H+BAR_GAP)-28))+'px';
+        weeksEl.appendChild(rowEl);
+    }
+}
+
+document.getElementById('cal-prev').addEventListener('click',()=>{calM--;if(calM<0){calM=11;calY--;}renderCal();});
+document.getElementById('cal-next').addEventListener('click',()=>{calM++;if(calM>11){calM=0;calY++;}renderCal();});
+
+// ════════════════════════════════════════════════════════════
+//  SETTINGS
+// ════════════════════════════════════════════════════════════
+function buildSettingsPanel() {
+    const body = document.getElementById('settings-body');
+    const CAT_CFG=[{key:'manif',label:'Manifestations',icon:'🎪',color:'#e74c3c'},{key:'travaux',label:'Travaux',icon:'🚧',color:'#e67e22'},{key:'horaires',label:'Horaires',icon:'🕐',color:'#8e44ad'},{key:'divers',label:'Divers',icon:'📋',color:'#27ae60'},{key:'news',label:'News',icon:'📣',color:'#c0392b'}];
+    const STT_CFG=[{key:'deviation',label:'Déviation / Régulation',color:'#e67e22'},{key:'suppression',label:'Arrêt supprimé',color:'#e74c3c'},{key:'ok',label:'Pas de perturbation',color:'#27ae60'},{key:'info',label:'Information',color:'#2980b9'}];
+    const tog=(id,checked)=>`<label class="stg-toggle"><input type="checkbox" id="${id}" ${checked?'checked':''}><span class="stg-slider"></span></label>`;
+    body.innerHTML=`
+        <div class="settings-section-title">Catégories</div>
+        ${CAT_CFG.map(c=>`<div class="settings-row"><div class="settings-row-label"><div class="settings-dot" style="background:${c.color}"></div>${c.icon} ${c.label}</div>${tog('sc-'+c.key,CAL_S.cats[c.key])}</div>`).join('')}
+        <div class="settings-section-title">Types d'événements</div>
+        ${STT_CFG.map(s=>`<div class="settings-row"><div class="settings-row-label"><div class="settings-dot" style="background:${s.color}"></div>${s.label}</div>${tog('ss-'+s.key,CAL_S.statuts[s.key])}</div>`).join('')}
+        <button class="settings-reset" id="stg-reset">↺ Réinitialiser</button>
+    `;
+    CAT_CFG.forEach(c=>{body.querySelector('#sc-'+c.key).addEventListener('change',function(){CAL_S.cats[c.key]=this.checked;saveS(CAL_S);renderCal();});});
+    STT_CFG.forEach(s=>{body.querySelector('#ss-'+s.key).addEventListener('change',function(){CAL_S.statuts[s.key]=this.checked;saveS(CAL_S);renderCal();});});
+    body.querySelector('#stg-reset').addEventListener('click',()=>{CAL_S=JSON.parse(JSON.stringify(CAL_DEF));saveS(CAL_S);buildSettingsPanel();renderCal();});
+}
+
+document.getElementById('cal-settings-btn').addEventListener('click',()=>{
+    document.getElementById('settings-overlay').classList.toggle('open');
+});
+document.getElementById('settings-close').addEventListener('click',()=>{
+    document.getElementById('settings-overlay').classList.remove('open');
+});
+
+// ════════════════════════════════════════════════════════════
+//  INIT
+// ════════════════════════════════════════════════════════════
+document.getElementById('top-meta').textContent = `Sem. ${SEMAINE.numero} · Dès le ${SEMAINE.debut} · ${SEMAINE.doc} · MàJ ${SEMAINE.maj}`;
+buildTabs();
+buildSearch();
+buildSettingsPanel();
+renderCal();
+</script>
+</body>
+</html>
