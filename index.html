@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TPG — Événements marquants · Sem. 22</title>
+<title>TPG — Événements marquants · Sem. 23</title>
 <style>
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -351,111 +351,178 @@ body {
 // ════════════════════════════════════════════════════════════
 //  DONNÉES
 // ════════════════════════════════════════════════════════════
-const SEMAINE = { numero:22, debut:"25 mai 2026", doc:"GED n°755376", cree:"Fernando Luis David", approuve:"Mehdi Ghafour", maj:"" };
+const SEMAINE = { numero:23, debut:"1er juin 2026", doc:"GED n°755648", cree:"Fernando Luis David", approuve:"Mehdi Ghafour", maj:"29.05.2026" };
 
 const DATA = {
-    news: [
+    "news": [
         {
-            semaine: "Informations générales",
-            items: [
+            "semaine": "Informations générales / G7",
+            "items": [
                 {
-                    titre: "La Borissette",
-                    date: "",
-                    debut: "2026-05-25", fin: "2026-05-25", statut: "info",
-                    lignes: [], geste: "",
-                    details: [
-                        "Calendrier des travaux et manifestations — <a href='https://extraordinary-kleicha-3a9b78.netlify.app/' target='_blank' style='color:#2980b9'>🔗 Ouvrir</a>"
+                    "titre": "La Borissette",
+                    "date": "",
+                    "debut": "2026-05-25",
+                    "fin": "2026-05-25",
+                    "statut": "info",
+                    "lignes": [],
+                    "geste": "",
+                    "details": [
+                        "Calendrier des travaux et manifestations — <a href='https://veiguesama.github.io/evenements_marquants/' target='_blank' style='color:#2980b9'>🔗 Ouvrir</a>"
                     ]
                 },
                 {
-                    titre: "Sommet du G7 2026 à Évian",
-                    date: "15–17 juin",
-                    debut: "2026-06-15", fin: "2026-06-17", statut: "info",
-                    lignes: [], geste: "",
-                    details: [
+                    "titre": "Sommet du G7 2026 à Évian",
+                    "date": "15–17 juin",
+                    "debut": "2026-06-15",
+                    "fin": "2026-06-17",
+                    "statut": "info",
+                    "lignes": [],
+                    "geste": "",
+                    "details": [
                         "Le Sommet du G7, organisé par la France, aura lieu du 15 au 17 juin 2026 à Évian, à proximité immédiate de la Suisse.",
                         "Il accueillera les plus hauts représentants des pays membres du G7 et de l’Union européenne, ainsi que d’autres chefs d’Etats et de gouvernements invités.",
                         "Intranet — <a href='https://intranet.tpg.ch/https:/intranet.tpg.ch/article/14724' target='_blank' style='color:#2980b9'>🔗 Ouvrir</a>",
                         "Site tpg — <a href='https://www.tpg.ch/fr/evenements-et-chantiers-exceptionnels' target='_blank' style='color:#2980b9'>🔗 Ouvrir</a>",
+                        "Info-G7 — <a href='file:///Q:\\DIVISION\\C\\SCO%20Global\\Coordination\\Evenements%20marquants\\2026\\22\\20260507%20-%20info-G7%20-%20informations%20préparation%20et%20coordination.pdf' target='_blank' style='color:#2980b9'>📎 Ouvrir</a>",
+                        "Mail de Mehdi - G7 Spécificités opérationnelles SRC — <a href='file:///Q:\\DIVISION\\C\\SCO%20Global\\Coordination\\Evenements%20marquants\\2026\\22\\Mehdi%20G7%20-%20Spécificités%20opérationnelles%20SRC.msg' target='_blank' style='color:#2980b9'>📧 Ouvrir</a>",
+                        "Mail de Stefan - G7-Spécifités opérationnelles OPV — <a href='file:///\\\\fs11\\PUBLIC1\\DIVISION\\C\\SCO%20Global\\Coordination\\Evenements%20marquants\\2026\\22\\Stefan%20G7%20-%20Spécificités%20opérationnelles%20OPV.msg' target='_blank' style='color:#2980b9'>📧 Ouvrir</a>",
+                        "Mail de Dimitri - Compléments d'information liés au dispositif G7-SCO — <a href='file:///\\\\fs11\\PUBLIC1\\DIVISION\\C\\SCO%20Global\\Coordination\\Evenements%20marquants\\2026\\22\\Dimitri%20-%20Compléments%20dinformation%20liés%20au%20dispositif%20G7%20-%20SCO.msg' target='_blank' style='color:#2980b9'>📧 Ouvrir</a>",
                         "Canton de Genève – FAQ — <a href='https://www.ge.ch/document/sommet-du-g7-2026-evian-faq' target='_blank' style='color:#2980b9'>🔗 Ouvrir</a>",
                         "DFAE — <a href='https://www.eda.admin.ch/fr/sommet-du-g7-a-evian' target='_blank' style='color:#2980b9'>🔗 Ouvrir</a>",
                         "Carte des passages frontières fermés du 12 au 18 juin — <a href='https://www.ge.ch/document/43531/telecharger' target='_blank' style='color:#2980b9'>🗺️ Ouvrir</a>",
-                        "Retour complet à la normalité prévu le lundi 22 juin."
+                        "Les services de l’État en Haute-Savoie — <a href='https://www.haute-savoie.gouv.fr/Actualites/Espace-presse/G7/Sommet-du-G7-a-Evian-2026' target='_blank' style='color:#2980b9'>🔗 Ouvrir</a>",
+                        "Retour complet à la normalité le lundi 22 juin."
                     ]
                 },
                 {
-                    titre: "G7 — Particularités opérationnelles",
-                    date: "14–18 juin",
-                    debut: "2026-06-14", fin: "2026-06-18", statut: "info",
-                    lignes: ["00800"], geste: "",
-                    details: [
+                    "titre": "G7 — Particularités opérationnelles",
+                    "date": "14–18 juin",
+                    "debut": "2026-06-14",
+                    "fin": "2026-06-18",
+                    "statut": "info",
+                    "lignes": [
+                        "00800"
+                    ],
+                    "geste": "",
+                    "details": [
                         "La ligne 00800 sera ouverte le dimanche 14 juin.",
                         "La ligne de l’Exploitation – 0800 858 900 – sera activée du 14 au 18 juin et rattachée au 00800 pour filtrer au maximum les appels entrants.",
                         "Aucun contrôle des titres de transport ne sera effectué sur le réseau du 15 au 17 juin.",
-                        "Un événement « G7 2026 » a été créé : penser à l’utiliser lors de la codification des requêtes.",
-                        "Mail info-G7 — <a href='file:///Q:\\DIVISION\\C\\SCO%20Global\\Coordination\\Evenements%20marquants\\2026\\22\\20260507%20-%20info-G7%20-%20informations%20préparation%20et%20coordination.pdf' target='_blank' style='color:#2980b9'>📎 Ouvrir</a>",
-                        "Mail Mehdi – G7 Spécificités opérationnelles SRC — <a href='file:///Q:\\DIVISION\\C\\SCO%20Global\\Coordination\\Evenements%20marquants\\2026\\22\\Mehdi%20G7%20-%20Spécificités%20opérationnelles%20SRC.msg' target='_blank' style='color:#2980b9'>📧 Ouvrir</a>",
-                        "Mail Stefan – G7 Spécificités opérationnelles OPV — <a href='file:///\\\\fs11\\PUBLIC1\\DIVISION\\C\\SCO%20Global\\Coordination\\Evenements%20marquants\\2026\\22\\Stefan%20G7%20-%20Spécificités%20opérationnelles%20OPV.msg' target='_blank' style='color:#2980b9'>📧 Ouvrir</a>",
-                        "Mail Dimitri – Compléments d’information liés au dispositif G7-SCO — <a href='file:///\\\\fs11\\PUBLIC1\\DIVISION\\C\\SCO%20Global\\Coordination\\Evenements%20marquants\\2026\\22\\Dimitri%20-%20Compléments%20dinformation%20liés%20au%20dispositif%20G7%20-%20SCO.msg' target='_blank' style='color:#2980b9'>📧 Ouvrir</a>",
-                        "Mail Stefania — <a href='file:///Q:\\DIVISION\\C\\SCO%20Global\\Coordination\\Evenements%20marquants\\2026\\22\\Stefania%20-%20Création%20d%27un%20évènement%20G7%202026.msg' target='_blank' style='color:#2980b9'>📧 Ouvrir</a>"
+                        "Un événement « G7 2026 » a été créé : ne pas oublier de l’utiliser lors de la codification des requêtes.",
+                        "Mail de Stefania — <a href='file:///Q:\\DIVISION\\C\\SCO%20Global\\Coordination\\Evenements%20marquants\\2026\\22\\Stefania%20-%20Création%20d'un%20évènement%20G7%202026.msg' target='_blank' style='color:#2980b9'>📧 Ouvrir</a>",
+                        "Communiqué de presse : les tpg maintiendront leur offre, principalement en horaire vacances, durant la période du G7."
                     ]
                 },
                 {
-                    titre: "G7 — Espace aérien",
-                    date: "10 juin 13h00 – 18 juin 03h00",
-                    debut: "2026-06-10", fin: "2026-06-18", statut: "info",
-                    lignes: [], geste: "",
-                    details: [
+                    "titre": "G7 — Lignes transfrontalières",
+                    "date": "12–17 juin",
+                    "debut": "2026-06-12",
+                    "fin": "2026-06-17",
+                    "statut": "info",
+                    "lignes": [],
+                    "geste": "",
+                    "details": [
+                        "Mesures détaillées par ligne valables du 12 au 17 juin.",
+                        "À utiliser comme point d’attention pour toutes les demandes concernant les lignes transfrontalières pendant le dispositif G7."
+                    ]
+                },
+                {
+                    "titre": "G7 — Travail à distance",
+                    "date": "Dès mer. 10 juin, obligatoire 15–17 juin",
+                    "debut": "2026-06-10",
+                    "fin": "2026-06-17",
+                    "statut": "info",
+                    "lignes": [],
+                    "geste": "",
+                    "details": [
+                        "Les déplacements seront impactés dans toute la région, notamment les passages aux frontières et l’axe Vaud-Genève.",
+                        "Pour toutes les fonctions qui le permettent, le télétravail sera recommandé dès le mercredi 10 juin puis obligatoire du 15 au 17 juin inclus, en respectant le taux annuel réglementaire de 40%.",
+                        "Mail d’Andreas — <a href='file:///Q:\\DIVISION\\C\\SCO%20Global\\Coordination\\Evenements%20marquants\\2026\\23\\Organisation%20G7%20-%20Travail%20à%20distance.msg' target='_blank' style='color:#2980b9'>📧 Ouvrir</a>",
+                        "Aide informatique — <a href='https://intranet.tpg.ch/infos-pratiques/soutien-informatique/travail-a-distance' target='_blank' style='color:#2980b9'>🔗 Ouvrir</a>",
+                        "SUVA — positionnement optimal des outils de travail — <a href='file:///Q:\\DIVISION\\C\\SCO%20Global\\Coordination\\Evenements%20marquants\\2026\\23\\Le%20positionnement%20optimal%20des%20outils%20de%20travail%20-%20SUVA.pdf' target='_blank' style='color:#2980b9'>📎 Ouvrir</a>",
+                        "Une organisation particulière sera mise en place pendant le G7. Il est important de s’assurer que le matériel informatique peut être utilisé à distance."
+                    ]
+                },
+                {
+                    "titre": "G7 — Espace aérien",
+                    "date": "10 juin 13h00 – 18 juin 03h00",
+                    "debut": "2026-06-10",
+                    "fin": "2026-06-18",
+                    "statut": "info",
+                    "lignes": [],
+                    "geste": "",
+                    "details": [
                         "Zone aérienne réglementée entre Genève, Lausanne et Évian.",
                         "Réduction importante des vols civils et contraintes accrues autour de l'aéroport de Genève."
                     ]
                 },
                 {
-                    titre: "G7 — Ferroviaire, liaison Thonon–Évian",
-                    date: "11–17 juin",
-                    debut: "2026-06-11", fin: "2026-06-17", statut: "suppression",
-                    lignes: [], geste: "",
-                    details: [
+                    "titre": "G7 — Ferroviaire, liaison Thonon–Évian",
+                    "date": "11–17 juin",
+                    "debut": "2026-06-11",
+                    "fin": "2026-06-17",
+                    "statut": "suppression",
+                    "lignes": [],
+                    "geste": "",
+                    "details": [
                         "La liaison ferroviaire Thonon–Évian sera interrompue du 11 au 17 juin inclus."
                     ]
                 },
                 {
-                    titre: "G7 — Navigation sur le Léman",
-                    date: "15–17 juin",
-                    debut: "2026-06-15", fin: "2026-06-17", statut: "suppression",
-                    lignes: [], geste: "",
-                    details: [
+                    "titre": "G7 — Navigation sur le Léman",
+                    "date": "15–17 juin",
+                    "debut": "2026-06-15",
+                    "fin": "2026-06-17",
+                    "statut": "suppression",
+                    "lignes": [],
+                    "geste": "",
+                    "details": [
                         "Périmètre de sécurité autour d'Évian. Port d'Évian fermé.",
-                        "Certaines liaisons CGN, notamment vers Lausanne, suspendues durant le sommet."
+                        "Certaines liaisons CGN, notamment vers Lausanne, seront suspendues durant le sommet."
                     ]
                 },
                 {
-                    titre: "G7 — Réseau routier et frontières",
-                    date: "15–17 juin",
-                    debut: "2026-06-15", fin: "2026-06-17", statut: "deviation",
-                    lignes: [], geste: "",
-                    details: [
+                    "titre": "G7 — Réseau routier et frontières",
+                    "date": "15–17 juin",
+                    "debut": "2026-06-15",
+                    "fin": "2026-06-17",
+                    "statut": "deviation",
+                    "lignes": [],
+                    "geste": "",
+                    "details": [
                         "Fermetures ponctuelles A1 et axes stratégiques lors des déplacements des délégations, notamment Genève – Lausanne – Bardonnex.",
                         "Contrôles temporaires réintroduits aux postes-frontières. Ralentissements importants dans toute la région.",
                         "Certains chantiers pourront être temporairement suspendus."
                     ]
                 },
                 {
-                    titre: "G7 — Manifestations et restrictions",
-                    date: "1–28 juin",
-                    debut: "2026-06-01", fin: "2026-06-28", statut: "info",
-                    lignes: [], geste: "",
-                    details: [
+                    "titre": "G7 — Manifestations et restrictions",
+                    "date": "1–28 juin",
+                    "debut": "2026-06-01",
+                    "fin": "2026-06-28",
+                    "statut": "info",
+                    "lignes": [],
+                    "geste": "",
+                    "details": [
                         "Restrictions possibles pour grands événements publics entre le 1er et le 28 juin 2026.",
                         "Vigilance particulière le 14 juin : mobilisation importante attendue, grève féministe et autres mouvements. Perturbations possibles en centre-ville, notamment pont du Mont-Blanc."
                     ]
                 },
                 {
-                    titre: "E-bus nouvelle génération — déploiement progressif",
-                    date: "2026–2027",
-                    debut: "2026-05-01", fin: "2027-12-31", statut: "info",
-                    lignes: ["23", "5", "10", "6", "19"], geste: "",
-                    details: [
+                    "titre": "E-bus nouvelle génération — déploiement progressif",
+                    "date": "2026–2027",
+                    "debut": "2026-05-01",
+                    "fin": "2027-12-31",
+                    "statut": "info",
+                    "lignes": [
+                        "23",
+                        "5",
+                        "10",
+                        "6",
+                        "19"
+                    ],
+                    "geste": "",
+                    "details": [
                         "Ligne 23 : en service depuis avril 2026. Formation conducteurs en cours — bon retour sur confort et maniabilité.",
                         "Ligne 5 : dès juillet 2026.",
                         "Ligne 10 : dès septembre 2026.",
@@ -466,32 +533,21 @@ const DATA = {
             ]
         }
     ],
-
-    manif: [
+    "manif": [
         {
-            semaine: "Semaine du 25 mai",
-            items: [
+            "semaine": "Semaine du 25 mai — conservés car après le 29 mai",
+            "items": [
                 {
-                    titre: "Prestation de Serment du Pouvoir judiciaire",
-                    date: "Mer. 27 mai · 14h00–19h00",
-                    debut: "2026-05-27", fin: "2026-05-27", statut: "deviation",
-                    lignes: ["92"], geste: "https://geste.intra-tpg.ch/er-site/3301556/overview",
-                    details: [
-                        "Arrêt : Genève, Cathédrale — <a href='https://maps.app.goo.gl/dqYvRTYsT37pfV146' target='_blank' style='color:#2980b9'>📍 Plan arrêt</a>",
-                        "Nombre de participants : 1000–1500 environ.",
-                        "Rassemblement : 13h45.",
-                        "Départ du cortège : 18h15 environ.",
-                        "Parcours : Rues Otto Barblan – Place de la Taconnerie – Saint-Pierre.",
-                        "Arrivée : 19h00 environ à l’Hôtel de Ville.",
-                        "Mesures de régulation à prévoir."
-                    ]
-                },
-                {
-                    titre: "Caves ouvertes",
-                    date: "Sam. 30 mai · 08h00–19h00",
-                    debut: "2026-05-30", fin: "2026-05-30", statut: "deviation",
-                    lignes: ["74"], geste: "https://geste.intra-tpg.ch/er-site/3076444/overview",
-                    details: [
+                    "titre": "Caves ouvertes",
+                    "date": "Sam. 30 mai · 08h00–19h00",
+                    "debut": "2026-05-30",
+                    "fin": "2026-05-30",
+                    "statut": "deviation",
+                    "lignes": [
+                        "74"
+                    ],
+                    "geste": "https://geste.intra-tpg.ch/er-site/3076444/overview",
+                    "details": [
                         "Arrêt : Satigny-Gare — <a href='https://maps.app.goo.gl/TNHxLKiNRxtzZTqS6' target='_blank' style='color:#2980b9'>📍 Plan arrêt</a>",
                         "Organisateur — <a href='https://www.geneveterroir.ch/fr/une-des-plus-belles-journees-de-lannee/6784' target='_blank' style='color:#2980b9'>🔗 Site</a>",
                         "Des navettes seront engagées pour desservir les caves de 10h00 à 17h00.",
@@ -500,11 +556,14 @@ const DATA = {
                     ]
                 },
                 {
-                    titre: "Nuit des musées",
-                    date: "Sam. 30 mai · 16h00–24h00",
-                    debut: "2026-05-30", fin: "2026-05-30", statut: "info",
-                    lignes: [], geste: "https://geste.intra-tpg.ch/er-site/3113616/overview",
-                    details: [
+                    "titre": "Nuit des musées",
+                    "date": "Sam. 30 mai · 16h00–24h00",
+                    "debut": "2026-05-30",
+                    "fin": "2026-05-30",
+                    "statut": "info",
+                    "lignes": [],
+                    "geste": "https://geste.intra-tpg.ch/er-site/3113616/overview",
+                    "details": [
                         "Navette mise en service.",
                         "Arrêt : Place de Neuve — <a href='https://maps.app.goo.gl/FrhMCBBfr6uzXeiE6' target='_blank' style='color:#2980b9'>📍 Plan arrêt</a>",
                         "Organisateur — <a href='https://nuitdesmusees-geneve.ch/' target='_blank' style='color:#2980b9'>🔗 Site</a>",
@@ -514,11 +573,17 @@ const DATA = {
                     ]
                 },
                 {
-                    titre: "Fête de l’oiseau de St-Genis-Pouilly",
-                    date: "Sam. 30 mai · 21h00–23h15",
-                    debut: "2026-05-30", fin: "2026-05-30", statut: "deviation",
-                    lignes: ["66", "68"], geste: "https://geste.intra-tpg.ch/er-site/3321713/overview",
-                    details: [
+                    "titre": "Fête de l’oiseau de St-Genis-Pouilly",
+                    "date": "Sam. 30 mai · 21h00–23h15",
+                    "debut": "2026-05-30",
+                    "fin": "2026-05-30",
+                    "statut": "deviation",
+                    "lignes": [
+                        "66",
+                        "68"
+                    ],
+                    "geste": "https://geste.intra-tpg.ch/er-site/3321713/overview",
+                    "details": [
                         "Arrêt : Saint-Genis-Pouilly, Jean-Monet — <a href='https://maps.app.goo.gl/pTsp4T7LkFCb2pGv7' target='_blank' style='color:#2980b9'>📍 Plan arrêt</a>",
                         "Organisateur — <a href='https://fetedeloiseau.com/' target='_blank' style='color:#2980b9'>🔗 Site</a>",
                         "Fête de l’oiseau de Saint-Genis-Pouilly.",
@@ -533,11 +598,14 @@ const DATA = {
                     ]
                 },
                 {
-                    titre: "Fête du printemps à Thônex",
-                    date: "Sam. 30 mai · 09h00–17h00",
-                    debut: "2026-05-30", fin: "2026-05-30", statut: "ok",
-                    lignes: [], geste: "https://geste.intra-tpg.ch/er-site/3310420/overview",
-                    details: [
+                    "titre": "Fête du printemps à Thônex",
+                    "date": "Sam. 30 mai · 09h00–17h00",
+                    "debut": "2026-05-30",
+                    "fin": "2026-05-30",
+                    "statut": "ok",
+                    "lignes": [],
+                    "geste": "https://geste.intra-tpg.ch/er-site/3310420/overview",
+                    "details": [
                         "Pas de perturbation prévue.",
                         "Arrêt : Thônex, Tronchet — <a href='https://www.google.com/maps/search/arret+tronchet/@46.1946293,6.2000963,15.8z?entry=ttu&g_ep=EgoyMDI2MDUxMy4wIKXMDSoASAFQAw%3D%3D' target='_blank' style='color:#2980b9'>📍 Plan arrêt</a>",
                         "Organisateur — <a href='https://www.thonex.ch/agenda/fete-du-printemps-7/' target='_blank' style='color:#2980b9'>🔗 Site</a>",
@@ -546,11 +614,14 @@ const DATA = {
                     ]
                 },
                 {
-                    titre: "Grande Braderie à Carouge",
-                    date: "Dim. 31 mai · 08h00–19h00",
-                    debut: "2026-05-31", fin: "2026-05-31", statut: "ok",
-                    lignes: [], geste: "https://geste.intra-tpg.ch/er-site/3068543/overview",
-                    details: [
+                    "titre": "Grande Braderie à Carouge",
+                    "date": "Dim. 31 mai · 08h00–19h00",
+                    "debut": "2026-05-31",
+                    "fin": "2026-05-31",
+                    "statut": "ok",
+                    "lignes": [],
+                    "geste": "https://geste.intra-tpg.ch/er-site/3068543/overview",
+                    "details": [
                         "Pas de perturbation prévue, mais perturbation possible dans la zone.",
                         "Arrêt : Carouge, Marché — <a href='https://maps.app.goo.gl/HciBcEqrMMKPiY2w5' target='_blank' style='color:#2980b9'>📍 Plan arrêt</a>",
                         "Organisateur — <a href='https://www.carouge.ch/vie-pratique/culture-fetes-et-loisirs/fetes-et-manifestations/la-grande-braderie' target='_blank' style='color:#2980b9'>🔗 Site</a>",
@@ -558,11 +629,18 @@ const DATA = {
                     ]
                 },
                 {
-                    titre: "Rassemblement auto-moto anciennes",
-                    date: "Dim. 31 mai · 09h00–17h00",
-                    debut: "2026-05-31", fin: "2026-05-31", statut: "deviation",
-                    lignes: ["60", "64", "66"], geste: "https://geste.intra-tpg.ch/er-site/3316416/overview",
-                    details: [
+                    "titre": "Rassemblement auto-moto anciennes",
+                    "date": "Dim. 31 mai · 09h00–17h00",
+                    "debut": "2026-05-31",
+                    "fin": "2026-05-31",
+                    "statut": "deviation",
+                    "lignes": [
+                        "60",
+                        "64",
+                        "66"
+                    ],
+                    "geste": "https://geste.intra-tpg.ch/er-site/3316416/overview",
+                    "details": [
                         "Arrêt : Ferney, Mairie — <a href='https://maps.app.goo.gl/NMeeDHm6pS1g2Utp9' target='_blank' style='color:#2980b9'>📍 Plan arrêt</a>",
                         "Organisateur — <a href='https://www.ferney-voltaire.fr/agenda/rassemblement-autos-motos-anciennes/' target='_blank' style='color:#2980b9'>🔗 Site</a>",
                         "Interdiction de circulation à tous les véhicules pour faciliter l’organisation de la manifestation.",
@@ -571,11 +649,16 @@ const DATA = {
                     ]
                 },
                 {
-                    titre: "175ème anniversaire de la commune de Plan-les-Ouates",
-                    date: "Dim. 31 mai · 13h00–17h00",
-                    debut: "2026-05-31", fin: "2026-05-31", statut: "deviation",
-                    lignes: ["46"], geste: "https://geste.intra-tpg.ch/er-site/3250675/overview",
-                    details: [
+                    "titre": "175ème anniversaire de la commune de Plan-les-Ouates",
+                    "date": "Dim. 31 mai · 13h00–17h00",
+                    "debut": "2026-05-31",
+                    "fin": "2026-05-31",
+                    "statut": "deviation",
+                    "lignes": [
+                        "46"
+                    ],
+                    "geste": "https://geste.intra-tpg.ch/er-site/3250675/overview",
+                    "details": [
                         "Arrêt : Plan-les-Ouates, Vuattes — <a href='https://maps.app.goo.gl/WnpChNYZHY9zwhUv6' target='_blank' style='color:#2980b9'>📍 Plan arrêt</a>",
                         "Organisateur — <a href='https://www.plan-les-ouates.ch/175eme' target='_blank' style='color:#2980b9'>🔗 Site</a>",
                         "Rassemblement : 14h30.",
@@ -589,14 +672,72 @@ const DATA = {
             ]
         },
         {
-            semaine: "Semaine du 1er juin",
-            items: [
+            "semaine": "Semaine du 1er juin",
+            "items": [
                 {
-                    titre: "Kidical Masse de Florimont",
-                    date: "Mer. 3 juin · 13h00–14h00",
-                    debut: "2026-06-03", fin: "2026-06-03", statut: "deviation",
-                    lignes: ["2"], geste: "https://geste.intra-tpg.ch/er-site/3250635/overview",
-                    details: [
+                    "titre": "Groupement intercommunal pour l’animation parascolaire – GIAP – Cortège",
+                    "date": "Mar. 2 juin · 09h45–12h00",
+                    "debut": "2026-06-02",
+                    "fin": "2026-06-02",
+                    "statut": "ok",
+                    "lignes": [],
+                    "geste": "https://geste.intra-tpg.ch/er-site/3331696/overview",
+                    "details": [
+                        "Pas de perturbations prévues.",
+                        "Arrivée : Maison de quartier de Tacchini — <a href='https://maps.app.goo.gl/EdWMRQw7MqSpYMY66' target='_blank' style='color:#2980b9'>📍 Plan arrêt</a>",
+                        "GIAP.",
+                        "Nombre de participants : 200–6000.",
+                        "Rassemblement : 09h45.",
+                        "Départ : 10h30 devant la mairie de Lancy.",
+                        "Parcours : Mairie de Lancy, Chemin du Gué, Route de Chancy, avenue des Morgines, Rue du Bossons.",
+                        "Arrivée : 11h45 Maison de quartier Tacchini.",
+                        "Fin de la manifestation : 12h00 Maison de quartier Tacchini."
+                    ]
+                },
+                {
+                    "titre": "Cortège Intersyndicale",
+                    "date": "Mar. 2 juin · 17h30–21h00",
+                    "debut": "2026-06-02",
+                    "fin": "2026-06-02",
+                    "statut": "deviation",
+                    "lignes": [],
+                    "geste": "https://geste.intra-tpg.ch/er-site/3339591/overview",
+                    "details": [
+                        "Retards en fonction du déplacement du cortège.",
+                        "Arrêt : Genève, Cirque — <a href='https://maps.app.goo.gl/8V7QRVaKWTJrFz877' target='_blank' style='color:#2980b9'>📍 Plan arrêt</a>",
+                        "Nombre de personnes : 3000.",
+                        "Rassemblement : 18h00 Pointe Nord Plainpalais.",
+                        "Départ : 18h30.",
+                        "Parcours : Point nord Plainpalais, rue Bartholoni, Pl. De Neuve, rue de la Corraterie, rues Basses, rue Verdaine, Pl. du Bourg-de-Four, rue de l'Hotel-de-Ville, Prom. de la Treille.",
+                        "Arrivée : 20h30.",
+                        "Fin de manifestation : 21h00."
+                    ]
+                },
+                {
+                    "titre": "Rassemblement – Intersyndical",
+                    "date": "Mer. 3 juin · 11h30–13h30",
+                    "debut": "2026-06-03",
+                    "fin": "2026-06-03",
+                    "statut": "ok",
+                    "lignes": [],
+                    "geste": "https://geste.intra-tpg.ch/er-site/3339593/overview",
+                    "details": [
+                        "Pas de perturbations prévues.",
+                        "Arrêt : Genève, Place de Neuve — <a href='https://maps.app.goo.gl/sn6VhEpWjbiLWFNL7' target='_blank' style='color:#2980b9'>📍 Plan arrêt</a>",
+                        "Rassemblement sur la Prom. de la Treille. Pas d'impact tpg."
+                    ]
+                },
+                {
+                    "titre": "Kidical Masse de Florimont",
+                    "date": "Mer. 3 juin · 13h00–14h00",
+                    "debut": "2026-06-03",
+                    "fin": "2026-06-03",
+                    "statut": "deviation",
+                    "lignes": [
+                        "2"
+                    ],
+                    "geste": "https://geste.intra-tpg.ch/er-site/3250635/overview",
+                    "details": [
                         "Arrêt : Petit-Lancy, Les Marbriers — <a href='https://maps.app.goo.gl/cnSkZcgUiC77ZFRo7' target='_blank' style='color:#2980b9'>📍 Plan arrêt</a>",
                         "Déplacement collectif à vélo encadré et destiné principalement aux enfants et aux familles.",
                         "Rassemblement : 12h30.",
@@ -608,13 +749,18 @@ const DATA = {
                     ]
                 },
                 {
-                    titre: "Cérémonie d’investiture de la future Maire de Genève",
-                    date: "Mer. 3 juin · 17h45–18h45",
-                    debut: "2026-06-03", fin: "2026-06-03", statut: "deviation",
-                    lignes: ["92"], geste: "https://geste.intra-tpg.ch/er-site/3250706/overview",
-                    details: [
+                    "titre": "Cérémonie d’investiture de la future Maire de Genève",
+                    "date": "Mer. 3 juin · 17h45–18h45",
+                    "debut": "2026-06-03",
+                    "fin": "2026-06-03",
+                    "statut": "deviation",
+                    "lignes": [
+                        "92"
+                    ],
+                    "geste": "https://geste.intra-tpg.ch/er-site/3250706/overview",
+                    "details": [
                         "Arrêt : Genève, Hôtel-de-Ville.",
-                        "Cérémonie d’investiture de Madame Christina Kitsos.",
+                        "Cérémonie d'investiture de Madame Christina Kitsos.",
                         "Nombre de participants : 300–500 environ.",
                         "Rassemblement : 17h45.",
                         "Départ du cortège : 18h15 environ.",
@@ -625,11 +771,35 @@ const DATA = {
                     ]
                 },
                 {
-                    titre: "Vogue de Gy",
-                    date: "Sam. 6 – dim. 7 juin",
-                    debut: "2026-06-06", fin: "2026-06-07", statut: "deviation",
-                    lignes: ["A"], geste: "https://geste.intra-tpg.ch/er-site/3076449/overview",
-                    details: [
+                    "titre": "Cortège Intersyndicale",
+                    "date": "Jeu. 4 juin · 17h30–21h00",
+                    "debut": "2026-06-04",
+                    "fin": "2026-06-04",
+                    "statut": "deviation",
+                    "lignes": [],
+                    "geste": "https://geste.intra-tpg.ch/er-site/3339592/overview",
+                    "details": [
+                        "Retards en fonction du déplacement du cortège.",
+                        "Arrêt : Genève, Cirque — <a href='https://maps.app.goo.gl/8V7QRVaKWTJrFz877' target='_blank' style='color:#2980b9'>📍 Plan arrêt</a>",
+                        "Nombre de personnes : 4000.",
+                        "Rassemblement : 18h00 Pointe Nord Plainpalais.",
+                        "Départ : 18h30.",
+                        "Parcours : Point nord Plainpalais, rue Bartholoni, Pl. De Neuve, rue de la Corraterie, rues Basses, rue Verdaine, Pl. du Bourg-de-Four, rue de l'Hotel-de-Ville, Prom. de la Treille.",
+                        "Arrivée : 20h30.",
+                        "Fin de manifestation : 21h00."
+                    ]
+                },
+                {
+                    "titre": "Vogue de Gy",
+                    "date": "Sam. 6 – dim. 7 juin",
+                    "debut": "2026-06-06",
+                    "fin": "2026-06-07",
+                    "statut": "deviation",
+                    "lignes": [
+                        "A"
+                    ],
+                    "geste": "https://geste.intra-tpg.ch/er-site/3076449/overview",
+                    "details": [
                         "Arrêt : Gy, La Chêna — <a href='https://maps.app.goo.gl/563dF2UpzP2vbo1c8' target='_blank' style='color:#2980b9'>📍 Plan arrêt</a>",
                         "Organisateur — <a href='file:///Q:\\DIVISION\\C\\SCO%20Global\\Coordination\\Evenements%20marquants\\2026\\22\\Vogue%20de%20GY.pdf' target='_blank' style='color:#2980b9'>📎 Document</a>",
                         "La route de Gy sera fermée entre le chemin de Garmaise et la route de Bellebouche.",
@@ -639,60 +809,102 @@ const DATA = {
                     ]
                 }
             ]
+        },
+        {
+            "semaine": "Semaine du 8 juin",
+            "items": [
+                {
+                    "titre": "Tour du canton de Genève – Evaux",
+                    "date": "Mer. 10 juin · 16h00–23h30",
+                    "debut": "2026-06-10",
+                    "fin": "2026-06-10",
+                    "statut": "deviation",
+                    "lignes": [
+                        "43"
+                    ],
+                    "geste": "https://geste.intra-tpg.ch/er-site/3175808/overview",
+                    "details": [
+                        "Organisateur — <a href='https://www.courir-ge.ch/' target='_blank' style='color:#2980b9'>🔗 Site</a>",
+                        "Course pédestre pour le tour du canton, étape des Evaux. Impact sur la ligne 43.",
+                        "Début : 16h00.",
+                        "Départ de la course : 19h30.",
+                        "Nombre de personnes : 1001–1500.",
+                        "Selon plan annexé à la demande.",
+                        "Ligne 43 : déviée entre Cressy Bain et Loëx Hôpital. Elle ne dessert pas les arrêts Blanchard, Aigues-Vertes, Chèvre et Loëx-Lanance entre 19h20 et 21h00.",
+                        "Fin : 23h30.",
+                        "Plan du parcours de la manifestation — <a href='file:///Q:\\DIVISION\\C\\SCO%20Global\\Coordination\\Evenements%20marquants\\2026\\23\\TCGe_2026_Evaux_v260106a%20(2).pdf' target='_blank' style='color:#2980b9'>📐 Voir</a>",
+                        "Plan du parcours de déviation — <a href='file:///Q:\\DIVISION\\C\\SCO%20Global\\Coordination\\Evenements%20marquants\\2026\\23\\Snag_25c5e846.png' target='_blank' style='color:#2980b9'>📐 Voir</a>",
+                        "Mesures de régulation à prévoir."
+                    ]
+                },
+                {
+                    "titre": "Grève féministe",
+                    "date": "Dim. 14 juin · 12h00–18h00",
+                    "debut": "2026-06-14",
+                    "fin": "2026-06-14",
+                    "statut": "info",
+                    "lignes": [],
+                    "geste": "https://geste.intra-tpg.ch/er-site/3076461/overview",
+                    "details": [
+                        "En attente d’informations.",
+                        "Arrêt : Genève, Place de Neuve — <a href='https://maps.app.goo.gl/sn6VhEpWjbiLWFNL7' target='_blank' style='color:#2980b9'>📍 Plan arrêt</a>",
+                        "Organisateur — <a href='https://www.14juin.ch/' target='_blank' style='color:#2980b9'>🔗 Site</a>",
+                        "Cortège des femmes : 5'000 à 10'000 personnes environ."
+                    ]
+                }
+            ]
         }
     ],
-
-    travaux: [
+    "travaux": [
         {
-            semaine: "Travaux longue durée / encore actifs",
-            items: [
+            "semaine": "Travaux conservés — encore actifs après le 29 mai",
+            "items": [
                 {
-                    titre: "Aïre – Chemin de Château-Bloch",
-                    date: "18 mai – 18 juillet",
-                    debut: "2026-05-18", fin: "2026-07-18", statut: "deviation",
-                    lignes: ["9", "51"], geste: "https://geste.intra-tpg.ch/er-site/3323330/overview",
-                    details: [
+                    "titre": "Aïre – Chemin de Château-Bloch",
+                    "date": "18 mai – 18 juillet",
+                    "debut": "2026-05-18",
+                    "fin": "2026-07-18",
+                    "statut": "deviation",
+                    "lignes": [
+                        "9",
+                        "51"
+                    ],
+                    "geste": "https://geste.intra-tpg.ch/er-site/3323330/overview",
+                    "details": [
                         "Arrêt Vernier, SIG Lignon déplacé 120 mètres avant son emplacement officiel.",
                         "Projet Actaris. Maître d'ouvrage : Ville de Vernier.",
                         "Arrêt : Vernier, SIG Lignon — <a href='https://maps.app.goo.gl/Fkywc3ept31Qpc6n8' target='_blank' style='color:#2980b9'>📍 Plan arrêt</a>"
                     ]
                 },
                 {
-                    titre: "Augustins",
-                    date: "18 mai – 15 juin",
-                    debut: "2026-05-18", fin: "2026-06-15", statut: "deviation",
-                    lignes: ["12", "18"], geste: "https://geste.intra-tpg.ch/er-site/3320069/overview",
-                    details: [
+                    "titre": "Augustins",
+                    "date": "18 mai – 15 juin",
+                    "debut": "2026-05-18",
+                    "fin": "2026-06-15",
+                    "statut": "deviation",
+                    "lignes": [
+                        "12",
+                        "18"
+                    ],
+                    "geste": "https://geste.intra-tpg.ch/er-site/3320069/overview",
+                    "details": [
                         "Arrêt Genève, Augustins déplacé.",
                         "Aménagement de la rue de Carouge. Maître d'ouvrage : Ville de Genève.",
                         "Arrêt : Genève, Augustins — <a href='https://maps.app.goo.gl/kRRKWidDMV6CZGjx9' target='_blank' style='color:#2980b9'>📍 Plan arrêt</a>"
                     ]
-                }
-            ]
-        },
-        {
-            semaine: "Semaine du 25 mai",
-            items: [
-                {
-                    titre: "Collex",
-                    date: "Mer. 27 mai · 08h30–20h00",
-                    debut: "2026-05-27", fin: "2026-05-27", statut: "suppression",
-                    lignes: ["52", "55"], geste: "https://geste.intra-tpg.ch/er-site/3193244/overview",
-                    details: [
-                        "Arrêt : Collex, École — <a href='https://maps.app.goo.gl/6aBoxbbxRzySaone6' target='_blank' style='color:#2980b9'>📍 Plan arrêt</a>",
-                        "Travaux de pose des enrobés.",
-                        "Arrêt sens Bossy supprimé.",
-                        "Arrêt sens Genthod / Aéroport déplacé.",
-                        "Argumentaire : pose d’enrobés.",
-                        "Maître d’ouvrage : SIG."
-                    ]
                 },
                 {
-                    titre: "Bernex – route de Chancy",
-                    date: "Mer. 27 mai – mar. 2 juin",
-                    debut: "2026-05-27", fin: "2026-06-02", statut: "deviation",
-                    lignes: ["40", "42"], geste: "https://geste.intra-tpg.ch/er-site/2944659/overview",
-                    details: [
+                    "titre": "Bernex – route de Chancy",
+                    "date": "Mer. 27 mai – mar. 2 juin",
+                    "debut": "2026-05-27",
+                    "fin": "2026-06-02",
+                    "statut": "deviation",
+                    "lignes": [
+                        "40",
+                        "42"
+                    ],
+                    "geste": "https://geste.intra-tpg.ch/er-site/2944659/overview",
+                    "details": [
                         "Arrêt : Bernex, Vailly — <a href='https://maps.app.goo.gl/KvEYxK3be4vvaQzJA' target='_blank' style='color:#2980b9'>📍 Plan arrêt</a>",
                         "Avis de travaux — <a href='https://www.ge.ch/document/avis-travaux-info-mobilite-route-chancy/route-du-merley' target='_blank' style='color:#2980b9'>🔗 Lecture recommandée</a>",
                         "Travaux de nuit de 20h00 à 06h00 sur chaussée.",
@@ -703,40 +915,17 @@ const DATA = {
                     ]
                 },
                 {
-                    titre: "Lancy – arrêt Pontets",
-                    date: "Jeu. 28 – ven. 29 mai",
-                    debut: "2026-05-28", fin: "2026-05-29", statut: "deviation",
-                    lignes: ["22", "23"], geste: "https://geste.intra-tpg.ch/er-site/3296476/overview",
-                    details: [
-                        "Arrêt : Grand-Lancy, Pontets — <a href='https://maps.app.goo.gl/JjcpBQgbw65U8f2J7' target='_blank' style='color:#2980b9'>📍 Plan arrêt</a>",
-                        "Déviations dans les deux sens.",
-                        "Mesures de régulation à prévoir.",
-                        "Argumentaire : pose d’enrobés définitifs.",
-                        "Maître d’ouvrage : SIG."
-                    ]
-                },
-                {
-                    titre: "Meyrin – route du Nant d’Avril BHNS",
-                    date: "Jeu. 28 – ven. 29 mai · 21h00–05h00",
-                    debut: "2026-05-28", fin: "2026-05-29", statut: "deviation",
-                    lignes: ["57", "68", "83"], geste: "https://geste.intra-tpg.ch/er-site/3300335/overview",
-                    details: [
-                        "Arrêt : Meyrin, Veyrot — <a href='https://maps.app.goo.gl/mSMoqTsKLuydPi83A' target='_blank' style='color:#2980b9'>📍 Plan arrêt</a>",
-                        "Avis de travaux — <a href='https://www.ge.ch/blog/bhns-gvz/avis-travaux-info-mobilite-route-du-nant-avril-12-05-2026' target='_blank' style='color:#2980b9'>🔗 Ouvrir</a>",
-                        "Travaux du BHNS : pose du tapis.",
-                        "Déviation sur 2 nuits.",
-                        "Horaire : 21h00 à 05h00.",
-                        "Mesures de régulation à prévoir.",
-                        "Argumentaire : travaux menés par le canton de Genève pour aménager la route du Nant-d’Avril en vue de l’arrivée du Bus à Haut Niveau de Service Genève – Vernier – ZIMEYSAVER.",
-                        "Maître d’ouvrage : Office cantonal du génie civil."
-                    ]
-                },
-                {
-                    titre: "Chêne-Bougeries – route du Vallon",
-                    date: "Sam. 30 – dim. 31 mai",
-                    debut: "2026-05-30", fin: "2026-05-31", statut: "suppression",
-                    lignes: ["34", "41"], geste: "https://geste.intra-tpg.ch/er-site/2729477/overview",
-                    details: [
+                    "titre": "Chêne-Bougeries – route du Vallon",
+                    "date": "Sam. 30 – dim. 31 mai",
+                    "debut": "2026-05-30",
+                    "fin": "2026-05-31",
+                    "statut": "suppression",
+                    "lignes": [
+                        "34",
+                        "41"
+                    ],
+                    "geste": "https://geste.intra-tpg.ch/er-site/2729477/overview",
+                    "details": [
                         "Arrêt : Chêne-Bougeries, Parc Stagni — <a href='https://maps.app.goo.gl/pZqHmUr5xFTXD62N9' target='_blank' style='color:#2980b9'>📍 Plan arrêt</a>",
                         "Avis de travaux — <a href='https://www.ge.ch/document/avis-travaux-info-mobilite-route-du-vallon-ii' target='_blank' style='color:#2980b9'>🔗 Ouvrir</a>",
                         "Fermeture de route.",
@@ -746,52 +935,18 @@ const DATA = {
                         "Argumentaire : travaux de renouvellement des enrobés de la chaussée afin de garantir la sécurité des usagers circulant sur les routes cantonales.",
                         "Maître d’ouvrage : Office cantonal du génie civil."
                     ]
-                }
-            ]
-        },
-        {
-            semaine: "Semaine du 1er juin",
-            items: [
-                {
-                    titre: "Bernex – route de Chancy",
-                    date: "Mar. 2 – mer. 3 juin · 20h00–06h00",
-                    debut: "2026-06-02", fin: "2026-06-03", statut: "suppression",
-                    lignes: ["40", "42", "83"], geste: "https://geste.intra-tpg.ch/er-site/3236343/overview",
-                    details: [
-                        "Arrêt : Bernex, Vailly — <a href='https://maps.app.goo.gl/KvEYxK3be4vvaQzJA' target='_blank' style='color:#2980b9'>📍 Plan arrêt</a>",
-                        "Avis de travaux — <a href='https://www.ge.ch/document/avis-travaux-info-mobilite-route-chancy/route-du-merley' target='_blank' style='color:#2980b9'>🔗 Ouvrir</a>",
-                        "Travaux de nuit de 20h00 à 06h00 sur chaussée.",
-                        "Déviation, suppression d’arrêts et gestion de la circulation à la Palette.",
-                        "Mesures de régulation à prévoir.",
-                        "Argumentaire : travaux de renouvellement des enrobés de la chaussée afin de garantir la sécurité des usagers circulant sur les routes cantonales.",
-                        "Maître d’ouvrage : Office cantonal du génie civil."
-                    ]
                 },
                 {
-                    titre: "Chêne-Bougeries – route du Vallon",
-                    date: "Sam. 6 – dim. 7 juin",
-                    debut: "2026-06-06", fin: "2026-06-07", statut: "suppression",
-                    lignes: ["34", "41"], geste: "https://geste.intra-tpg.ch/er-site/2729478/overview",
-                    details: [
-                        "Arrêt : Chêne-Bougeries, Parc Stagni — <a href='https://maps.app.goo.gl/pZqHmUr5xFTXD62N9' target='_blank' style='color:#2980b9'>📍 Plan arrêt</a>",
-                        "Avis de travaux — <a href='https://www.ge.ch/document/avis-travaux-info-mobilite-route-du-vallon-ii' target='_blank' style='color:#2980b9'>🔗 Ouvrir</a>",
-                        "Réfection du tapis sur la chaussée.",
-                        "Détournement des bus.",
-                        "Déplacement et suppression d’arrêts.",
-                        "Mesures de régulation à prévoir."
-                    ]
-                }
-            ]
-        },
-        {
-            semaine: "À venir",
-            items: [
-                {
-                    titre: "Coupure ligne 14 – Lancy–Onex",
-                    date: "19–20 juillet",
-                    debut: "2026-07-19", fin: "2026-07-20", statut: "suppression",
-                    lignes: ["14"], geste: "",
-                    details: [
+                    "titre": "Coupure ligne 14 – Lancy–Onex",
+                    "date": "19–20 juillet",
+                    "debut": "2026-07-19",
+                    "fin": "2026-07-20",
+                    "statut": "suppression",
+                    "lignes": [
+                        "14"
+                    ],
+                    "geste": "",
+                    "details": [
                         "Coupure dès le 19 juillet à 21h00 pour installation aiguille volante et modification LAC.",
                         "Navettes Cornavin → Bernex, Vailly du 19 juillet 21h00 au 20 juillet 03h00, quai CVIN05.",
                         "Dès le 20 juillet 04h00 : navette Jonction → Vailly. ER : 260511-0343 / 260512-0377.",
@@ -799,63 +954,263 @@ const DATA = {
                     ]
                 }
             ]
-        }
-    ],
-
-    horaires: [
+        },
         {
-            semaine: "Semaine du 25 mai",
-            items: [
+            "semaine": "Semaine du 1er juin",
+            "items": [
                 {
-                    titre: "Lundi de Pentecôte",
-                    date: "Lun. 25 mai",
-                    debut: "2026-05-25", fin: "2026-05-25", statut: "info",
-                    lignes: ["29", "8"], geste: "",
-                    details: [
-                        "Horaire dimanche pour l’ensemble du réseau tpg.",
-                        "La ligne 29 circule selon l’horaire du dimanche.",
-                        "Les renforts de la ligne 8 circulent entre Cornavin et Veyrier, Douane."
+                    "titre": "Bernex – Route de Chancy",
+                    "date": "Mar. 2 – mer. 3 juin · 20h00–06h00",
+                    "debut": "2026-06-02",
+                    "fin": "2026-06-03",
+                    "statut": "suppression",
+                    "lignes": [
+                        "40",
+                        "42",
+                        "83"
+                    ],
+                    "geste": "https://geste.intra-tpg.ch/er-site/3236343/overview",
+                    "details": [
+                        "Arrêt : Bernex, Vailly — <a href='https://maps.app.goo.gl/KvEYxK3be4vvaQzJA' target='_blank' style='color:#2980b9'>📍 Plan arrêt</a>",
+                        "Avis de travaux — <a href='https://www.ge.ch/document/avis-travaux-info-mobilite-route-chancy/route-du-merley' target='_blank' style='color:#2980b9'>🔗 Ouvrir</a>",
+                        "Travaux de nuits 20h00–06h00 sur chaussée, déviation, suppression d'arrêts, gestion de la circulation à la Palette.",
+                        "Mesures de régulation à prévoir.",
+                        "Argumentaire : travaux de renouvellement des enrobés de la chaussée afin de garantir la sécurité des usagers circulant sur les routes cantonales.",
+                        "Maître d’ouvrage : Office cantonal du génie civil."
+                    ]
+                },
+                {
+                    "titre": "France – Vulbens",
+                    "date": "Lun. 2 – jeu. 5 juin · 20h00–06h00",
+                    "debut": "2026-06-02",
+                    "fin": "2026-06-05",
+                    "statut": "suppression",
+                    "lignes": [
+                        "N"
+                    ],
+                    "geste": "",
+                    "details": [
+                        "Mail de Silvia — <a href='file:///Q:\\DIVISION\\C\\SCO%20Global\\Coordination\\Evenements%20marquants\\2026\\23\\TR_%20Chantier%20rd1206%20IMPACT%20LIGNE%20N.msg' target='_blank' style='color:#2980b9'>📧 Ouvrir</a>",
+                        "Nuit du 02 au 03 juin, de 20h00 à 06h00 : fermeture de la D1205, les deux derniers arrêts de la ligne N ne seront pas desservis, Vulbens Faramaz et Vulbens Chef-Lieu.",
+                        "Les conducteurs s’arrêteront à Vulbens Collège et effectueront leur régulation sur le parking du collège.",
+                        "Nuits du 03 au 05 juin, de 20h00 à 06h00 : arrêts Viry Chef-Lieu et Viry Germagny impactés. Déviation avec reprise du parcours à l’arrêt Boutique.",
+                        "Dans le sens Vulbens → Saint-Julien, l’arrêt devra être effectué en dehors de l’arrêt habituel.",
+                        "Arrêt Viry Chef-Lieu non accessible car il nécessiterait une manœuvre. Demi-tour au rond-point.",
+                        "Proposition : déplacer cet arrêt juste avant l’entrée du rond-point, au niveau du passage piéton, dans les deux sens."
+                    ]
+                },
+                {
+                    "titre": "Chêne-Bougeries – Route du Vallon",
+                    "date": "Sam. 6 – dim. 7 juin",
+                    "debut": "2026-06-06",
+                    "fin": "2026-06-07",
+                    "statut": "suppression",
+                    "lignes": [
+                        "34",
+                        "41"
+                    ],
+                    "geste": "https://geste.intra-tpg.ch/er-site/2729478/overview",
+                    "details": [
+                        "Arrêt : Chêne-Bougeries, Parc Stagni — <a href='https://maps.app.goo.gl/pZqHmUr5xFTXD62N9' target='_blank' style='color:#2980b9'>📍 Plan arrêt</a>",
+                        "Avis de travaux — <a href='https://www.ge.ch/document/avis-travaux-info-mobilite-route-du-vallon-ii' target='_blank' style='color:#2980b9'>🔗 Ouvrir</a>",
+                        "Réfection du tapis sur la chaussée, détournement des bus, déplacement et suppression d'arrêts.",
+                        "Mesures de régulation à prévoir.",
+                        "Argumentaire : travaux de renouvellement des enrobés de la chaussée afin de garantir la sécurité des usagers circulant sur les routes cantonales.",
+                        "Maître d’ouvrage : Office cantonal du génie civil."
                     ]
                 }
             ]
         },
         {
-            semaine: "Réseau – mai à septembre 2026",
-            items: [
+            "semaine": "Semaine du 8 juin",
+            "items": [
                 {
-                    titre: "Ligne 29 – mise en circulation élargie",
-                    date: "Dès 1er mai au 27 septembre",
-                    debut: "2026-05-01", fin: "2026-09-27", statut: "info",
-                    lignes: ["29"], geste: "",
-                    details: [
+                    "titre": "Les Esserts (cacahuète)",
+                    "date": "Lun. 8 – ven. 26 juin",
+                    "debut": "2026-06-08",
+                    "fin": "2026-06-26",
+                    "statut": "deviation",
+                    "lignes": [
+                        "21",
+                        "22",
+                        "23",
+                        "28",
+                        "C7"
+                    ],
+                    "geste": "https://geste.intra-tpg.ch/er-site/3260748/overview",
+                    "details": [
+                        "Arrêt : Petit-Lancy, Les Esserts — <a href='https://maps.app.goo.gl/RhhgPp4GGJMXPtB77' target='_blank' style='color:#2980b9'>📍 Plan arrêt</a>",
+                        "Travaux de réaménagement du carrefour des Esserts, déplacement d'arrêt, suppression de voie de circulation en direction du Grand-Lancy.",
+                        "Plan des travaux — <a href='file:///Q:\\DIVISION\\C\\SCO%20Global\\Coordination\\Evenements%20marquants\\2026\\23\\Essert%20dir%20gd%20lancy.png' target='_blank' style='color:#2980b9'>📐 Voir</a>",
+                        "Argumentaire : ces travaux s'inscrivent dans le cadre du réaménagement et de la végétalisation du carrefour des Esserts.",
+                        "Maître d’ouvrage : Office cantonal du génie civil."
+                    ]
+                },
+                {
+                    "titre": "Augustins",
+                    "date": "Lun. 8 – ven. 26 juin",
+                    "debut": "2026-06-08",
+                    "fin": "2026-06-26",
+                    "statut": "deviation",
+                    "lignes": [
+                        "12",
+                        "18"
+                    ],
+                    "geste": "https://geste.intra-tpg.ch/er-site/3319846/overview",
+                    "details": [
+                        "Arrêt : Genève, Augustins — <a href='https://maps.app.goo.gl/gq6XQ1DuGcF99E596' target='_blank' style='color:#2980b9'>📍 Plan arrêt</a>",
+                        "Arrêt déplacé.",
+                        "Mesures de régulation à prévoir.",
+                        "Argumentaire : projet de réaménagement de la rue de Carouge.",
+                        "Maître d’ouvrage : Service de l'aménagement, du génie-civil et de la mobilité."
+                    ]
+                },
+                {
+                    "titre": "Veyrier – Rue du Stand-Veyrier",
+                    "date": "Lun. 8, mar. 9 et mer. 10 juin dès 20h00",
+                    "debut": "2026-06-08",
+                    "fin": "2026-06-10",
+                    "statut": "deviation",
+                    "lignes": [
+                        "20"
+                    ],
+                    "geste": "https://geste.intra-tpg.ch/er-site/3321849/overview",
+                    "details": [
+                        "Arrêt : Veyrier, Sierne — <a href='https://maps.app.goo.gl/i4u6mVnL83W1jAVF8' target='_blank' style='color:#2980b9'>📍 Plan arrêt</a>",
+                        "Avis de travaux — <a href='https://www.ge.ch/document/avis-travaux-info-mobilite-route-du-stand-veyrier/route-du-pas-echelle' target='_blank' style='color:#2980b9'>🔗 Lecture recommandée</a>",
+                        "Mise en place déviation tpg ligne 20.",
+                        "Mesures de régulation : 8 juin, 9 juin et 10 juin.",
+                        "Argumentaire : travaux de renouvellement des enrobés de la chaussée, afin de garantir la sécurité des usagers circulant sur les routes cantonales.",
+                        "Maître d’ouvrage : Office cantonal du génie civil."
+                    ]
+                },
+                {
+                    "titre": "Meyrin – BHNS – Route du Nant-d’Avril",
+                    "date": "Mar. 9 – ven. 12 juin",
+                    "debut": "2026-06-09",
+                    "fin": "2026-06-12",
+                    "statut": "deviation",
+                    "lignes": [
+                        "57",
+                        "68",
+                        "71"
+                    ],
+                    "geste": "https://geste.intra-tpg.ch/er-site/3332430/overview",
+                    "details": [
+                        "Arrêt : Meyrin, Kammacher — <a href='https://maps.app.goo.gl/qG278HAUrX68LyCy9' target='_blank' style='color:#2980b9'>📍 Plan arrêt</a>",
+                        "Avis de travaux — <a href='https://www.ge.ch/blog/bhns-gvz/avis-travaux-info-mobilite-route-du-nant-avril-12-05-2026' target='_blank' style='color:#2980b9'>🔗 Ouvrir</a>",
+                        "Travaux BHNS : pose enrobé final.",
+                        "Déviation bus.",
+                        "Mesures de régulation à prévoir.",
+                        "Argumentaire : ces travaux, menés par le canton de Genève, permettront d'aménager la route du Nant-d'Avril pour l'arrivée du Bus à Haut Niveau de Service Genève - Vernier - ZIMEYSAVER (BHNS-GVZ).",
+                        "Maître d’ouvrage : Office cantonal du génie civil."
+                    ]
+                },
+                {
+                    "titre": "Annemasse – Rue du Parc",
+                    "date": "Sam. 13 – dim. 14 juin",
+                    "debut": "2026-06-13",
+                    "fin": "2026-06-14",
+                    "statut": "suppression",
+                    "lignes": [
+                        "17"
+                    ],
+                    "geste": "https://geste.intra-tpg.ch/er-site/3177867/overview",
+                    "details": [
+                        "Arrêt : Annemasse, Parc Montessuit — <a href='https://maps.app.goo.gl/bHiPRjM9iUisEzjaA' target='_blank' style='color:#2980b9'>📍 Plan arrêt</a>",
+                        "Travaux. Coupure tram, engagement navettes de substitution exploitées par tp2a.",
+                        "Mesures de régulation à prévoir.",
+                        "Argumentaire : construction de l’extension de la ligne 17 à Annemasse.",
+                        "Maître d’ouvrage : Genevois Français Mobilités."
+                    ]
+                },
+                {
+                    "titre": "Chêne-Bougeries – Route du Vallon",
+                    "date": "Sam. 13 – dim. 14 juin",
+                    "debut": "2026-06-13",
+                    "fin": "2026-06-14",
+                    "statut": "suppression",
+                    "lignes": [
+                        "34",
+                        "41"
+                    ],
+                    "geste": "https://geste.intra-tpg.ch/er-site/2591606/overview",
+                    "details": [
+                        "Arrêt : Chêne-Bougeries, Parc Stagni — <a href='https://maps.app.goo.gl/aiiSVDUsAu72meMB6' target='_blank' style='color:#2980b9'>📍 Plan arrêt</a>",
+                        "Avis de travaux — <a href='https://www.ge.ch/document/avis-travaux-info-mobilite-route-du-vallon-ii' target='_blank' style='color:#2980b9'>🔗 Ouvrir</a>",
+                        "Réfection du tapis sur la chaussée, détournement des bus, déplacement et suppression d'arrêts.",
+                        "Mesures de régulation à prévoir.",
+                        "Argumentaire : travaux de renouvellement des enrobés de la chaussée, afin de garantir la sécurité des usagers circulant sur les routes cantonales.",
+                        "Maître d'ouvrage : Office cantonal du génie civil."
+                    ]
+                }
+            ]
+        }
+    ],
+    "horaires": [
+        {
+            "semaine": "Réseau – mai à septembre 2026",
+            "items": [
+                {
+                    "titre": "Ligne 29 – mise en circulation élargie",
+                    "date": "Dès 1er mai au 27 septembre",
+                    "debut": "2026-05-01",
+                    "fin": "2026-09-27",
+                    "statut": "info",
+                    "lignes": [
+                        "29"
+                    ],
+                    "geste": "",
+                    "details": [
                         "Vendredi soir en période normale.",
                         "09h00–00h30 les lundis à vendredis vacances, samedis et dimanches."
                     ]
                 },
                 {
-                    titre: "Renfort ligne 8 – dimanches",
-                    date: "Dès 1er mai au 27 septembre",
-                    debut: "2026-05-01", fin: "2026-09-27", statut: "info",
-                    lignes: ["8"], geste: "",
-                    details: [
+                    "titre": "Renfort ligne 8 – dimanches",
+                    "date": "Dès 1er mai au 27 septembre",
+                    "debut": "2026-05-01",
+                    "fin": "2026-09-27",
+                    "statut": "info",
+                    "lignes": [
+                        "8"
+                    ],
+                    "geste": "",
+                    "details": [
                         "Renfort les dimanches entre Gare Cornavin et Veyrier-Douane."
                     ]
                 },
                 {
-                    titre: "Arrêt Champ-Barbon – Ligne 54",
-                    date: "Dès lun. 18 mai",
-                    debut: "2026-05-18", fin: "2026-12-31", statut: "info",
-                    lignes: ["54"], geste: "",
-                    details: [
+                    "titre": "Arrêt Champ-Barbon – Ligne 54",
+                    "date": "Dès lun. 18 mai",
+                    "debut": "2026-05-18",
+                    "fin": "2026-12-31",
+                    "statut": "info",
+                    "lignes": [
+                        "54"
+                    ],
+                    "geste": "",
+                    "details": [
                         "Nouvel arrêt : Versoix, Champ-Barbon, route des Fayards, à proximité du chemin Champ-Barbon."
                     ]
                 },
                 {
-                    titre: "Ajustements d'horaires dès le 18 mai",
-                    date: "Dès lun. 18 mai",
-                    debut: "2026-05-18", fin: "2026-12-31", statut: "info",
-                    lignes: ["A2", "5", "15", "23", "52", "69", "74"], geste: "",
-                    details: [
+                    "titre": "Ajustements d'horaires dès le 18 mai",
+                    "date": "Dès lun. 18 mai",
+                    "debut": "2026-05-18",
+                    "fin": "2026-12-31",
+                    "statut": "info",
+                    "lignes": [
+                        "A2",
+                        "5",
+                        "15",
+                        "23",
+                        "52",
+                        "69",
+                        "74"
+                    ],
+                    "geste": "",
+                    "details": [
                         "Ligne A2 : avancée de 4 min pour correspondance avec A1 → Fret.",
                         "Ligne 5, courses 5-66 et 5-70 : supprimées jusqu'au 29 juin, eBus non prêts, affichées comme supprimées 1h avant passage.",
                         "Ligne 15 : suppression arrêt Palettes depuis Ziplo lors des rentrées au dépôt le vendredi.",
@@ -868,14 +1223,38 @@ const DATA = {
             ]
         },
         {
-            semaine: "G7 – organisation CCC / agences",
-            items: [
+            "semaine": "Semaine du 8 juin",
+            "items": [
                 {
-                    titre: "Ligne 00800 – horaires élargis G7",
-                    date: "14–19 juin",
-                    debut: "2026-06-14", fin: "2026-06-19", statut: "info",
-                    lignes: ["00800"], geste: "",
-                    details: [
+                    "titre": "Ligne 40 — départ Nocturne de Chancy Douane",
+                    "date": "Dès le 8 juin",
+                    "debut": "2026-06-08",
+                    "fin": "2026-12-31",
+                    "statut": "info",
+                    "lignes": [
+                        "40"
+                    ],
+                    "geste": "",
+                    "details": [
+                        "Dès le 8 juin, suite à une réclamation OCT, le départ Nocturne de Chancy Douane de 26h25 de la ligne 40 sera anticipé à 26h22 pour effectuer la correspondance avec la ligne 14 direction Meyrin Gravière."
+                    ]
+                }
+            ]
+        },
+        {
+            "semaine": "G7 – organisation CCC / agences",
+            "items": [
+                {
+                    "titre": "Ligne 00800 – horaires élargis G7",
+                    "date": "14–19 juin",
+                    "debut": "2026-06-14",
+                    "fin": "2026-06-19",
+                    "statut": "info",
+                    "lignes": [
+                        "00800"
+                    ],
+                    "geste": "",
+                    "details": [
                         "Dim. 14 juin : 07h00–18h00.",
                         "Lun. 15 juin : 07h00–18h00.",
                         "Mar. 16 juin : 07h00–18h00.",
@@ -886,11 +1265,14 @@ const DATA = {
                     ]
                 },
                 {
-                    titre: "Agences – horaires adaptés G7",
-                    date: "12–22 juin",
-                    debut: "2026-06-12", fin: "2026-06-22", statut: "info",
-                    lignes: [], geste: "",
-                    details: [
+                    "titre": "Agences – horaires adaptés G7",
+                    "date": "12–22 juin",
+                    "debut": "2026-06-12",
+                    "fin": "2026-06-22",
+                    "statut": "info",
+                    "lignes": [],
+                    "geste": "",
+                    "details": [
                         "Cornavin : fermée 12–18 juin. Ouverte 19 juin 08h–19h, 20 juin 09h–18h, fermée 21 juin, ouverte 22 juin 09h–18h.",
                         "Rive : fermée 12–21 juin. Ouverte 22 juin 09h–18h.",
                         "Lancy-Pont-Rouge : ouverte 12–18 juin 09h–18h, fermée 14, 20, 21 juin. Ouverte 19 et 22 juin 09h–18h.",
@@ -901,61 +1283,81 @@ const DATA = {
             ]
         }
     ],
-
-    divers: [
+    "divers": [
         {
-            semaine: "Relations clientèle",
-            items: [
+            "semaine": "DG",
+            "items": [
                 {
-                    titre: "Séance plénière",
-                    date: "",
-                    statut: "info",
-                    lignes: [], geste: "",
-                    details: [
-                        "Document de présentation de la deuxième session plénière du SRC.",
-                        "Diaporama — <a href='file:///Q:\\DIVISION\\C\\SCO%20Global\\Coordination\\Evenements%20marquants\\2026\\22\\Séances%20plénières%20SRC-Mai%202026.PPTX' target='_blank' style='color:#2980b9'>📊 Ouvrir</a>",
-                        "Introduction des nouveaux horaires et tours de travail CCC-OT et BCo.",
-                        "Document — <a href='pcdocs://TPGED/753930/R' target='_blank' style='color:#2980b9'>📄 Ouvrir</a>",
-                        "Mail de Douglas — <a href='file:///Q:\\DIVISION\\C\\SCO%20Global\\Coordination\\Evenements%20marquants\\2026\\22\\Introduction%20des%20nouveaux%20horaires%20et%20tours%20de%20travail%20CCC-OT%20et%20BCo.msg' target='_blank' style='color:#2980b9'>📧 Ouvrir</a>"
+                    "titre": "Réunion de direction",
+                    "date": "19 mai",
+                    "statut": "info",
+                    "lignes": [],
+                    "geste": "https://intranet.tpg.ch/article/14747",
+                    "details": [
+                        "Rapport d’Étape.",
+                        "Plan directeur des véhicules.",
+                        "Évènement UITP organisé par les tpg en juin à Genève.",
+                        "Mobilité interne temporaire du personnel.",
+                        "Interdiction de fumer."
                     ]
                 },
                 {
-                    titre: "Liste des interlocuteurs et carte des secteurs chantiers",
-                    date: "",
-                    statut: "info",
-                    lignes: [], geste: "",
-                    details: [
-                        "La liste des binômes des responsables chantiers a été mise à jour.",
-                        "Le nom de M. Aimé Mutale – Responsable manifestations – a été ajouté à la liste des interlocuteurs.",
-                        "Liste des interlocuteurs — <a href='pcdocs://TPGED/50498/R' target='_blank' style='color:#2980b9'>📄 Ouvrir</a>",
-                        "Carte des secteurs chantiers — <a href='pcdocs://TPGED/681081/R' target='_blank' style='color:#2980b9'>🗺️ Ouvrir</a>"
+                    "titre": "Réunion de direction",
+                    "date": "26 mai",
+                    "statut": "info",
+                    "lignes": [],
+                    "geste": "https://intranet.tpg.ch/article/14752",
+                    "details": [
+                        "Veille législative 2026.",
+                        "Standardisation des signatures pour e-mails.",
+                        "Mise en place d’une cellule de prévention et d’anticipation des situations sensibles."
+                    ]
+                }
+            ]
+        },
+        {
+            "semaine": "Relations clientèle",
+            "items": [
+                {
+                    "titre": "Harmonisation des signatures de courriels professionnels",
+                    "date": "",
+                    "statut": "info",
+                    "lignes": [],
+                    "geste": "",
+                    "details": [
+                        "Mail de Dimitri — <a href='file:///Q:\\DIVISION\\C\\SCO%20Global\\Coordination\\Evenements%20marquants\\2026\\23\\Harmonisation%20des%20signatures%20de%20courriels%20professionnels.msg' target='_blank' style='color:#2980b9'>📧 Ouvrir</a>",
+                        "Dans le cadre de l’harmonisation des pratiques de communication, l’entreprise souhaite uniformiser les signatures des courriels professionnels.",
+                        "Merci de bien vouloir adapter votre signature conformément au modèle transmis, en respectant les couleurs et le format demandés."
                     ]
                 },
                 {
-                    titre: "Bulletin mensuel du CCC",
-                    date: "",
-                    statut: "info",
-                    lignes: [], geste: "",
-                    details: [
+                    "titre": "Bulletin mensuel du CCC",
+                    "date": "",
+                    "statut": "info",
+                    "lignes": [],
+                    "geste": "",
+                    "details": [
                         "Dernier numéro disponible sur le poste de contrôle Reporting."
                     ]
                 },
                 {
-                    titre: "Confirmation réservations tpgFlex",
-                    date: "",
-                    statut: "info",
-                    lignes: [], geste: "",
-                    details: [
+                    "titre": "Confirmation réservations tpgFlex",
+                    "date": "",
+                    "statut": "info",
+                    "lignes": [],
+                    "geste": "",
+                    "details": [
                         "Rappeler systématiquement au client : confirmation par e-mail dès validation, SMS 30 min avant prise en charge, second SMS environ 10 min avant avec le quai.",
                         "Codification en fin d'appel : Résolution / Autres demandes + événement tpgFlex."
                     ]
                 },
                 {
-                    titre: "Événement CRM : G7 2026",
-                    date: "",
-                    statut: "info",
-                    lignes: [], geste: "",
-                    details: [
+                    "titre": "Événement CRM : G7 2026",
+                    "date": "",
+                    "statut": "info",
+                    "lignes": [],
+                    "geste": "",
+                    "details": [
                         "L'événement « G7 2026 » est créé dans le CRM — utiliser dès maintenant pour toute demande liée au sommet.",
                         "Codification détaillée communiquée prochainement."
                     ]
@@ -963,77 +1365,177 @@ const DATA = {
             ]
         },
         {
-            semaine: "Technique",
-            items: [
+            "semaine": "Opérations",
+            "items": [
                 {
-                    titre: "Réussir ensemble la transition énergétique de notre flotte",
-                    date: "",
-                    statut: "info",
-                    lignes: [], geste: "",
-                    details: [
+                    "titre": "Nomination de Gilles Kraft, directeur des Opérations",
+                    "date": "",
+                    "statut": "info",
+                    "lignes": [],
+                    "geste": "https://intranet.tpg.ch/17-tpg-intranet/actualite/14750-nomination-de-gilles-kraft-directeur-des-operations",
+                    "details": [
+                        "Le Conseil d’État a approuvé la nomination du nouveau directeur des Opérations, future dénomination pour l’Exploitation.",
+                        "Gilles Kraft, 44 ans, rejoindra l’entreprise à l’automne. Fort de ses expériences à Swissport, Genève Aéroport et ISS, il assurera la bonne réalisation des missions quotidiennes et des projets de ce domaine d’activités au cœur de l’entreprise."
+                    ]
+                },
+                {
+                    "titre": "Briefing mensuel réseau du mois de juin 2026",
+                    "date": "",
+                    "statut": "info",
+                    "lignes": [],
+                    "geste": "",
+                    "details": [
+                        "Document — <a href='file:///Q:\\DIVISION\\C\\SCO%20Global\\Coordination\\Evenements%20marquants\\2026\\23\\NI_07-2026_Briefing_mensuel_réseau_juin_2026.pdf' target='_blank' style='color:#2980b9'>📄 Ouvrir</a>",
+                        "Informations générales utiles concernant le réseau.",
+                        "Informations sur le G7.",
+                        "Les travaux sur la rue de Carouge reprennent du 27 juin au 16 août.",
+                        "Ligne 23 : deux nouveaux eBus sur la ligne.",
+                        "Navettes du personnel : nouveaux arrêts dès le 29 juin.",
+                        "Changement d’horaires pour les conducteurs.",
+                        "Rappel des mesures sécuritaires à appliquer lors de l’abandon du véhicule en situation spécifique.",
+                        "Croisement des trams sur un chantier.",
+                        "Objectif collectif du mois.",
+                        "Il est important de signaler tout dégât, dysfonctionnement ou nécessité d’intervention du service technique via la brique Hermès (Avarie) ou le livret de signalement d’avarie, en étant précis, par exemple en mentionnant la cabine concernée pour les motrices bidirectionnelles."
+                    ]
+                },
+                {
+                    "titre": "Feu vert N° 116",
+                    "date": "",
+                    "statut": "info",
+                    "lignes": [],
+                    "geste": "https://intranet.tpg.ch/files/8417/2026/38792/Feu-vert-n%C2%B0-116---mai-2026.pdf?preview=1",
+                    "details": [
+                        "Édito : Emmanuel Fankhauser présente les nouveautés belle saison et l'offre de loisirs tpg.",
+                        "Au sommaire : reliquats vacances, climatisation, usage des locaux, eBus ligne 23, École Roseraie, projets Exploitation, stationnement, groupes non-officiels, port du gilet jaune."
+                    ]
+                }
+            ]
+        },
+        {
+            "semaine": "Technique",
+            "items": [
+                {
+                    "titre": "Nomination de Nicolas Amoudruz, directeur Technique",
+                    "date": "",
+                    "statut": "info",
+                    "lignes": [],
+                    "geste": "https://intranet.tpg.ch/17-tpg-intranet/actualite/14749-nomination-de-nicolas-amoudruz-directeur-technique",
+                    "details": [
+                        "Le Conseil d’État a approuvé la nomination du nouveau directeur Technique.",
+                        "Nicolas Amoudruz rejoindra l’entreprise cet automne. Après avoir occupé des postes à hautes responsabilités au sein du groupe LEMO, il accompagnera les équipes et activités du Technique, tout en pilotant les évolutions et projets de ce domaine présent sur les trois sites."
+                    ]
+                },
+                {
+                    "titre": "Nominations – Technique dès le 1er avril",
+                    "date": "",
+                    "statut": "info",
+                    "lignes": [],
+                    "geste": "https://intranet.tpg.ch/article/14725",
+                    "details": [
+                        "Christophe Charroin — responsable opérationnel, planification véhicules.",
+                        "Laurent Medardoni — responsable opérationnel, planification véhicules.",
+                        "Nuno Queiroga — responsable opérationnel, planification véhicules."
+                    ]
+                },
+                {
+                    "titre": "Réussir ensemble la transition énergétique de notre flotte",
+                    "date": "",
+                    "statut": "info",
+                    "lignes": [],
+                    "geste": "",
+                    "details": [
                         "Les premiers e-bus nouvelle génération circulent sur le réseau.",
                         "L’implémentation des infrastructures suit son cours.",
                         "Les équipes du Technique et de l’Exploitation poursuivent leurs efforts pour mener à bien cette évolution importante pour l’entreprise.",
                         "Intranet — <a href='https://intranet.tpg.ch/article/14734' target='_blank' style='color:#2980b9'>🔗 Ouvrir</a>",
                         "Vidéo — <a href='https://vimeo.com/1188950119?fl=pl&fe=sh' target='_blank' style='color:#2980b9'>🎬 Ouvrir</a>"
                     ]
-                },
-                {
-                    titre: "Nominations – Technique dès le 1er avril",
-                    date: "",
-                    statut: "info",
-                    lignes: [], geste: "https://intranet.tpg.ch/article/14725",
-                    details: [
-                        "Christophe Charroin — responsable opérationnel, planification véhicules.",
-                        "Laurent Medardoni — responsable opérationnel, planification véhicules.",
-                        "Nuno Queiroga — responsable opérationnel, planification véhicules."
-                    ]
                 }
             ]
         },
         {
-            semaine: "DG / Opérations / Autres divers",
-            items: [
+            "semaine": "Autres divers",
+            "items": [
                 {
-                    titre: "Réunion de direction du 5 mai",
-                    date: "",
-                    statut: "info",
-                    lignes: [], geste: "https://intranet.tpg.ch/article/14729",
-                    details: [
-                        "Plan directeur immobilier : Damien Roth a présenté la vision stratégique du patrimoine, 165 000 m² sur 3 sites, agences, locaux de pause.",
-                        "Task force absentéisme : groupe RH / Exploitation / Service juridique travaille sur des mesures pour réduire durablement le taux d'absentéisme, particulièrement à la conduite."
+                    "titre": "Conseils pour supporter les chaleurs estivales",
+                    "date": "",
+                    "statut": "info",
+                    "lignes": [],
+                    "geste": "https://intranet.tpg.ch/17-tpg-intranet/actualite/14740-conseils-pour-supporter-les-fortes-chaleurs",
+                    "details": [
+                        "Le début de la saison d’été correspond généralement à des épisodes de fortes chaleurs.",
+                        "Conseils et bons gestes rappelés. L’entreprise dispose aussi d’un Plan canicule qui sera activé si besoin."
                     ]
                 },
                 {
-                    titre: "Feu vert N° 116",
-                    date: "",
-                    statut: "info",
-                    lignes: [], geste: "https://intranet.tpg.ch/files/8417/2026/38792/Feu-vert-n%C2%B0-116---mai-2026.pdf?preview=1",
-                    details: [
-                        "Édito : Emmanuel Fankhauser présente les nouveautés belle saison et l'offre de loisirs tpg.",
-                        "Au sommaire : reliquats vacances, climatisation, usage des locaux, eBus ligne 23, École Roseraie, projets Exploitation, stationnement, groupes non-officiels, port du gilet jaune."
+                    "titre": "Ice, ice, baby…",
+                    "date": "",
+                    "statut": "info",
+                    "lignes": [],
+                    "geste": "",
+                    "details": [
+                        "Le congélateur a fini son hibernation. Les glaces sont de retour au CRC.",
+                        "Ne pas oublier de mettre les pièces de monnaie dans la boîte rouge prévue à cet effet, juste à côté."
                     ]
                 },
                 {
-                    titre: "Nouveaux accès au Bachet : mise en service",
-                    date: "Dès le 1er juin",
-                    debut: "2026-06-01", fin: "2026-06-01", statut: "info",
-                    lignes: [], geste: "",
-                    details: [
-                        "Les portails et tourniquets installés l’automne dernier seront activés à partir du 1er juin.",
-                        "Intranet — <a href='https://intranet.tpg.ch/article/14733' target='_blank' style='color:#2980b9'>🔗 Ouvrir</a>"
+                    "titre": "Stationnement : ce qui change au 1er juin",
+                    "date": "Dès le 1er juin",
+                    "debut": "2026-06-01",
+                    "fin": "2026-06-01",
+                    "statut": "info",
+                    "lignes": [],
+                    "geste": "https://intranet.tpg.ch/article/14743",
+                    "details": [
+                        "Tour d’horizon des changements à venir, notamment sur les accès et la tarification."
                     ]
                 },
                 {
-                    titre: "Midi[infos] : prendre soin de votre santé mentale",
-                    date: "Jeu. 11 juin · 12h00–13h00",
-                    debut: "2026-06-11", fin: "2026-06-11", statut: "info",
-                    lignes: [], geste: "",
-                    details: [
+                    "titre": "« Ça bouge à Genève ! » - émission n°3",
+                    "date": "",
+                    "statut": "info",
+                    "lignes": [],
+                    "geste": "https://intranet.tpg.ch/article/14741",
+                    "details": [
+                        "Vidéo — <a href='https://carac.tv/replay/ca-bouge-a-geneve/5124&utm_source=sitewebcarac&utm_medium=Replay' target='_blank' style='color:#2980b9'>🎬 Ouvrir</a>",
+                        "Découvrez le troisième numéro de « Ça bouge à Genève ! » avec P. Maudet et L. Brasier en plateau."
+                    ]
+                },
+                {
+                    "titre": "Newsletter envoyée aux abonné·es tpg",
+                    "date": "",
+                    "statut": "info",
+                    "lignes": [],
+                    "geste": "",
+                    "details": [
+                        "Mail — <a href='file:///Q:\\DIVISION\\C\\SCO%20Global\\Coordination\\Evenements%20marquants\\2026\\23\\Luis-David%20votre%20commune%20soutient%20votre%20mobilité.msg' target='_blank' style='color:#2980b9'>📧 Ouvrir</a>",
+                        "Un numéro dédié aux participations financières des communes."
+                    ]
+                },
+                {
+                    "titre": "Nouveaux accès au Bachet : mise en service",
+                    "date": "Dès le 1er juin",
+                    "debut": "2026-06-01",
+                    "fin": "2026-06-01",
+                    "statut": "info",
+                    "lignes": [],
+                    "geste": "https://intranet.tpg.ch/article/14733",
+                    "details": [
+                        "Les portails et tourniquets installés l’automne dernier seront activés à partir du 1er juin."
+                    ]
+                },
+                {
+                    "titre": "Midi[infos] : prendre soin de votre santé mentale",
+                    "date": "Jeu. 11 juin · 12h00–13h00",
+                    "debut": "2026-06-11",
+                    "fin": "2026-06-11",
+                    "statut": "info",
+                    "lignes": [],
+                    "geste": "https://intranet.tpg.ch/article/14737",
+                    "details": [
                         "Le 11 juin, apprenez-en plus sur la santé mentale et les solutions pour en prendre soin.",
                         "Horaire : jeudi 11 juin, de 12h00 à 13h00.",
                         "Lieu : Auditorium du Bachet-de-Pesay.",
-                        "Intranet — <a href='https://intranet.tpg.ch/article/14737' target='_blank' style='color:#2980b9'>🔗 Ouvrir</a>",
                         "Association minds — <a href='https://www.minds-ge.ch/' target='_blank' style='color:#2980b9'>🔗 Ouvrir</a>",
                         "Inscriptions sur l’agenda d’intranet — <a href='https://intranet.tpg.ch/component/eventbooking/evenement-rh/cs58i3xgnhj4l7edet19faedycz5c9avld9wtsa4n34z1spyni?Itemid=56097' target='_blank' style='color:#2980b9'>📝 S’inscrire</a>"
                     ]
@@ -1041,130 +1543,98 @@ const DATA = {
             ]
         }
     ],
-
-    presse: [
+    "presse": [
         {
-            semaine: "Communiqué de presse",
-            items: [
+            "semaine": "Communiqué de presse",
+            "items": [
                 {
-                    titre: "Les tpg maintiendront leur offre, principalement en horaire vacances, durant la période du G7",
-                    date: "",
-                    statut: "info",
-                    lignes: [], geste: "https://www.tpg.ch/fr/les-tpg-maintiendront-leur-offre-principalement-en-horaire-vacances-durant-la-periode-du-g7",
-                    details: [
+                    "titre": "Les tpg maintiendront leur offre, principalement en horaire vacances, durant la période du G7",
+                    "date": "",
+                    "statut": "info",
+                    "lignes": [],
+                    "geste": "https://www.tpg.ch/fr/les-tpg-maintiendront-leur-offre-principalement-en-horaire-vacances-durant-la-periode-du-g7",
+                    "details": [
                         "Communiqué publié sur le site tpg."
                     ]
                 }
             ]
         },
         {
-            semaine: "Semaine du 18 mai",
-            items: [
+            "semaine": "Lundi 26",
+            "items": [
                 {
-                    titre: "Les TPG rouleront en mode vacances durant le G7",
-                    date: "Tribune de Genève",
-                    statut: "info",
-                    lignes: [], geste: "https://intranet.tpg.ch/index.php?preview=1&option=com_dropfiles&format=&task=frontfile.download&catid=8525&id=38816&Itemid=1000000000000",
-                    details: []
+                    "titre": "Est-ce que la France se moque de la Suisse avec le G7?",
+                    "date": "Tribune de Genève",
+                    "statut": "info",
+                    "lignes": [],
+                    "geste": "https://intranet.tpg.ch/index.php?preview=1&option=com_dropfiles&format=&task=frontfile.download&catid=8530&id=38847&Itemid=1000000000000",
+                    "details": []
                 },
                 {
-                    titre: "Pierre Maudet : « Les Romands semblent condamnés à toujours avoir un train de retard »",
-                    date: "Tribune de Genève",
-                    statut: "info",
-                    lignes: [], geste: "",
-                    details: []
+                    "titre": "Les CFF expulsent des passagers d'un train bondé en direction de Lausanne",
+                    "date": "Blick",
+                    "statut": "info",
+                    "lignes": [],
+                    "geste": "https://www.blick.ch/fr/suisse/a-cause-de-la-suroccupation-les-cff-expulsent-des-passagers-dun-train-bonde-en-direction-de-lausanne-id21975539.html",
+                    "details": []
                 },
                 {
-                    titre: "Un rapport secret révèle ce que les CFF ont caché sur l'accident du Gothard",
-                    date: "Blick",
-                    statut: "info",
-                    lignes: [], geste: "https://www.blick.ch/fr/suisse/gothard-ce-que-les-cff-ont-cache-sur-laccident-de-2023-id21955232.html",
-                    details: []
+                    "titre": "Amendes dans les transports publics: et si l’erreur venait aussi des contrôleurs?",
+                    "date": "Blick",
+                    "statut": "info",
+                    "lignes": [],
+                    "geste": "https://www.blick.ch/fr/suisse/romande/controles-contestes-amendes-dans-les-transports-publics-et-si-l-erreur-venait-aussi-des-controleurs-id21974827.html",
+                    "details": []
                 },
                 {
-                    titre: "Elle accumule 80'000 francs de dettes envers les CFF",
-                    date: "20 Minutes",
-                    statut: "info",
-                    lignes: [], geste: "file:///\\\\INTRA-TPG.ch\\Users\\HomeDir\\luis-david.fernando\\Évènements%20marquants\\2026\\En%20préparation\\Semaine%20n°22%20dès%2025.5\\Un%20rapport%20secret%20révèle%20ce%20que%20les%20CFF%20ont%20caché%20sur%20l%27accident%20du%20Gothard",
-                    details: []
+                    "titre": "En cas de mauvais stationnement à Vidy, votre journée risque de tourner au vinaigre",
+                    "date": "24 Heures",
+                    "statut": "info",
+                    "lignes": [],
+                    "geste": "https://intranet.tpg.ch/index.php?preview=1&option=com_dropfiles&format=&task=frontfile.download&catid=8530&id=38848&Itemid=1000000000000",
+                    "details": []
+                }
+            ]
+        },
+        {
+            "semaine": "Semaine du 18 mai — conservé",
+            "items": [
+                {
+                    "titre": "Les TPG rouleront en mode vacances durant le G7",
+                    "date": "Tribune de Genève",
+                    "statut": "info",
+                    "lignes": [],
+                    "geste": "https://intranet.tpg.ch/index.php?preview=1&option=com_dropfiles&format=&task=frontfile.download&catid=8525&id=38816&Itemid=1000000000000",
+                    "details": []
                 },
                 {
-                    titre: "Des habitants réclament que l’avenue Wendt passe en zone 30",
-                    date: "Tribune de Genève",
-                    statut: "info",
-                    lignes: [], geste: "https://intranet.tpg.ch/index.php?preview=1&option=com_dropfiles&format=&task=frontfile.download&catid=8526&id=38821&Itemid=1000000000000",
-                    details: []
+                    "titre": "Un rapport secret révèle ce que les CFF ont caché sur l'accident du Gothard",
+                    "date": "Blick",
+                    "statut": "info",
+                    "lignes": [],
+                    "geste": "https://www.blick.ch/fr/suisse/gothard-ce-que-les-cff-ont-cache-sur-laccident-de-2023-id21955232.html",
+                    "details": []
                 },
                 {
-                    titre: "Les CFF veulent concurrencer l’avion sur ces liaisons vers l’étranger",
-                    date: "Watson",
-                    statut: "info",
-                    lignes: [], geste: "https://www.watson.ch/fr/suisse/international/248361597-les-cff-ont-de-grands-projets-vers-ces-villes-etrangeres",
-                    details: []
+                    "titre": "Les CFF veulent concurrencer l’avion sur ces liaisons vers l’étranger",
+                    "date": "Watson",
+                    "statut": "info",
+                    "lignes": [],
+                    "geste": "https://www.watson.ch/fr/suisse/international/248361597-les-cff-ont-de-grands-projets-vers-ces-villes-etrangeres",
+                    "details": []
                 },
                 {
-                    titre: "Dilara Bayrak, première citoyenne",
-                    date: "Le Courrier",
-                    statut: "info",
-                    lignes: [], geste: "https://intranet.tpg.ch/index.php?preview=1&option=com_dropfiles&format=&task=frontfile.download&catid=8526&id=38822&Itemid=1000000000000",
-                    details: []
-                },
-                {
-                    titre: "Les voyageurs d'un train CFF vivent un calvaire en rentrant du Tessin",
-                    date: "Blick",
-                    statut: "info",
-                    lignes: [], geste: "https://www.blick.ch/fr/suisse/suisse-chaos-dans-un-train-cff-bonde-au-retour-du-tessin-id21958974.html",
-                    details: []
-                },
-                {
-                    titre: "L’apprentissage, un tremplin pour réussir sa carrière",
-                    date: "One FM",
-                    statut: "info",
-                    lignes: [], geste: "https://www.onefm.ch/podcasts/le-10h-13h-06-05-2026-1151/",
-                    details: [
-                        "Romain Guéninchault, responsable du centre de maintenance d’En Chardon, est l’invité de One FM pour parler de la valeur de l’apprentissage et du CFC."
-                    ]
-                },
-                {
-                    titre: "NoG7 met la pression sur le Conseil d’État pour manifester sur les quais",
-                    date: "Tribune de Genève",
-                    statut: "info",
-                    lignes: [], geste: "",
-                    details: []
-                },
-                {
-                    titre: "Qui payera les dégâts du G7 à Evian ?",
-                    date: "Tribune de Genève",
-                    statut: "info",
-                    lignes: [], geste: "",
-                    details: []
-                },
-                {
-                    titre: "Un jeune cycliste expulsé du train durant les heures de pointe",
-                    date: "20 minutes",
-                    statut: "info",
-                    lignes: [], geste: "https://www.20min.ch/fr/story/malgre-un-ag-valable-un-jeune-cycliste-expulse-du-train-durant-les-heures-de-pointe-103566814",
-                    details: []
-                },
-                {
-                    titre: "TER : le nouveau ticket vélo à 1 euro, un casse-tête pour les cyclistes",
-                    date: "Le Dauphiné Libéré",
-                    statut: "info",
-                    lignes: [], geste: "https://intranet.tpg.ch/index.php?preview=1&option=com_dropfiles&format=&task=frontfile.download&catid=8527&id=38831&Itemid=1000000000000",
-                    details: []
-                },
-                {
-                    titre: "C’est un arrêté anti-cycle ! Il est où le vivre ensemble ?",
-                    date: "Le Dauphiné Libéré",
-                    statut: "info",
-                    lignes: [], geste: "https://intranet.tpg.ch/index.php?preview=1&option=com_dropfiles&format=&task=frontfile.download&catid=8527&id=38830&Itemid=1000000000000",
-                    details: []
+                    "titre": "Un jeune cycliste expulsé du train durant les heures de pointe",
+                    "date": "20 minutes",
+                    "statut": "info",
+                    "lignes": [],
+                    "geste": "https://www.20min.ch/fr/story/malgre-un-ag-valable-un-jeune-cycliste-expulse-du-train-durant-les-heures-de-pointe-103566814",
+                    "details": []
                 }
             ]
         }
     ]
 };
-
 
 // ════════════════════════════════════════════════════════════
 //  CONFIG
