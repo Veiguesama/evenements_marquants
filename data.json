@@ -1,0 +1,711 @@
+{
+ "semaine": {
+  "numero": 47,
+  "debut": "16 novembre 2026",
+  "doc": "GED n°763767",
+  "cree": "Fernando Luis David",
+  "approuve": "Mehdi Ghafour",
+  "maj": "12.11.2026"
+ },
+ "data": {
+  "news": [
+   {
+    "semaine": "Informations générales",
+    "items": [
+     {
+      "titre": "Anciens numéros",
+      "date": "",
+      "debut": "2026-11-16",
+      "fin": "2026-11-22",
+      "statut": "info",
+      "lignes": [],
+      "geste": "",
+      "details": [
+       "Semaine n°45 dès le 2 novembre — <a href='https://infocenter.intra-tpg.ch:18443/' target='_blank' style='color:#2980b9'>📄 Ouvrir</a>",
+       "Semaine n°46 dès le 9 novembre — <a href='https://infocenter.intra-tpg.ch:18443/' target='_blank' style='color:#2980b9'>📄 Ouvrir</a>"
+      ]
+     },
+     {
+      "titre": "Accès aux détails des évènements (GestE)",
+      "date": "",
+      "debut": "2026-11-16",
+      "fin": "2026-11-22",
+      "statut": "info",
+      "lignes": [],
+      "geste": "",
+      "details": [
+       "Mode d’emploi accès aux détails des évènements (ex-Confluence) — <a href='file:///Q:/DIVISION/C/SCO%20Global/Coordination/Evenements%20marquants/2026/43/Evènements%20réseau%20(ER)%20%20GestE%20%20Page%20confluence.msg' target='_blank' style='color:#2980b9'>📎 Ouvrir</a>",
+       "Mode d’emploi de l’accès aux détails des informations des évènements (anciennement page Confluence)."
+      ]
+     },
+     {
+      "titre": "La Borissette",
+      "date": "",
+      "debut": "2026-11-16",
+      "fin": "2026-12-31",
+      "statut": "info",
+      "lignes": [],
+      "geste": "https://extraordinary-kleicha-3a9b78.netlify.app/",
+      "details": [
+       "Calendrier des travaux et manifestations."
+      ]
+     }
+    ]
+   },
+   {
+    "semaine": "Éléments permanents / encore actifs",
+    "items": [
+     {
+      "titre": "E-bus nouvelle génération — déploiement progressif",
+      "date": "2026–2027",
+      "debut": "2026-06-16",
+      "fin": "2027-12-31",
+      "statut": "info",
+      "lignes": [
+       "23",
+       "5",
+       "10",
+       "6",
+       "19"
+      ],
+      "geste": "",
+      "details": [
+       "Ligne 23 : en service depuis avril 2026. Formation conducteurs en cours — bon retour sur confort et maniabilité.",
+       "Ligne 5 : dès juillet 2026.",
+       "Ligne 10 : dès septembre 2026.",
+       "Lignes 6 et 19 : été 2027.",
+       "Chaque étape inclut test, marche à blanc et introduction progressive. Rotation assurée avec Citaro diesel et TOSA en révision."
+      ]
+     }
+    ]
+   }
+  ],
+  "manif": [
+   {
+    "semaine": "Semaine du 16 novembre",
+    "items": [
+     {
+      "titre": "Course de la Trans’Onésienne",
+      "date": "le samedi 21 novembre de 13h à 17h",
+      "debut": "2026-11-21",
+      "fin": "2026-11-21",
+      "statut": "deviation",
+      "lignes": [
+       "43"
+      ],
+      "geste": "https://geste.intra-tpg.ch/er-site/3577469/overview",
+      "details": [
+       "Arrêt Onex, Salle-communale — <a href='https://maps.app.goo.gl/N8E7mmnFgULFofDu5' target='_blank' style='color:#2980b9'>📍 Plan arrêt</a>",
+       "Organisateur — <a href='https://transo.ch/' target='_blank' style='color:#2980b9'>🔗 Site</a>",
+       "Course pédestre.",
+       "Mesures de régulation à prévoir."
+      ]
+     }
+    ]
+   },
+   {
+    "semaine": "Semaine du 23 novembre",
+    "items": [
+     {
+      "titre": "Foire de la Sainte-Barbe",
+      "date": "le samedi 28 novembre dès 19h",
+      "debut": "2026-11-28",
+      "fin": "2026-11-28",
+      "statut": "ok",
+      "lignes": [
+       "M"
+      ],
+      "geste": "https://geste.intra-tpg.ch/er-site/3577531/overview",
+      "details": [
+       "Arrêt Collonges-sous-Salève, mairie — <a href='https://maps.app.goo.gl/qSDQpk6JpHJFUVN28' target='_blank' style='color:#2980b9'>📍 Plan arrêt</a>",
+       "Organisateur — <a href='https://www.foiredelasaintebarbe.fr/' target='_blank' style='color:#2980b9'>🔗 Site</a>",
+       "Foire de la Sainte-Barbe : fermeture de la rue Verdi suite à la foire.",
+       "Le samedi 28 novembre 2026, les véhicules de la ligne M pourront circuler normalement, en respectant les consignes des organisateurs."
+      ]
+     },
+     {
+      "titre": "Meyrin Run",
+      "date": "le samedi 28 novembre de 16h à 16h30",
+      "debut": "2026-11-28",
+      "fin": "2026-11-28",
+      "statut": "deviation",
+      "lignes": [
+       "57",
+       "67",
+       "71"
+      ],
+      "geste": "https://geste.intra-tpg.ch/er-site/3563894/overview",
+      "details": [
+       "Arrêt Meyrin, village — <a href='https://maps.app.goo.gl/1sEzxpoi3QUCKF6F7' target='_blank' style='color:#2980b9'>📍 Plan arrêt</a>",
+       "Organisateur — <a href='https://www.meyrinrun.ch/' target='_blank' style='color:#2980b9'>🔗 Site</a>",
+       "Le départ de la course est prévu à 16h00.",
+       "Les départs seront majoritairement organisés entre les passages des bus afin de maintenir la desserte. Une temporisation ponctuelle des lignes 57, 67 et 71 pourra toutefois être nécessaire selon les conditions sur le terrain.",
+       "Des agents assureront également la sécurisation du passage des véhicules, conformément aux accords avec l’organisateur."
+      ]
+     },
+     {
+      "titre": "Match Servette FC – FC Lausanne-Sport",
+      "date": "le samedi 28 novembre de 19h à 23h15",
+      "debut": "2026-11-28",
+      "fin": "2026-11-28",
+      "statut": "deviation",
+      "lignes": [
+       "21",
+       "22",
+       "23",
+       "40",
+       "42",
+       "43",
+       "46",
+       "80"
+      ],
+      "geste": "https://geste.intra-tpg.ch/er-site/3514847/overview",
+      "details": [
+       "Arrêt Grand-Lancy, Stade de Genève — <a href='https://maps.app.goo.gl/U6QbaZJWFkA9VF4g7' target='_blank' style='color:#2980b9'>📍 Plan arrêt</a>",
+       "Organisateur — <a href='https://servettefc.ch/' target='_blank' style='color:#2980b9'>🔗 Site</a>",
+       "Cortège : avant le match, les supporters du Servette FC défileront.",
+       "Parcours : Tours de Carouge, Av. Vibert, Stade de Genève.",
+       "Début du match : 20h30 — Fin du match : 22h15.",
+       "De 21h45 à 23h15 environ, mise en place du concept de mesures de fermeture des axes menant au stade de Genève.",
+       "Mesures de régulation à prévoir."
+      ]
+     },
+     {
+      "titre": "Entraînement course de l’Escalade Bastions",
+      "date": "le dimanche 29 novembre",
+      "debut": "2026-11-29",
+      "fin": "2026-11-29",
+      "statut": "deviation",
+      "lignes": [
+       "92"
+      ],
+      "geste": "https://geste.intra-tpg.ch/er-site/3526276/overview",
+      "details": [
+       "Arrêt Genève, Place de Neuve — <a href='https://maps.app.goo.gl/wVYzwrvCBPWp8bKZ8' target='_blank' style='color:#2980b9'>📍 Plan arrêt</a>",
+       "Organisateur — <a href='https://escalade.ch/entrainements-en-commun/' target='_blank' style='color:#2980b9'>🔗 Site</a>",
+       "Entraînement en commun pour la course de l'Escalade.",
+       "Départ : Promenade des Bastions.",
+       "Parcours : rue St-Léger, rue Etienne-Dumont, Prom. du Pin, rue François-Le-Fort, rue Charles-Galland, rue des Chaudronniers, Pl. du Bourg-de-Four, rue de l'Hôtel-de-ville, Pl. de la Taconnerie, rue Guillaume-Farel, rue de l'Evêché, Cr. de Saint-Pierre, rue Otto-Barblanc, rue Jean-Calvin, rue de la Pélisserie, Gd-Rue, rue de la Tertasse, Pl. de Neuve.",
+       "Arrivée : Pl. de Neuve.",
+       "Dernier départ de la ligne 92 de Pl. de Neuve à 9h00.",
+       "Plan de la course d’entraînement — <a href='file://fs11/PUBLIC1/DIVISION/C/SCO%20Global/Coordination/Evenements%20marquants/2026/47/SANTESCALADE%20BASTIONS%2029.11.2026.pdf' target='_blank' style='color:#2980b9'>📐 Voir</a>",
+       "Mesures de régulation à prévoir."
+      ]
+     }
+    ]
+   }
+  ],
+  "travaux": [
+   {
+    "semaine": "Travaux longue durée / encore actifs",
+    "items": [
+     {
+      "titre": "Place du Grand-Saconnex – TNGS lot 3 étape 5",
+      "date": "15 juin 2026 – 14 juin 2027",
+      "debut": "2026-06-15",
+      "fin": "2027-06-14",
+      "statut": "deviation",
+      "lignes": [
+       "5",
+       "8",
+       "50",
+       "53",
+       "55",
+       "59"
+      ],
+      "geste": "https://geste.intra-tpg.ch/er-site/3196894/overview",
+      "details": [
+       "Arrêt Grand-Saconnex, Place — <a href='https://maps.app.goo.gl/t8Utvw7ouJzxPjHh7' target='_blank' style='color:#2980b9'>📍 Plan arrêt</a>",
+       "Travaux TNGS.",
+       "Déviation lignes 5, 8, 50, 53, 55, 59.",
+       "Modification des sens de circulation.",
+       "Mesures de régulation à prévoir.",
+       "Argumentaire : travaux de construction du tram des Nations – Grand-Saconnex – Ferney.",
+       "Maître d'ouvrage : République et Canton de Genève."
+      ]
+     },
+     {
+      "titre": "Rue du Rhône – Rue d’Italie",
+      "date": "du lundi 22 juin au vendredi 25 décembre",
+      "debut": "2026-06-22",
+      "fin": "2026-12-25",
+      "statut": "deviation",
+      "lignes": [
+       "7",
+       "8",
+       "29",
+       "E+",
+       "G+"
+      ],
+      "geste": "https://geste.intra-tpg.ch/er-site/3284613/overview",
+      "details": [
+       "Arrêt Genève, Rive — <a href='https://maps.app.goo.gl/zVfWPUdqbQsf4ZJV8' target='_blank' style='color:#2980b9'>📍 Plan arrêt</a>",
+       "Déviation bus. Arrêts déplacés. Basculement des voies selon l'avancement du chantier.",
+       "Plans de déviation",
+       "Lignes 7, E+ et G+ — <a href='file:///Q:\\DIVISION\\C\\SCO%20Global\\Coordination\\Evenements%20marquants\\2026\\25\\Rive%20-%20Etape%20Juin%20-%20L7%20et%20E+G+.png' target='_blank' style='color:#2980b9'>📐 Plan</a>",
+       "Ligne 8 — <a href='file:///Q:\\DIVISION\\C\\SCO%20Global\\Coordination\\Evenements%20marquants\\2026\\25\\Rive%20-%20Etape%20Juin%20-%208.png' target='_blank' style='color:#2980b9'>📐 Plan</a>",
+       "Ligne 29 — <a href='file:///Q:\\DIVISION\\C\\SCO%20Global\\Coordination\\Evenements%20marquants\\2026\\25\\Rive%20-%20Etape%20Juin%20-%2029x.png' target='_blank' style='color:#2980b9'>📐 Plan</a>",
+       "Argumentaire : déploiement du réseau Genilac",
+       "Maître d’ouvrage : SIG"
+      ]
+     },
+     {
+      "titre": "Grand-Saconnex – Tunnel Routier",
+      "date": "lundi 29 juin au dimanche 17 décembre 2028",
+      "debut": "2026-06-29",
+      "fin": "2028-12-17",
+      "statut": "deviation",
+      "lignes": [
+       "58",
+       "60",
+       "61"
+      ],
+      "geste": "https://geste.intra-tpg.ch/er-site/2995327/overview",
+      "details": [
+       "Arrêt Grand-Saconnex, Tunnel Routier — <a href='https://maps.app.goo.gl/64n63PLEjvSdRyKC8' target='_blank' style='color:#2980b9'>📍 Plan arrêt</a>",
+       "Modification de l'itinéraire pour la desserte de l'arrêt Tunnel-Routier.",
+       "Arrêt déplacé.",
+       "Argumentaire : travaux de construction du tram TNGS",
+       "Maître d’ouvrage : Canton et République de Genève"
+      ]
+     }
+    ]
+   },
+   {
+    "semaine": "Semaine du 16 novembre",
+    "items": [
+     {
+      "titre": "Route des Franchises",
+      "date": "du mardi 17, 21h au jeudi 19 novembre, 3h30 — ligne 10 direction Aéroport",
+      "debut": "2026-11-17",
+      "fin": "2026-11-19",
+      "statut": "deviation",
+      "lignes": [
+       "10"
+      ],
+      "geste": "https://geste.intra-tpg.ch/er-site/3589442/overview",
+      "details": [
+       "Arrêt Genève, Franchises — <a href='https://maps.app.goo.gl/yndBkg5tGzvDs5Y46' target='_blank' style='color:#2980b9'>📍 Plan arrêt</a>",
+       "Basculement étape du chantier : déviation de la ligne 10 par la rue de la Servette.",
+       "Mesures de régulation à prévoir.",
+       "Argumentaire : réaménagement de la route sous la forme d’une avenue paysagère, pour améliorer la qualité de vie des habitant·es ainsi que la sécurité routière.",
+       "Maître d’ouvrage : service de l’aménagement, du génie-civil et de la mobilité de la Ville de Genève."
+      ]
+     },
+     {
+      "titre": "Meyrin Gravière terminus",
+      "date": "le dimanche 22 novembre de 7h à 19h",
+      "debut": "2026-11-22",
+      "fin": "2026-11-22",
+      "statut": "suppression",
+      "lignes": [
+       "14",
+       "68"
+      ],
+      "geste": "",
+      "details": [
+       "Arrêt Meyrin, Blandonnet — <a href='https://maps.app.goo.gl/5fsr7cXQfouZv4AL6' target='_blank' style='color:#2980b9'>📍 Plan arrêt</a>",
+       "Travaux de rechargement de rails sur aiguillages et croix ferroviaire.",
+       "Rebroussement de la ligne 14 à Blandonnet par le dépôt CMC En Chardon. Bus navettes de substitution entre Blandonnet et Meyrin-Gravière.",
+       "Ligne 14 direction Meyrin-Gravière (22.11 07:00 – 19:00) : interruption à l'arrêt Blandonnet, rebrousse par le CM En Chardon.",
+       "Navette ligne 14 direction Meyrin-Gravière : substitution entre Blandonnet et Meyrin-Gravière. Prise en charge arrêt Blandonnet en commun avec la ligne 68, rte de Meyrin, contre-route, arrêt Jardin-Alpin-Vivarium après le passage piéton, à droite r. de Lect, à gauche au giratoire, à droite au giratoire suivant, entrée sur le site tram et parcours de la ligne 14.",
+       "Navette ligne 14 direction Bernex-Vailly : substitution entre Meyrin-Gravière et Blandonnet. Prise en charge à l'arrêt officiel de la ligne 14, à gauche r. des Vernes, au giratoire 3e sortie av. François-Besson, à droite av. de Vaudagne, à gauche promenade de Corzon (voies de tram), rue du Livron, à droite sortie voies de tram (ligne 57), à gauche au giratoire, à droite rue Lect, au giratoire 3e sortie, à droite contre-route de Meyrin, rte de Meyrin, à droite sortie accès Blandonnet et demi-tour au carrefour de Blandonnet. Terminus Meyrin-Gravière en commun avec la ligne 68 direction Thoiry.",
+       "Les arrêts « Meyrin-Gravière », « Vaudagne » et « Forum-Meyrin » sont desservis à leurs emplacements officiels (voie tram).",
+       "Arrêt provisoire « Jardin-Alpin » le long du trottoir de la contre-route de Meyrin, direction route de Meyrin.",
+       "Arrêt provisoire « Vernier-Blandonnet » dans la montée sur la contre-route de Meyrin, en commun avec la ligne 68 : dépose et prise en charge clientèle.",
+       "Terminus ligne 68 à Blandonnet : dépose clientèle et stationnement en attente du départ sur l'arrêt provisoire route de Pré-Bois à hauteur du n°6 — <a href='https://maps.app.goo.gl/ijVLQQBpa4mrsha9A' target='_blank' style='color:#2980b9'>📍 Plan</a>. L'arrêt terminus officiel est ensuite effectué au départ pour la prise en charge.",
+       "Argumentaire : entretien des rails du tram.",
+       "Maître d’ouvrage : tpg."
+      ]
+     },
+     {
+      "titre": "Vernier, Lignon-Cité",
+      "date": "du lundi 16 novembre au vendredi 11 décembre",
+      "debut": "2026-11-16",
+      "fin": "2026-12-11",
+      "statut": "deviation",
+      "lignes": [
+       "7",
+       "9",
+       "28",
+       "51"
+      ],
+      "geste": "https://geste.intra-tpg.ch/er-site/3422025/overview",
+      "details": [
+       "Arrêt Vernier, Lignon-Cité — <a href='https://maps.app.goo.gl/6THSwT7Dufg8dDj2A' target='_blank' style='color:#2980b9'>📍 Plan arrêt</a>",
+       "Travaux de remplacement des abribus. Déplacement d'arrêt de 20 à 30 mètres.",
+       "« Lignon-Cité » sens Lignon-Tours déplacé de 30 mètres après son arrêt officiel.",
+       "« Lignon-Cité » sens Ville déplacé de 30 mètres avant son arrêt officiel.",
+       "Argumentaire : remplacement des abribus actuels par des abribus végétalisés.",
+       "Maître d’ouvrage : Ville de Vernier."
+      ]
+     }
+    ]
+   },
+   {
+    "semaine": "Semaine du 23 novembre",
+    "items": [
+     {
+      "titre": "Jussy – Route de Jussy 240",
+      "date": "du lundi 23 novembre au jeudi 17 décembre",
+      "debut": "2026-11-23",
+      "fin": "2026-12-17",
+      "statut": "deviation",
+      "lignes": [
+       "32"
+      ],
+      "geste": "https://geste.intra-tpg.ch/er-site/3600524/overview",
+      "details": [
+       "Arrêt Jussy, La Forge — <a href='https://maps.app.goo.gl/sBwxaCsFXvNbYhM57' target='_blank' style='color:#2980b9'>📍 Plan arrêt</a>",
+       "Travaux sur chaussée, déplacement d'arrêts. Fermeture d'une voie de circulation, trafic géré par des feux tricolores.",
+       "L'arrêt La Forge sera déplacé d'environ 50 mètres avant son emplacement officiel, direction Ville, du 23.11 à 07h00 au 07.12.2026 à 17h00 environ.",
+       "L'arrêt La Forge sera déplacé d'environ 60 mètres avant son emplacement officiel, direction Jussy, du 08.12.2026 à 07h00 au 11.10.2027 à 17h00 environ.",
+       "Argumentaire : aménagement de pistes cyclables entre le hameau de l'Avenir et la route de Presinge, puis entre la route de Presinge et la route de Compois. Création d'un système de récupération des eaux de chaussée. Enterrement de la ligne électrique aérienne et changement de la conduite d'eau des SIG.",
+       "Maître d’ouvrage : Office cantonal du génie civil et SIG."
+      ]
+     },
+     {
+      "titre": "Terminus Thônex-Vallard",
+      "date": "du lundi 23 au vendredi 27 novembre",
+      "debut": "2026-11-23",
+      "fin": "2026-11-27",
+      "statut": "deviation",
+      "lignes": [
+       "5",
+       "25"
+      ],
+      "geste": "https://geste.intra-tpg.ch/er-site/3249981/overview",
+      "details": [
+       "Arrêt Thônex-Vallard — <a href='https://maps.app.goo.gl/j8P5cg8gXisTTwK56' target='_blank' style='color:#2980b9'>📍 Plan arrêt</a>",
+       "Travaux sur l'arrêt terminus. Arrêt terminus déplacé en face.",
+       "Plan de l'arrêt déplacé — <a href='file:///Q:/DIVISION/C/SCO%20Global/Coordination/Evenements%20marquants/2026/47/Terminux%20Thônex-Vallard.snagx' target='_blank' style='color:#2980b9'>📐 Voir</a>",
+       "Argumentaire : construction d'une station de recharge pour bus électriques, ainsi que l'agrandissement et le rehaussement du quai de l'arrêt de bus.",
+       "Maître d’ouvrage : Office cantonal du génie civil."
+      ]
+     }
+    ]
+   }
+  ],
+  "horaires": [
+   {
+    "semaine": "Semaine du 16 novembre",
+    "items": [
+     {
+      "titre": "Ligne C3",
+      "date": "Dès le 16 novembre",
+      "debut": "2026-11-16",
+      "fin": "2026-12-12",
+      "statut": "info",
+      "lignes": [
+       "C3",
+       "C4"
+      ],
+      "geste": "",
+      "details": [
+       "Ajout d’un voyage partiel entre Pierre-à-Bochet et Belle-Terre place de l’Araire (enchaîne ensuite avec le service du midi de la ligne C4)."
+      ]
+     }
+    ]
+   },
+   {
+    "semaine": "Réseau – horaires encore actifs",
+    "items": [
+     {
+      "titre": "Arrêt Champ-Barbon – Ligne 54",
+      "date": "Dès 18 mai",
+      "debut": "2026-05-18",
+      "fin": "2026-12-31",
+      "statut": "info",
+      "lignes": [
+       "54"
+      ],
+      "geste": "",
+      "details": [
+       "Nouvel arrêt : Versoix, Champ-Barbon, route des Fayards, à proximité du chemin Champ-Barbon."
+      ]
+     },
+     {
+      "titre": "Ajustements d'horaires dès le 18 mai",
+      "date": "Dès 18 mai",
+      "debut": "2026-05-18",
+      "fin": "2026-12-31",
+      "statut": "info",
+      "lignes": [
+       "A2",
+       "5",
+       "15",
+       "23",
+       "52",
+       "69",
+       "74"
+      ],
+      "geste": "",
+      "details": [
+       "Ligne A2 : avancée de 4 min pour correspondance avec A1 → Fret.",
+       "Ligne 5, courses 5-66 et 5-70 : supprimées jusqu'au 29 juin, eBus non prêts, affichées comme supprimées 1h avant passage.",
+       "Ligne 15 : suppression arrêt Palettes depuis Ziplo lors des rentrées au dépôt le vendredi.",
+       "Ligne 23 : modification HLP retournement Aéroport, nouvel arrêt de stationnement spécifique.",
+       "Ligne 52 : décalages après-midi pour améliorer correspondances LEX.",
+       "Ligne 69 : décalages heure de pointe soir pour correspondances LEX.",
+       "Ligne 74 : ajustement d'un départ le matin."
+      ]
+     }
+    ]
+   }
+  ],
+  "divers": [
+   {
+    "semaine": "DG",
+    "items": [
+     {
+      "titre": "Nouveau partenaire de confiance externe",
+      "date": "",
+      "debut": "2026-11-16",
+      "fin": "2026-11-22",
+      "statut": "info",
+      "lignes": [],
+      "geste": "https://intranet.tpg.ch/article/14949",
+      "details": [
+       "Le dispositif interne concernant la protection de la personnalité et les risques psychosociaux a été actualisé. En 2027, Movis deviendra le nouveau partenaire externe des tpg. L’entreprise succède au Groupe de confiance de l’État de Genève. Conjointement, des formations pour l’ensemble du personnel seront lancées."
+      ]
+     },
+     {
+      "titre": "Directeur Développement",
+      "date": "",
+      "debut": "2026-11-16",
+      "fin": "2026-11-22",
+      "statut": "info",
+      "lignes": [],
+      "geste": "https://intranet.tpg.ch/article/14952",
+      "details": [
+       "Le Conseil d’État a approuvé la nomination de notre directeur Développement. Emmanuel Fankhauser, actuel responsable du Pôle Développement (MVC), prendra ses fonctions le 1er janvier 2027. Au bénéfice de plus de 25 ans d’expérience dans le domaine des transports, il dirigera ce nouveau domaine d’activités tourné vers les solutions du futur et les innovations."
+      ]
+     }
+    ]
+   },
+   {
+    "semaine": "Relations clientèle",
+    "items": [
+     {
+      "titre": "Mode opératoire gestion de la relation blessé·es",
+      "date": "",
+      "debut": "2026-11-16",
+      "fin": "2026-11-22",
+      "statut": "info",
+      "lignes": [],
+      "geste": "",
+      "details": [
+       "Mail de Stefania — <a href='file:///Q:/DIVISION/C/SCO%20Global/Coordination/Evenements%20marquants/2026/47/' target='_blank' style='color:#2980b9'>📎 Ouvrir</a>",
+       "Avant l’envoi d’une boîte de chocolats, prendre connaissance de ce mode opératoire."
+      ]
+     }
+    ]
+   },
+   {
+    "semaine": "Opérations",
+    "items": [
+     {
+      "titre": "Feu vert n°121",
+      "date": "Novembre 2026",
+      "debut": "2026-11-16",
+      "fin": "2026-11-22",
+      "statut": "info",
+      "lignes": [],
+      "geste": "https://intranet.tpg.ch/files/8417/2026/39655/Feu-vert-n%C2%B0121---novembre-2026.pdf?preview=1",
+      "details": [
+       "L’édito de ce numéro est à la charge du nouveau directeur des Opérations, Monsieur Gilles Kraft. Il y détaille plusieurs de ses objectifs et sa vision concernant son domaine d’activités.",
+       "Circulation : Ligne 7 – point de vigilance ; Extension de la ligne 17 : signaux T.",
+       "Horaires : sondage des préférences pour les Voltigeurs.",
+       "Véhicules : véhicules automatisés, événements et projets.",
+       "Sécurité-Sûreté : prévention scolaire, un engagement sur le terrain !",
+       "Le saviez-vous ? Focus sur la ligne 17.",
+       "Annonces : nouvelle version d’Hastus ; Midi[infos] sur les risques psychosociaux ; Cirque de Noël 2026 : inscriptions (complet) ; campagne de sensibilisation contre les agressions.",
+       "Formation : des formations utiles pour votre quotidien.",
+       "Objectif sécurité du mois : la routine ne doit jamais remplacer la vigilance. Ce mois-ci, portons une attention particulière aux situations que nous pensons parfaitement maîtriser.",
+       "Jeu : connaissez-vous le réseau ?",
+       "Feuille de route : une démarche collective sur les risques psychosociaux ; interview « Protection de la personnalité et risques psychosociaux : nouveau dispositif » ; transition entre le Groupe de confiance et Movis ; offre Badge + : Aligro."
+      ]
+     }
+    ]
+   },
+   {
+    "semaine": "Autres divers",
+    "items": [
+     {
+      "titre": "Midi[Infos] : protection de la personnalité",
+      "date": "Jeudi 19 novembre, de 12h15 à 13h15",
+      "debut": "2026-11-19",
+      "fin": "2026-11-19",
+      "statut": "info",
+      "lignes": [],
+      "geste": "https://intranet.tpg.ch/article/14950",
+      "details": [
+       "Le dispositif interne concernant la protection de la personnalité et les risques psychosociaux (RPS) a été mis à jour. Présenté dans l’IDS 247-02 actualisée, le nouveau dispositif vise une responsabilité collective en matière de prévention, une clarification des rôles de chacun·e ainsi qu’un processus de prise en charge et de suivi des situations difficiles.",
+       "Jeudi 19 novembre, de 12h15 à 13h15, à l’Auditorium du Bachet-de-Pesay."
+      ]
+     },
+     {
+      "titre": "Étape H2027",
+      "date": "Première étape le 13 décembre",
+      "debut": "2026-11-16",
+      "fin": "2026-12-13",
+      "statut": "info",
+      "lignes": [],
+      "geste": "",
+      "details": [
+       "Document — <a href='https://infocenter.intra-tpg.ch:18443/' target='_blank' style='color:#2980b9'>📄 Ouvrir</a>",
+       "Ce document détaille les changements à venir pendant les prochaines étapes en rapport avec l’horaire H2027. Prendre connaissance des changements qui interviendront le 13 décembre prochain, première étape de cet horaire.",
+       "Depuis le 11 novembre, tous les horaires sont disponibles sur le site tpg : changer la date du calendrier (après le 12 décembre), puis télécharger la fiche horaire.",
+       "Prochaines échéances (à confirmer) : communication aux communes – semaine du 16 novembre ; communication à la clientèle – lundi 23 novembre."
+      ]
+     }
+    ]
+   }
+  ],
+  "presse": [
+   {
+    "semaine": "Lundi 9 novembre",
+    "items": [
+     {
+      "titre": "Un piéton se retrouve coincé sous le tram lausannois pour de faux",
+      "date": "24 Heures",
+      "statut": "info",
+      "lignes": [],
+      "geste": "https://intranet.tpg.ch/index.php?preview=1&option=com_dropfiles&format=&task=frontfile.download&catid=8669&id=39656&Itemid=1000000000000",
+      "details": []
+     },
+     {
+      "titre": "CFF: pilotes de locomotive au bout du rouleau",
+      "date": "Tribune de Genève",
+      "statut": "info",
+      "lignes": [],
+      "geste": "https://intranet.tpg.ch/files/8669/09.11.2026/39657/20261109_TDG_epuisement-pilotes-CFF.pdf?preview=1",
+      "details": []
+     },
+     {
+      "titre": "Coup de pouce pour la ligne du Tonkin",
+      "date": "Le Courrier",
+      "statut": "info",
+      "lignes": [],
+      "geste": "https://intranet.tpg.ch/files/8669/09.11.2026/39658/20261109_Courrier_soutien-grand-conseil-ligne-Tonkin.pdf?preview=1",
+      "details": []
+     },
+     {
+      "titre": "Le parlement rejette une délégation accrue des contrôles auto aux privés",
+      "date": "Tribune de Genève",
+      "statut": "info",
+      "lignes": [],
+      "geste": "https://intranet.tpg.ch/files/8669/09.11.2026/39661/20261109_TDG_controle-technique-OCV.pdf?preview=1",
+      "details": []
+     },
+     {
+      "titre": "Il lance une idée radicale face aux fumeurs dans les gares CFF",
+      "date": "Watson",
+      "statut": "info",
+      "lignes": [],
+      "geste": "https://www.watson.ch/fr/suisse/politique/411567208-cff-une-petition-veut-interdire-la-fumee-dans-les-gares",
+      "details": []
+     },
+     {
+      "titre": "Direct CFF Suisse-Londres : voici quelles villes seront desservies",
+      "date": "Watson",
+      "statut": "info",
+      "lignes": [],
+      "geste": "https://www.watson.ch/fr/suisse/transports/529997545-transports-les-cff-veulent-la-suisse-a-londres-rome-et-barcelone",
+      "details": []
+     },
+     {
+      "titre": "Yverdon réclame aux CFF un renfort de leurs forces de sécurité à la gare",
+      "date": "24 Heures",
+      "statut": "info",
+      "lignes": [],
+      "geste": "https://intranet.tpg.ch/index.php?preview=1&option=com_dropfiles&format=&task=frontfile.download&catid=8669&id=39662&Itemid=1000000000000",
+      "details": []
+     },
+     {
+      "titre": "Dealers à la gare: les CFF appelés à l'aide",
+      "date": "Le Matin",
+      "statut": "info",
+      "lignes": [],
+      "geste": "https://www.lematin.ch/story/yverdon-les-bains-vd-dealers-a-la-gare-les-cff-appeles-a-l-aide-103663962",
+      "details": []
+     },
+     {
+      "titre": "Budget fédéral : «La Confédération n’aurait pas besoin de faire autant d’économies»",
+      "date": "Tribune de Genève",
+      "statut": "info",
+      "lignes": [],
+      "geste": "https://intranet.tpg.ch/index.php?preview=1&option=com_dropfiles&format=&task=frontfile.download&catid=8669&id=39663&Itemid=1000000000000",
+      "details": []
+     },
+     {
+      "titre": "Des caméras controversées",
+      "date": "Le Courrier",
+      "statut": "info",
+      "lignes": [],
+      "geste": "https://intranet.tpg.ch/index.php?preview=1&option=com_dropfiles&format=&task=frontfile.download&catid=8669&id=39664&Itemid=1000000000000",
+      "details": []
+     }
+    ]
+   },
+   {
+    "semaine": "Mardi 10 novembre",
+    "items": [
+     {
+      "titre": "Autoroute A1: le Grand Conseil veut créer une troisième voie entre Le Vengeron et Coppet",
+      "date": "Léman bleu",
+      "statut": "info",
+      "lignes": [],
+      "geste": "https://www.lemanbleu.ch/fr/Actualites/Geneve/Autoroute-A1-le-Grand-Conseil-veut-creer-une-troisieme-voie-entre-Le-Vengeron-et-Coppet.html",
+      "details": []
+     },
+     {
+      "titre": "Les CFF cherchent preneur pour des contrats à 100 millions",
+      "date": "Watson",
+      "statut": "info",
+      "lignes": [],
+      "geste": "https://www.watson.ch/fr/suisse/transports/401899665-les-cff-cherchent-preneur-pour-des-contrats-a-100-millions",
+      "details": []
+     },
+     {
+      "titre": "Les CFF ouvrent mardi leur centre de voyages rénové à Sion",
+      "date": "24 Heures",
+      "statut": "info",
+      "lignes": [],
+      "geste": "https://www.24heures.ch/cff-le-centre-de-voyages-de-la-gare-de-sion-fait-peau-neuve-707335664998",
+      "details": []
+     }
+    ]
+   },
+   {
+    "semaine": "Mercredi 11 novembre",
+    "items": [
+     {
+      "titre": "Liaison CGN Evian-Lausanne: «Les frontaliers sont pris en otage»",
+      "date": "24 Heures",
+      "statut": "info",
+      "lignes": [],
+      "geste": "https://intranet.tpg.ch/index.php?preview=1&option=com_dropfiles&format=&task=frontfile.download&catid=8671&id=39666&Itemid=1000000000000",
+      "details": []
+     },
+     {
+      "titre": "Le silence de Pierre Maudet sur l’autoroute A412 dérange les opposants",
+      "date": "Blick",
+      "statut": "info",
+      "lignes": [],
+      "geste": "https://www.blick.ch/fr/suisse/romande/geneve-le-silence-de-pierre-maudet-sur-la412-derange/wfcng16",
+      "details": []
+     },
+     {
+      "titre": "La Ville veut s'offrir la vélostation la plus chère du monde",
+      "date": "Léman bleu",
+      "statut": "info",
+      "lignes": [],
+      "geste": "https://www.lemanbleu.ch/fr/Actualites/Geneve/La-Ville-veut-s-offrir-la-velostation-la-plus-chere-du-monde.html",
+      "details": []
+     }
+    ]
+   }
+  ]
+ }
+}
